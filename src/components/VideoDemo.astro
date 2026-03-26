@@ -1,0 +1,94 @@
+---
+/**
+ * Video Demo section — placeholder for a 15-30s screen recording.
+ * Replace the placeholder with a real video by:
+ * 1. Add video to public/assets/demo.mp4
+ * 2. Uncomment the <video> block and remove the placeholder div
+ */
+---
+
+<section id="video-demo" class="py-24 px-6" style="background: rgba(30, 41, 59, 0.3);">
+  <div class="max-w-4xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">See It in Action</span>
+        <span class="lang-zh">實際操作示範</span>
+      </h2>
+      <p class="text-sm mt-3" style="color: var(--brand-muted);">
+        <span class="lang-en">15 seconds from voice to polished text.</span>
+        <span class="lang-zh">從語音到潤飾文字，只要 15 秒。</span>
+      </p>
+    </div>
+
+    <!-- Video container -->
+    <div class="fade-in">
+      <div
+        class="video-container relative rounded-2xl overflow-hidden aspect-video cursor-pointer group"
+        style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+      >
+        <!-- Placeholder: swap with <video> when ready -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
+          <!-- Animated workflow preview -->
+          <div class="flex items-center gap-3 text-sm" style="color: var(--brand-muted);">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              </svg>
+              <span class="lang-en">Press & Speak</span>
+              <span class="lang-zh">按住說話</span>
+            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--brand-gold);">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+              <span class="lang-en">AI Polishes</span>
+              <span class="lang-zh">AI 潤稿</span>
+            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--brand-gold);">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              <span class="lang-en">Text Appears</span>
+              <span class="lang-zh">文字出現</span>
+            </span>
+          </div>
+
+          <!-- Play button -->
+          <div
+            class="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+            style="background: rgba(251, 191, 36, 0.15); border: 2px solid var(--brand-gold); color: var(--brand-gold);"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+
+          <p class="text-xs" style="color: var(--brand-muted); opacity: 0.6;">
+            <span class="lang-en">Demo video coming soon</span>
+            <span class="lang-zh">示範影片即將推出</span>
+          </p>
+        </div>
+
+        <!-- Uncomment when video is ready:
+        <video
+          class="w-full h-full object-cover"
+          poster="/assets/demo-poster.jpg"
+          controls
+          preload="none"
+          playsinline
+        >
+          <source src="/assets/demo.mp4" type="video/mp4" />
+        </video>
+        -->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,223 @@
+---
+const competitors = [
+  {
+    name: "TypeLate",
+    highlight: true,
+    price: "Free forever",
+    priceZh: "永遠免費",
+    openSource: true,
+    aiPolish: true,
+    customPrompt: true,
+    customVocab: true,
+    contextAware: true,
+    languages: "50+",
+    platforms: "macOS · Android",
+    platformsZh: "macOS · Android",
+    byok: true,
+  },
+  {
+    name: "Wispr Flow",
+    highlight: false,
+    price: "From $15/mo",
+    priceZh: "每月 $15 起",
+    openSource: false,
+    aiPolish: true,
+    customPrompt: false,
+    customVocab: false,
+    contextAware: true,
+    languages: "100+",
+    platforms: "macOS",
+    platformsZh: "macOS",
+    byok: false,
+  },
+  {
+    name: "Typeless",
+    highlight: false,
+    price: "Free (beta)",
+    priceZh: "免費（測試版）",
+    openSource: false,
+    aiPolish: true,
+    customPrompt: false,
+    customVocab: true,
+    contextAware: true,
+    languages: "20",
+    platforms: "macOS · iOS",
+    platformsZh: "macOS · iOS",
+    byok: true,
+  },
+  {
+    name: "macOS Dictation",
+    highlight: false,
+    price: "Built-in",
+    priceZh: "內建",
+    openSource: false,
+    aiPolish: false,
+    customPrompt: false,
+    customVocab: false,
+    contextAware: false,
+    languages: "60+",
+    platforms: "macOS · iOS",
+    platformsZh: "macOS · iOS",
+    byok: false,
+  },
+];
+
+const features = [
+  { key: "price", label: "Price", labelZh: "價格", type: "text" as const },
+  { key: "openSource", label: "Open Source", labelZh: "開源", type: "bool" as const },
+  { key: "aiPolish", label: "AI Polish", labelZh: "AI 潤稿", type: "bool" as const },
+  { key: "customPrompt", label: "Custom Prompts", labelZh: "自訂 Prompt", type: "bool" as const },
+  { key: "customVocab", label: "Custom Vocabulary", labelZh: "自訂詞彙", type: "bool" as const },
+  { key: "contextAware", label: "Context-Aware", labelZh: "情境感知", type: "bool" as const },
+  { key: "byok", label: "BYOK (Own API Key)", labelZh: "自備 API Key", type: "bool" as const },
+  { key: "languages", label: "Languages", labelZh: "語言數", type: "text" as const },
+  { key: "platforms", label: "Platforms", labelZh: "平台", type: "text" as const },
+];
+---
+
+<section id="comparison" class="py-24 px-6" style="background: rgba(30, 41, 59, 0.3);">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">How We Compare</span>
+        <span class="lang-zh">功能比較</span>
+      </h2>
+      <p class="text-sm mt-3" style="color: var(--brand-muted);">
+        <span class="lang-en">The only open-source voice-to-text tool with AI post-processing.</span>
+        <span class="lang-zh">唯一具備 AI 後處理的開源語音轉文字工具。</span>
+      </p>
+    </div>
+
+    <!-- Desktop table -->
+    <div class="fade-in hidden md:block rounded-2xl overflow-hidden" style="border: 1px solid var(--brand-border);">
+      <table class="w-full text-sm">
+        <!-- Header -->
+        <thead>
+          <tr style="background: var(--brand-card);">
+            <th class="text-left px-5 py-4 font-medium" style="color: var(--brand-muted); width: 180px;"></th>
+            {competitors.map((c) => (
+              <th class={`px-4 py-4 font-semibold text-center ${c.highlight ? '' : ''}`}
+                  style={c.highlight ? "color: var(--brand-gold);" : "color: var(--brand-foreground);"}>
+                {c.name}
+                {c.highlight && (
+                  <span class="block text-[10px] font-normal mt-0.5" style="color: var(--brand-gold); opacity: 0.7;">
+                    <span class="lang-en">← That's us</span>
+                    <span class="lang-zh">← 就是我們</span>
+                  </span>
+                )}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <!-- Body -->
+        <tbody>
+          {features.map((f, i) => (
+            <tr style={`background: ${i % 2 === 0 ? 'rgba(30, 41, 59, 0.5)' : 'var(--brand-card)'};`}>
+              <td class="px-5 py-3 font-medium" style="color: var(--brand-muted);">
+                <span class="lang-en">{f.label}</span>
+                <span class="lang-zh">{f.labelZh}</span>
+              </td>
+              {competitors.map((c) => {
+                const val = c[f.key as keyof typeof c];
+                return (
+                  <td class="px-4 py-3 text-center"
+                      style={c.highlight ? "background: rgba(251, 191, 36, 0.03);" : ""}>
+                    {f.type === "bool" ? (
+                      val ? (
+                        <svg class="inline-block w-5 h-5" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             style={`color: ${c.highlight ? 'var(--brand-gold)' : '#4ade80'};`}
+                             stroke="currentColor">
+                          <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                      ) : (
+                        <svg class="inline-block w-5 h-5" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             style="color: var(--brand-muted); opacity: 0.3;" stroke="currentColor">
+                          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                        </svg>
+                      )
+                    ) : (
+                      <span style={`color: ${c.highlight ? 'var(--brand-gold)' : 'var(--brand-foreground)'};`}>
+                        {f.key === "price" ? (
+                          <>
+                            <span class="lang-en">{val as string}</span>
+                            <span class="lang-zh">{c[`${f.key}Zh` as keyof typeof c] as string}</span>
+                          </>
+                        ) : f.key === "platforms" ? (
+                          <>
+                            <span class="lang-en">{val as string}</span>
+                            <span class="lang-zh">{c.platformsZh}</span>
+                          </>
+                        ) : (
+                          val as string
+                        )}
+                      </span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile: card-based comparison -->
+    <div class="fade-in md:hidden space-y-4">
+      {competitors.map((c) => (
+        <div
+          class="rounded-2xl p-5"
+          style={`background: var(--brand-card); border: 1px solid ${c.highlight ? 'rgba(251, 191, 36, 0.3)' : 'var(--brand-border)'};`}
+        >
+          <h3 class="font-semibold mb-3" style={c.highlight ? "color: var(--brand-gold);" : ""}>
+            {c.name}
+            {c.highlight && (
+              <span class="text-xs font-normal ml-2" style="opacity: 0.7;">
+                <span class="lang-en">← That's us</span>
+                <span class="lang-zh">← 就是我們</span>
+              </span>
+            )}
+          </h3>
+          <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+            {features.map((f) => {
+              const val = c[f.key as keyof typeof c];
+              return (
+                <div class="contents">
+                  <span style="color: var(--brand-muted);">
+                    <span class="lang-en">{f.label}</span>
+                    <span class="lang-zh">{f.labelZh}</span>
+                  </span>
+                  <span class="text-right">
+                    {f.type === "bool" ? (
+                      val ? (
+                        <span style={`color: ${c.highlight ? 'var(--brand-gold)' : '#4ade80'};`}>✓</span>
+                      ) : (
+                        <span style="color: var(--brand-muted); opacity: 0.3;">✗</span>
+                      )
+                    ) : (
+                      <span style={c.highlight ? "color: var(--brand-gold);" : ""}>
+                        {f.key === "price" ? (
+                          <>
+                            <span class="lang-en">{val as string}</span>
+                            <span class="lang-zh">{c[`${f.key}Zh` as keyof typeof c] as string}</span>
+                          </>
+                        ) : f.key === "platforms" ? (
+                          <>
+                            <span class="lang-en">{val as string}</span>
+                            <span class="lang-zh">{c.platformsZh}</span>
+                          </>
+                        ) : (
+                          val as string
+                        )}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

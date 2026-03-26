@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **Sibling projects:**
+> - [TypeLate-macos](../TypeLate-macos/) — macOS/Windows desktop app, built with Tauri v2 + React 19 + Rust. The core product with Groq Whisper transcription, LLM enhancement, vocabulary sync, and SQLite storage.
+> - [TypeLate-android](../TypeLate-android/) — Android app, built with Kotlin + Jetpack Compose. Shares the same transcription pipeline, enhancement prompts, hallucination filter, and vocabulary sync format.
+
 ## What This Is
 
 Landing page / marketing website for [TypeLate](https://github.com/bobo52310/TypeLate) — an open-source voice-to-text desktop app (macOS & Windows) built with Tauri v2, React 19, and Rust. This repo is the **website only**, not the app itself.

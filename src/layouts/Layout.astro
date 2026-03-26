@@ -7,9 +7,39 @@ interface Props {
 }
 
 const {
-  title = "TypeLate — Too late to type, just speak",
-  description = "Open-source voice-to-text for macOS & Windows. Press a hotkey, speak, release — text appears where you type in under 3 seconds. Powered by Groq Whisper AI.",
+  title = "TypeLate — Too late to type, just speak | Open-Source Voice-to-Text",
+  description = "Free, open-source voice-to-text app for macOS & Android. Press a hotkey, speak naturally, release — AI polishes your speech into clean text in under 3 seconds. BYOK, zero telemetry, MIT licensed.",
 } = Astro.props;
+
+const siteName = "TypeLate";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://typelate.app";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+// TODO: Create a proper 1200x630 PNG OG image. See public/assets/og-image.svg for design template.
+const ogImage = `${siteUrl}/assets/logo-typelate.png`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TypeLate",
+  "description": "Open-source voice-to-text app with AI post-processing. Press a hotkey, speak naturally, release — polished text appears where you type.",
+  "url": siteUrl,
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS, Android",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Person",
+    "name": "Bobo Chen",
+    "url": "https://github.com/bobo52310",
+  },
+  "downloadUrl": "https://github.com/bobo52310/TypeLate/releases/latest",
+  "softwareVersion": "latest",
+  "keywords": "voice to text, speech to text, dictation, AI transcription, open source, macOS, BYOK, Groq, Whisper",
+};
 ---
 
 <!doctype html>
@@ -17,20 +47,40 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="voice to text, speech to text, dictation, AI transcription, open source, macOS, Android, BYOK, Groq, Whisper, 語音轉文字, 語音輸入" />
+    <meta name="author" content="Bobo Chen" />
+    <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="TypeLate — Voice-to-text for macOS" />
-    <meta
-      property="og:description"
-      content="Press, speak, release. Your voice becomes text, right where you type."
-    />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TypeLate — Open-source voice-to-text with AI post-processing" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
 
-    <!-- Favicon -->
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="TypeLate — Open-source voice-to-text with AI post-processing" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" href="/assets/logo-typelate.png" />
+    <link rel="apple-touch-icon" href="/assets/logo-typelate.png" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="min-h-screen" style={`background: #0f172a;`}>
     <slot />

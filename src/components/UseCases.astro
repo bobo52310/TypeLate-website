@@ -1,0 +1,97 @@
+---
+const useCases = [
+  {
+    persona: "Developer",
+    personaZh: "開發者",
+    emoji: "👨‍💻",
+    example: "Dictate PR descriptions, Slack replies, and code comments without switching context.",
+    exampleZh: "口述 PR 描述、Slack 回覆、程式碼註解，不用切換視窗。",
+    apps: "VS Code · Slack · GitHub",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    persona: "Writer",
+    personaZh: "寫作者",
+    emoji: "✍️",
+    example: "Draft blog posts, emails, and documents at the speed of thought. Let AI clean up the rest.",
+    exampleZh: "用說話的速度起草部落格、email、文件。讓 AI 處理潤飾。",
+    apps: "Notion · Gmail · Pages",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>`,
+  },
+  {
+    persona: "Multilingual Professional",
+    personaZh: "多語言工作者",
+    emoji: "🌏",
+    example: "Switch between languages mid-sentence. Perfect for bilingual meeting notes and cross-team communication.",
+    exampleZh: "隨時切換語言，雙語會議紀錄和跨團隊溝通的最佳幫手。",
+    apps: "LINE · Telegram · Notes",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+  },
+  {
+    persona: "Accessibility",
+    personaZh: "無障礙使用",
+    emoji: "♿",
+    example: "Type anywhere with your voice. Reduce strain from repetitive typing — RSI-friendly and fully hands-free capable.",
+    exampleZh: "用語音在任何地方輸入。減少重複打字的負擔 — 對 RSI 友善，支援完全免手操作。",
+    apps: "Any App",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.5"/><path d="m8 8 1.5 1L12 7l2.5 2L16 8"/><path d="M12 9.5V15"/><path d="m8 20 4-5 4 5"/></svg>`,
+  },
+];
+---
+
+<section id="use-cases" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">Who It's For</span>
+        <span class="lang-zh">誰適合使用</span>
+      </h2>
+      <p class="text-sm mt-3" style="color: var(--brand-muted);">
+        <span class="lang-en">From coding to writing to chatting — TypeLate adapts to how you work.</span>
+        <span class="lang-zh">從寫程式到寫文章到聊天 — TypeLate 適應你的工作方式。</span>
+      </p>
+    </div>
+
+    <!-- Use case cards -->
+    <div class="fade-in grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {
+        useCases.map((uc) => (
+          <div
+            class="fade-in-child feature-card rounded-2xl p-6"
+            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+          >
+            <div class="flex items-start gap-4">
+              {/* Icon */}
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+              >
+                <Fragment set:html={uc.icon} />
+              </div>
+
+              <div class="min-w-0">
+                {/* Persona */}
+                <h3 class="text-base font-semibold mb-1">
+                  <span class="lang-en">{uc.persona}</span>
+                  <span class="lang-zh">{uc.personaZh}</span>
+                </h3>
+
+                {/* Example */}
+                <p class="text-sm leading-relaxed mb-3" style="color: var(--brand-muted);">
+                  <span class="lang-en">{uc.example}</span>
+                  <span class="lang-zh">{uc.exampleZh}</span>
+                </p>
+
+                {/* App tags */}
+                <p class="text-xs font-medium" style="color: var(--brand-gold); opacity: 0.7;">
+                  {uc.apps}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

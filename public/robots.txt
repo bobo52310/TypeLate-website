@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://typelate.app/sitemap-index.xml
