@@ -1,0 +1,58 @@
+---
+const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
+const year = new Date().getFullYear();
+---
+
+<footer class="py-12 px-6" style="border-top: 1px solid var(--brand-border);">
+  <div
+    class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4"
+  >
+    <!-- Left: Brand -->
+    <div class="flex items-center gap-3">
+      <img
+        src="/assets/logo-typelate.png"
+        alt="TypeLate"
+        width="24"
+        height="24"
+        class="rounded-md"
+      />
+      <span class="text-sm" style="color: var(--brand-muted);">
+        TypeLate &middot; MIT License &middot; Made by Bobo Chen
+      </span>
+    </div>
+
+    <!-- Right: Links -->
+    <div class="flex items-center gap-6 text-sm" style="color: var(--brand-muted);">
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[var(--brand-foreground)] transition-colors"
+      >
+        GitHub
+      </a>
+      <a
+        href={`${GITHUB_URL}/issues`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[var(--brand-foreground)] transition-colors"
+      >
+        Issues
+      </a>
+      <a
+        href={`${GITHUB_URL}/releases`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[var(--brand-foreground)] transition-colors"
+      >
+        Releases
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto mt-6 text-center">
+    <p class="text-xs" style="color: var(--brand-muted); opacity: 0.5;">
+      &copy; {year} TypeLate. All rights reserved.
+    </p>
+  </div>
+</footer>

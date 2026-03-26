@@ -1,0 +1,99 @@
+---
+const DOWNLOAD_MAC =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-arm64.dmg";
+const DOWNLOAD_MAC_INTEL =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
+const DOWNLOAD_WIN =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+  <!-- Background glow -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
+    style="background: rgba(251, 191, 36, 0.04); filter: blur(100px);"
+  >
+  </div>
+
+  <div class="max-w-2xl mx-auto text-center relative z-10">
+    <div class="fade-in">
+      <!-- Logo -->
+      <img
+        src="/assets/logo-typelate.png"
+        alt="TypeLate"
+        width="80"
+        height="80"
+        class="logo-glow mx-auto mb-8"
+      />
+
+      <!-- Headline -->
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        Ready to stop typing?
+      </h2>
+      <p
+        class="text-lg mb-10"
+        style="color: var(--brand-gold); opacity: 0.8;"
+      >
+        準備好用說的了嗎？
+      </p>
+    </div>
+
+    <!-- Download buttons -->
+    <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+      <!-- macOS ARM -->
+      <a
+        href={DOWNLOAD_MAC}
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+          ></path>
+        </svg>
+        macOS (Apple Silicon)
+      </a>
+
+      <!-- macOS Intel -->
+      <a
+        href={DOWNLOAD_MAC_INTEL}
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+          ></path>
+        </svg>
+        macOS (Intel)
+      </a>
+
+      <!-- Windows -->
+      <a
+        href={DOWNLOAD_WIN}
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"
+          ></path>
+        </svg>
+        Windows
+      </a>
+    </div>
+
+    <!-- Tagline -->
+    <div class="fade-in">
+      <p class="text-sm" style="color: var(--brand-muted);">
+        Free and open source. Always.
+      </p>
+      <p
+        class="text-xs mt-1"
+        style="color: var(--brand-muted); opacity: 0.6;"
+      >
+        免費且開源，永遠。
+      </p>
+    </div>
+  </div>
+</section>

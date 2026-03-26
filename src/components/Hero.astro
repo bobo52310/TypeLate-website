@@ -1,0 +1,155 @@
+---
+import NotchHudDemo from "./NotchHudDemo.astro";
+
+const DOWNLOAD_MAC =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-arm64.dmg";
+const DOWNLOAD_MAC_INTEL =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
+const DOWNLOAD_WIN =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
+const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
+---
+
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden"
+>
+  <!-- Background orbs -->
+  <div
+    class="absolute top-[-8rem] right-[-8rem] w-64 h-64 rounded-full opacity-60 pointer-events-none"
+    style="background: rgba(251, 191, 36, 0.06); filter: blur(80px);"
+  >
+  </div>
+  <div
+    class="absolute bottom-[-6rem] left-[-6rem] w-48 h-48 rounded-full opacity-60 pointer-events-none"
+    style="background: rgba(251, 191, 36, 0.04); filter: blur(60px);"
+  >
+  </div>
+
+  <!-- Badge -->
+  <div class="fade-in mb-8">
+    <span
+      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
+      style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold); border: 1px solid rgba(251, 191, 36, 0.2);"
+    >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+      </svg>
+      Open Source &middot; MIT Licensed
+    </span>
+  </div>
+
+  <!-- Logo -->
+  <div class="fade-in mb-8">
+    <img
+      src="/assets/logo-typelate.png"
+      alt="TypeLate"
+      width="128"
+      height="128"
+      class="logo-glow"
+    />
+  </div>
+
+  <!-- Headlines -->
+  <div class="fade-in text-center max-w-3xl mb-6">
+    <h1
+      class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-3"
+    >
+      Too late to type — just speak.
+    </h1>
+    <p
+      class="text-lg sm:text-xl font-medium"
+      style="color: var(--brand-gold); opacity: 0.85;"
+    >
+      打字太累？說出來就好。
+    </p>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="fade-in text-center max-w-2xl mb-10">
+    <p class="text-base sm:text-lg leading-relaxed" style="color: var(--brand-muted);">
+      Press a hotkey, speak naturally, release. Your voice becomes polished text
+      in under 3 seconds — right where you type.
+    </p>
+    <p
+      class="text-sm mt-2"
+      style="color: var(--brand-muted); opacity: 0.7;"
+    >
+      按下快捷鍵，自然說話，放開。語音在 3 秒內變成潤飾好的文字。
+    </p>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="fade-in flex flex-col sm:flex-row items-center gap-4 mb-8">
+    <a
+      href={DOWNLOAD_MAC}
+      class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105"
+      style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download for macOS
+    </a>
+    <a
+      href={GITHUB_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105"
+      style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="opacity-80"
+      >
+        <path
+          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+        ></path>
+      </svg>
+      View on GitHub
+    </a>
+  </div>
+
+  <!-- Platform links -->
+  <div class="fade-in flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs" style="color: var(--brand-muted);">
+    <a href={DOWNLOAD_MAC} class="hover:text-[var(--brand-gold)] transition-colors">
+      macOS (Apple Silicon)
+    </a>
+    <span class="opacity-30">|</span>
+    <a href={DOWNLOAD_MAC_INTEL} class="hover:text-[var(--brand-gold)] transition-colors">
+      macOS (Intel)
+    </a>
+    <span class="opacity-30">|</span>
+    <a href={DOWNLOAD_WIN} class="hover:text-[var(--brand-gold)] transition-colors">
+      Windows
+    </a>
+  </div>
+
+  <!-- Notch HUD Demo -->
+  <div class="fade-in mt-16">
+    <NotchHudDemo />
+  </div>
+</section>

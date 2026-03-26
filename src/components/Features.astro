@@ -1,0 +1,94 @@
+---
+const features = [
+  {
+    title: "Works Everywhere",
+    titleZh: "隨處可用",
+    desc: "Hold, Toggle, or Double-Tap in any app. Fn key default, fully customizable.",
+    descZh: "按住、切換或雙擊，在任何 app 中使用",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h12"/></svg>`,
+  },
+  {
+    title: "Spoken \u2192 Written",
+    titleZh: "口語變書面",
+    desc: 'Removes filler words, fixes grammar and punctuation. Choose "Clean" or "Format" mode.',
+    descZh: "去除贅詞、修正文法。可選「潤稿」或「排版」模式",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`,
+  },
+  {
+    title: "Under 3 Seconds",
+    titleZh: "3 秒完成",
+    desc: "End-to-end processing powered by Groq \u2014 the fastest inference engine available.",
+    descZh: "由 Groq 最快推理引擎驅動",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    title: "Your Keys, Your Data",
+    titleZh: "你的金鑰，你的資料",
+    desc: "Bring your own API key. Voice data goes directly to the provider \u2014 never through us.",
+    descZh: "自備 API Key，語音不經過我們",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>`,
+  },
+  {
+    title: "Learns Your Words",
+    titleZh: "學習你的用詞",
+    desc: "Custom vocabulary for names, jargon, technical terms. AI auto-learns from your corrections.",
+    descZh: "自訂詞彙表，AI 從修正中自動學習",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+  },
+  {
+    title: "Knows Your Context",
+    titleZh: "感知你的情境",
+    desc: "Auto-adjusts tone based on active app \u2014 formal in email, casual in chat, technical in IDE.",
+    descZh: "根據使用的 app 自動調整語氣",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+  },
+];
+---
+
+<section class="py-24 px-6" style="background: rgba(30, 41, 59, 0.3);">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        Features
+      </h2>
+      <p class="text-sm" style="color: var(--brand-gold); opacity: 0.7;">
+        功能特色
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="fade-in grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        features.map((f) => (
+          <div
+            class="fade-in-child feature-card rounded-2xl p-6"
+            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+          >
+            {/* Icon */}
+            <div
+              class="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+              style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+            >
+              <Fragment set:html={f.icon} />
+            </div>
+
+            {/* Title */}
+            <h3 class="text-base font-semibold mb-1">{f.title}</h3>
+            <p
+              class="text-xs mb-2"
+              style="color: var(--brand-gold); opacity: 0.6;"
+            >
+              {f.titleZh}
+            </p>
+
+            {/* Description */}
+            <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
+              {f.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

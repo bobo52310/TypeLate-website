@@ -1,0 +1,79 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "TypeLate — Too late to type, just speak",
+  description = "Open-source voice-to-text for macOS & Windows. Press a hotkey, speak, release — text appears where you type in under 3 seconds. Powered by Groq Whisper AI.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TypeLate — Voice-to-text for macOS" />
+    <meta
+      property="og:description"
+      content="Press, speak, release. Your voice becomes text, right where you type."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo-typelate.png" />
+  </head>
+  <body class="min-h-screen" style={`background: #0f172a;`}>
+    <slot />
+
+    <!-- Scroll animation observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+
+              // Stagger children
+              const children =
+                entry.target.querySelectorAll(".fade-in-child");
+              children.forEach((child, i) => {
+                setTimeout(() => {
+                  child.classList.add("visible");
+                }, i * 100);
+              });
+
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Nav scroll behavior
+      const nav = document.getElementById("main-nav");
+      if (nav) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 20) {
+            nav.classList.add("nav-scrolled");
+          } else {
+            nav.classList.remove("nav-scrolled");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
