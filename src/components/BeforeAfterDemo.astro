@@ -1,0 +1,104 @@
+---
+const rawEn = `<mark class="filler-word">so um</mark> I was thinking <mark class="filler-word">like</mark> <mark class="filler-word">maybe</mark> we should <mark class="filler-word">uh</mark> probably move the meeting to <mark class="filler-word">like</mark> Thursday or something <mark class="filler-word">because um you know</mark> the client isn't going to be available on Monday`;
+
+const polishedEn = `I'd suggest moving the meeting to Thursday, as the client won't be available on Monday.`;
+
+const rawZh = `<mark class="filler-word">就是呃</mark>我在想<mark class="filler-word">就是那個</mark>我們是不是<mark class="filler-word">呃</mark>應該把會議改到禮拜四<mark class="filler-word">之類的</mark>因為<mark class="filler-word">呃你知道</mark>客戶禮拜一沒辦法來`;
+
+const polishedZh = `建議將會議移至週四，因為客戶週一無法出席。`;
+---
+
+<section id="before-after" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">See the Difference</span>
+        <span class="lang-zh">看看差異</span>
+      </h2>
+      <p class="text-sm mt-3" style="color: var(--brand-muted);">
+        <span class="lang-en">Your messy speech becomes polished text with AI post-processing.</span>
+        <span class="lang-zh">AI 智慧潤稿，讓雜亂語音變成流暢文字。</span>
+      </p>
+    </div>
+
+    <!-- Before / After cards -->
+    <div class="fade-in grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch relative">
+      <!-- Before card -->
+      <div
+        class="fade-in-child rounded-2xl p-6"
+        style="background: var(--brand-card); border: 1px solid rgba(239, 68, 68, 0.2);"
+      >
+        <!-- Label -->
+        <div class="flex items-center gap-2 mb-4">
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+            style="background: rgba(239, 68, 68, 0.1); color: #f87171;"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+            </svg>
+            <span class="lang-en">Raw Voice Input</span>
+            <span class="lang-zh">原始語音輸入</span>
+          </span>
+        </div>
+        <!-- Text -->
+        <p class="text-sm leading-relaxed font-mono" style="color: var(--brand-muted);">
+          <span class="lang-en"><Fragment set:html={rawEn} /></span>
+          <span class="lang-zh"><Fragment set:html={rawZh} /></span>
+        </p>
+      </div>
+
+      <!-- Arrow connector (visible on md+) -->
+      <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center"
+          style="background: var(--brand-bg); border: 2px solid var(--brand-gold); color: var(--brand-gold);"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Arrow connector (visible on mobile, between cards) -->
+      <div class="flex md:hidden justify-center -my-3">
+        <div
+          class="w-8 h-8 rounded-full flex items-center justify-center"
+          style="background: var(--brand-bg); border: 2px solid var(--brand-gold); color: var(--brand-gold);"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- After card -->
+      <div
+        class="fade-in-child rounded-2xl p-6"
+        style="background: var(--brand-card); border: 1px solid rgba(251, 191, 36, 0.3);"
+      >
+        <!-- Label -->
+        <div class="flex items-center gap-2 mb-4">
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+            style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span class="lang-en">AI-Polished Output</span>
+            <span class="lang-zh">AI 潤稿輸出</span>
+          </span>
+        </div>
+        <!-- Text -->
+        <p class="text-sm leading-relaxed" style="color: var(--brand-foreground);">
+          <span class="lang-en">{polishedEn}</span>
+          <span class="lang-zh">{polishedZh}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

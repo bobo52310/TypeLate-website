@@ -3,8 +3,11 @@ const DOWNLOAD_MAC =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-arm64.dmg";
 const DOWNLOAD_MAC_INTEL =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
-const DOWNLOAD_WIN =
-  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
+const DOWNLOAD_ANDROID =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-android.apk";
+const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
+const WISHLIST_WIN = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: Windows")}&body=${encodeURIComponent("I'd love to use TypeLate on Windows! 🗳️\n\nMy use case:\n")}`;
+const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
 ---
 
 <section class="py-24 px-6 relative overflow-hidden">
@@ -27,15 +30,10 @@ const DOWNLOAD_WIN =
       />
 
       <!-- Headline -->
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
-        Ready to stop typing?
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">
+        <span class="lang-en">Ready to stop typing?</span>
+        <span class="lang-zh">準備好用說的了嗎？</span>
       </h2>
-      <p
-        class="text-lg mb-10"
-        style="color: var(--brand-gold); opacity: 0.8;"
-      >
-        準備好用說的了嗎？
-      </p>
     </div>
 
     <!-- Download buttons -->
@@ -68,31 +66,67 @@ const DOWNLOAD_WIN =
         macOS (Intel)
       </a>
 
-      <!-- Windows -->
+      <!-- Android -->
       <a
-        href={DOWNLOAD_WIN}
+        href={DOWNLOAD_ANDROID}
         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
         style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"
-          ></path>
+          <path d="M17.523 15.341a1 1 0 0 0 1-1c0-.553-.448-1-1-1-.553 0-1 .447-1 1s.447 1 1 1m-11.046 0a1 1 0 0 0 1-1c0-.553-.448-1-1-1-.553 0-1 .447-1 1s.447 1 1 1m11.405-6.02 1.997-3.46a.416.416 0 0 0-.152-.567.416.416 0 0 0-.568.152L17.12 8.95c-1.46-.748-3.1-1.168-4.88-1.168-1.78 0-3.42.42-4.88 1.168L5.32 5.446a.416.416 0 0 0-.568-.152c-.2.115-.267.367-.152.567l1.997 3.46C3.65 11.074 1.622 13.928 1.622 17.2h20.756c0-3.272-2.028-6.126-4.496-7.879M1.622 17.2h20.756v.8H1.622z"></path>
         </svg>
-        Windows
+        Android
       </a>
+    </div>
+
+    <!-- Coming Soon — Wishlist -->
+    <div class="fade-in mb-8">
+      <p class="text-xs mb-3" style="color: var(--brand-muted); opacity: 0.5;">
+        <span class="lang-en">Coming Soon — vote on GitHub to help us prioritize</span>
+        <span class="lang-zh">即將推出 — 到 GitHub 許願，幫助我們排定優先順序</span>
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <!-- Windows (Coming Soon) -->
+        <a
+          href={WISHLIST_WIN}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="wishlist-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+          style="border: 1px dashed var(--brand-border); color: var(--brand-muted);"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-60">
+            <path
+              d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"
+            ></path>
+          </svg>
+          Windows
+          <span class="text-[10px] px-1.5 py-0.5 rounded-full" style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);">Coming Soon</span>
+        </a>
+
+        <!-- iOS (Coming Soon) -->
+        <a
+          href={WISHLIST_IOS}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="wishlist-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+          style="border: 1px dashed var(--brand-border); color: var(--brand-muted);"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-60">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            ></path>
+          </svg>
+          iOS
+          <span class="text-[10px] px-1.5 py-0.5 rounded-full" style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);">Coming Soon</span>
+        </a>
+      </div>
     </div>
 
     <!-- Tagline -->
     <div class="fade-in">
       <p class="text-sm" style="color: var(--brand-muted);">
-        Free and open source. Always.
-      </p>
-      <p
-        class="text-xs mt-1"
-        style="color: var(--brand-muted); opacity: 0.6;"
-      >
-        免費且開源，永遠。
+        <span class="lang-en">Free and open source. Always.</span>
+        <span class="lang-zh">免費且開源，永遠。</span>
       </p>
     </div>
   </div>

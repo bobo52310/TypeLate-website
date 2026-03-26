@@ -45,6 +45,10 @@ const DOWNLOAD_URL =
         </svg>
         <span>GitHub</span>
       </a>
+      <div id="lang-toggle" class="flex items-center rounded-lg overflow-hidden text-xs" style="border: 1px solid var(--brand-border);">
+        <button data-lang-btn="en" class="px-2.5 py-1.5 font-medium transition-colors" style="background: rgba(251, 191, 36, 0.15); color: var(--brand-gold);">EN</button>
+        <button data-lang-btn="zh" class="px-2.5 py-1.5 font-medium transition-colors" style="color: var(--brand-muted);">中文</button>
+      </div>
       <a
         href={DOWNLOAD_URL}
         class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105"
@@ -64,7 +68,7 @@ const DOWNLOAD_URL =
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        Download
+        <span class="lang-en">Download</span><span class="lang-zh">下載</span>
       </a>
     </div>
   </div>

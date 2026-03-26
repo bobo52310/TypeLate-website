@@ -29,11 +29,9 @@ const highlights = [
     <!-- Section title -->
     <div class="fade-in text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
-        Built Different
+        <span class="lang-en">Built Different</span>
+        <span class="lang-zh">不一樣的設計</span>
       </h2>
-      <p class="text-sm" style="color: var(--brand-gold); opacity: 0.7;">
-        不一樣的設計
-      </p>
     </div>
 
     <!-- Cards -->
@@ -53,17 +51,15 @@ const highlights = [
             </div>
 
             {/* Title */}
-            <h3 class="text-lg font-semibold mb-1">{h.title}</h3>
-            <p
-              class="text-xs mb-3"
-              style="color: var(--brand-gold); opacity: 0.6;"
-            >
-              {h.titleZh}
-            </p>
+            <h3 class="text-lg font-semibold mb-1">
+              <span class="lang-en">{h.title}</span>
+              <span class="lang-zh">{h.titleZh}</span>
+            </h3>
 
             {/* Description */}
             <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
-              {h.desc}
+              <span class="lang-en">{h.desc}</span>
+              <span class="lang-zh">{h.descZh}</span>
             </p>
           </div>
         ))

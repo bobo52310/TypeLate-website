@@ -74,6 +74,35 @@ const {
           }
         });
       }
+
+      // Language toggle
+      function setLang(lang: string) {
+        document.documentElement.setAttribute("data-lang", lang);
+        document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+        localStorage.setItem("typelate-lang", lang);
+
+        document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+          const el = btn as HTMLElement;
+          if (el.dataset.langBtn === lang) {
+            el.style.background = "rgba(251, 191, 36, 0.15)";
+            el.style.color = "var(--brand-gold)";
+          } else {
+            el.style.background = "transparent";
+            el.style.color = "var(--brand-muted)";
+          }
+        });
+      }
+
+      document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          setLang((btn as HTMLElement).dataset.langBtn!);
+        });
+      });
+
+      const savedLang =
+        localStorage.getItem("typelate-lang") ||
+        (navigator.language.startsWith("zh") ? "zh" : "en");
+      setLang(savedLang);
     </script>
   </body>
 </html>

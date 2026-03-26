@@ -5,9 +5,11 @@ const DOWNLOAD_MAC =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-arm64.dmg";
 const DOWNLOAD_MAC_INTEL =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
-const DOWNLOAD_WIN =
-  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
+const DOWNLOAD_ANDROID =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-android.apk";
 const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
+const WISHLIST_WIN = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: Windows")}&body=${encodeURIComponent("I'd love to use TypeLate on Windows! 🗳️\n\nMy use case:\n")}`;
+const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
 ---
 
 <section
@@ -64,27 +66,35 @@ const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
     <h1
       class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-3"
     >
-      Too late to type — just speak.
+      <span class="lang-en">Too late to type — just speak.</span>
+      <span class="lang-zh">打字太累？說出來就好。</span>
     </h1>
-    <p
-      class="text-lg sm:text-xl font-medium"
-      style="color: var(--brand-gold); opacity: 0.85;"
-    >
-      打字太累？說出來就好。
+  </div>
+
+  <!-- Rotating slogans -->
+  <div class="fade-in text-center max-w-3xl w-full mb-6">
+    <p class="slogan-rotator h-10 relative overflow-hidden w-full">
+      <span class="slogan-item absolute inset-x-0 transition-all duration-500" data-slogan="0">
+        Type is Late — 打字已過時，語音才對味
+      </span>
+      <span class="slogan-item absolute inset-x-0 transition-all duration-500 opacity-0 translate-y-4" data-slogan="1">
+        打字太累，改用 TypeLate，用說的就好
+      </span>
+      <span class="slogan-item absolute inset-x-0 transition-all duration-500 opacity-0 translate-y-4" data-slogan="2">
+        打字太累，用說的最對味
+      </span>
+      <span class="slogan-item absolute inset-x-0 transition-all duration-500 opacity-0 translate-y-4" data-slogan="3">
+        手打太累，嘴砲輸出加倍 — 快用 TypeLate
+      </span>
     </p>
   </div>
 
   <!-- Subtitle -->
   <div class="fade-in text-center max-w-2xl mb-10">
     <p class="text-base sm:text-lg leading-relaxed" style="color: var(--brand-muted);">
-      Press a hotkey, speak naturally, release. Your voice becomes polished text
-      in under 3 seconds — right where you type.
-    </p>
-    <p
-      class="text-sm mt-2"
-      style="color: var(--brand-muted); opacity: 0.7;"
-    >
-      按下快捷鍵，自然說話，放開。語音在 3 秒內變成潤飾好的文字。
+      <span class="lang-en">Press a hotkey, speak naturally, release. Your voice becomes polished text
+      in under 3 seconds — right where you type.</span>
+      <span class="lang-zh">按下快捷鍵，自然說話，放開。語音在 3 秒內變成潤飾好的文字。</span>
     </p>
   </div>
 
@@ -109,7 +119,7 @@ const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
       </svg>
-      Download for macOS
+      <span class="lang-en">Download for macOS</span><span class="lang-zh">下載 macOS 版</span>
     </a>
     <a
       href={GITHUB_URL}
@@ -129,7 +139,7 @@ const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
           d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
         ></path>
       </svg>
-      View on GitHub
+      <span class="lang-en">View on GitHub</span><span class="lang-zh">在 GitHub 查看</span>
     </a>
   </div>
 
@@ -143,8 +153,16 @@ const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
       macOS (Intel)
     </a>
     <span class="opacity-30">|</span>
-    <a href={DOWNLOAD_WIN} class="hover:text-[var(--brand-gold)] transition-colors">
-      Windows
+    <a href={DOWNLOAD_ANDROID} class="hover:text-[var(--brand-gold)] transition-colors">
+      Android
+    </a>
+    <span class="opacity-30">|</span>
+    <a href={WISHLIST_WIN} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-gold)] transition-colors opacity-60 hover:opacity-100">
+      Windows <span class="text-[10px]" style="color: var(--brand-gold);">Coming Soon</span>
+    </a>
+    <span class="opacity-30">|</span>
+    <a href={WISHLIST_IOS} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-gold)] transition-colors opacity-60 hover:opacity-100">
+      iOS <span class="text-[10px]" style="color: var(--brand-gold);">Coming Soon</span>
     </a>
   </div>
 
@@ -153,3 +171,56 @@ const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
     <NotchHudDemo />
   </div>
 </section>
+
+<style>
+  .slogan-rotator {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--brand-gold);
+    opacity: 0.75;
+  }
+  .slogan-item {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slogan-item.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slogan-item.exit {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.slogan-item');
+  if (items.length > 0) {
+    let current = 0;
+    items[0].classList.add('active');
+
+    setInterval(() => {
+      const prev = current;
+      current = (current + 1) % items.length;
+
+      items[prev].classList.remove('active');
+      items[prev].classList.add('exit');
+
+      setTimeout(() => {
+        items[prev].classList.remove('exit');
+        // Reset to below position for next entrance
+        items[prev].style.opacity = '0';
+        items[prev].style.transform = 'translateY(1rem)';
+      }, 500);
+
+      // New item enters from below
+      items[current].style.opacity = '0';
+      items[current].style.transform = 'translateY(1rem)';
+      // Force reflow
+      void items[current].offsetHeight;
+      items[current].classList.add('active');
+      items[current].style.opacity = '';
+      items[current].style.transform = '';
+    }, 3000);
+  }
+</script>

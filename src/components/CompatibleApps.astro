@@ -1,0 +1,97 @@
+---
+const apps = [
+  {
+    name: "Slack",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="2" width="3" height="8" rx="1.5"/><path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"/><rect x="8" y="14" width="3" height="8" rx="1.5"/><path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"/><rect x="14" y="13" width="8" height="3" rx="1.5"/><path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"/><rect x="2" y="8" width="8" height="3" rx="1.5"/><path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"/></svg>`,
+  },
+  {
+    name: "Discord",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A1.5 1.5 0 1 0 8.5 11.5 1.5 1.5 0 0 0 8.5 14.5z"/><path d="M15.5 14.5A1.5 1.5 0 1 0 15.5 11.5 1.5 1.5 0 0 0 15.5 14.5z"/><path d="M7 3.5C10 2.5 14 2.5 17 3.5"/><path d="M7 20.5C10 21.5 14 21.5 17 20.5"/><path d="M4.5 7C3 10 3 14 4.5 17L6 20.5"/><path d="M19.5 7C21 10 21 14 19.5 17L18 20.5"/></svg>`,
+  },
+  {
+    name: "VS Code",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 5 3v12l-5 3-11-8.5L2 15V9l3-1.5L16 16V3z"/><path d="M5 7.5 16 16"/></svg>`,
+  },
+  {
+    name: "Gmail",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+  },
+  {
+    name: "Notion",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6l10 12V4h-4"/><path d="M4 20V8l10 12h6"/></svg>`,
+  },
+  {
+    name: "Chrome",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>`,
+  },
+  {
+    name: "LINE",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 3.26 2.46 6.1 6 7.47V21l3.27-2.18c.24.01.48.02.73.02 5.52 0 10-3.82 10-8.34S17.52 2 12 2z"/></svg>`,
+  },
+  {
+    name: "Telegram",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>`,
+  },
+  {
+    name: "Notes",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>`,
+  },
+  {
+    name: "Pages",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></svg>`,
+  },
+  {
+    name: "Terminal",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>`,
+  },
+  {
+    name: "Any App...",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`,
+  },
+];
+---
+
+<section id="compatible-apps" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">Works Everywhere You Type</span>
+        <span class="lang-zh">在你打字的地方都能用</span>
+      </h2>
+      <p class="text-sm mt-3" style="color: var(--brand-muted);">
+        <span class="lang-en">System-wide integration. No app-specific plugins needed.</span>
+        <span class="lang-zh">系統層級整合，不需要任何外掛。</span>
+      </p>
+    </div>
+
+    <!-- App grid -->
+    <div class="fade-in grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+      {
+        apps.map((app) => (
+          <div class="fade-in-child flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-200 hover:bg-[rgba(251,191,36,0.05)]">
+            <div
+              class="w-12 h-12 rounded-xl flex items-center justify-center"
+              style="background: rgba(251, 191, 36, 0.08); color: var(--brand-gold);"
+            >
+              <Fragment set:html={app.icon} />
+            </div>
+            <span class="text-xs" style="color: var(--brand-muted);">
+              {app.name}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom note -->
+    <p class="fade-in text-center text-sm mt-8" style="color: var(--brand-muted);">
+      <span class="lang-en">
+        TypeLate works at the OS level — if you can type there, you can speak there.
+      </span>
+      <span class="lang-zh">
+        TypeLate 在作業系統層級運作 — 能打字的地方，就能用說的。
+      </span>
+    </p>
+  </div>
+</section>

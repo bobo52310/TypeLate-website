@@ -1,0 +1,97 @@
+---
+const faqs = [
+  {
+    q: "Is my API key safe?",
+    qZh: "我的 API Key 安全嗎？",
+    a: "Yes. Your API key is stored locally on your machine and never sent to our servers. Voice data goes directly from your microphone to the AI provider. TypeLate is open source — you can verify this yourself.",
+    aZh: "是的。你的 API Key 只儲存在你的電腦上，永遠不會傳送到我們的伺服器。語音資料從麥克風直接傳送給 AI 供應商。TypeLate 是開源的 — 你可以自行驗證。",
+  },
+  {
+    q: "Is my voice data private?",
+    qZh: "我的語音資料隱私嗎？",
+    a: "Completely. Audio is sent directly to the AI provider you configure (Groq by default). We have zero telemetry servers and collect no data. The audio is never stored — it's processed in real-time and discarded.",
+    aZh: "完全隱私。音訊直接傳送到你設定的 AI 供應商（預設為 Groq）。我們沒有遙測伺服器，也不收集任何資料。音訊不會被儲存 — 即時處理後立即丟棄。",
+  },
+  {
+    q: "Which languages are supported?",
+    qZh: "支援哪些語言？",
+    a: "Whisper supports 50+ languages for transcription. The app interface is available in English, 繁體中文, 简体中文, 日本語, and 한국어. You can speak in any Whisper-supported language and get accurate results.",
+    aZh: "Whisper 支援 50+ 種語言的語音轉錄。App 介面支援英文、繁體中文、简体中文、日本語、한국어。你可以用任何 Whisper 支援的語言說話，都能得到準確結果。",
+  },
+  {
+    q: "How is this different from macOS Dictation?",
+    qZh: "這和 macOS 內建聽寫有什麼不同？",
+    a: "TypeLate adds AI post-processing that macOS Dictation doesn't have — it removes filler words, fixes grammar, adjusts tone based on context, and applies your custom prompts. It also supports custom vocabulary and cloud sync.",
+    aZh: "TypeLate 提供 macOS 聽寫沒有的 AI 後處理 — 去除贅詞、修正文法、根據情境調整語氣，還能套用你的自訂 Prompt。同時支援自訂詞彙庫和雲端同步。",
+  },
+  {
+    q: "Is TypeLate free?",
+    qZh: "TypeLate 免費嗎？",
+    a: "Yes, TypeLate is completely free and open source under the MIT license. You only pay for the AI API usage (Groq offers a generous free tier). No subscriptions, no premium features behind a paywall.",
+    aZh: "是的，TypeLate 完全免費且以 MIT 授權開源。你只需支付 AI API 的使用費用（Groq 提供慷慨的免費額度）。沒有訂閱制，沒有付費牆。",
+  },
+  {
+    q: "Does it work offline?",
+    qZh: "可以離線使用嗎？",
+    a: "Currently, TypeLate requires an internet connection for AI transcription and post-processing. Offline support with local models is on our roadmap.",
+    aZh: "目前 TypeLate 需要網路連線進行 AI 語音轉錄和後處理。本地模型的離線支援已在我們的開發路線圖中。",
+  },
+  {
+    q: "Which AI providers are supported?",
+    qZh: "支援哪些 AI 供應商？",
+    a: "Currently Groq for both Whisper transcription and LLM post-processing. Support for OpenAI, Azure, and local models is planned.",
+    aZh: "目前支援 Groq（用於 Whisper 語音轉錄和 LLM 後處理）。OpenAI、Azure 和本地模型的支援已在規劃中。",
+  },
+];
+---
+
+<section id="faq" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+        <span class="lang-en">Frequently Asked Questions</span>
+        <span class="lang-zh">常見問題</span>
+      </h2>
+    </div>
+
+    <!-- FAQ items -->
+    <div class="fade-in space-y-3">
+      {
+        faqs.map((faq) => (
+          <details
+            class="fade-in-child faq-item group rounded-xl"
+            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+          >
+            <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-sm font-medium [&::-webkit-details-marker]:hidden [list-style:none]">
+              <span>
+                <span class="lang-en">{faq.q}</span>
+                <span class="lang-zh">{faq.qZh}</span>
+              </span>
+              <svg
+                class="w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180"
+                style="color: var(--brand-muted);"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
+                <span class="lang-en">{faq.a}</span>
+                <span class="lang-zh">{faq.aZh}</span>
+              </p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

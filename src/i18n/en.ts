@@ -51,10 +51,10 @@ export const en = {
         descZh: "按住、切換或雙擊，在任何 app 中使用",
       },
       {
-        title: "Spoken → Written",
-        titleZh: "口語變書面",
-        desc: 'Removes filler words, fixes grammar and punctuation. Choose "Clean" or "Format" mode.',
-        descZh: "去除贅詞、修正文法標點。可選「潤稿」或「排版」模式",
+        title: "AI Post-Processing",
+        titleZh: "AI 智慧潤稿",
+        desc: "AI polishes your speech into clean text — removing fillers, fixing grammar. Fully customizable prompts to match your style.",
+        descZh: "AI 自動潤飾語音為乾淨文字 — 去除贅詞、修正文法。可自訂 Prompt，打造專屬潤稿風格。",
       },
       {
         title: "Under 3 Seconds",
@@ -71,8 +71,8 @@ export const en = {
       {
         title: "Learns Your Words",
         titleZh: "學習你的用詞",
-        desc: "Custom vocabulary for names, jargon, and technical terms. AI auto-learns from your corrections.",
-        descZh: "自訂詞彙表，AI 從修正中自動學習",
+        desc: "Custom vocabulary for names, jargon, and technical terms with cloud sync — your word list follows you across devices.",
+        descZh: "自訂詞彙庫，支援雲端同步 — 專有名詞、術語跨裝置即時共享。",
       },
       {
         title: "Knows Your Context",

@@ -178,4 +178,54 @@ body {
   .feature-card:hover {
     transform: none;
   }
+  .faq-answer {
+    animation: none;
+  }
+}
+
+/* ---- Before/After Demo ---- */
+mark.filler-word {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--brand-foreground);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ---- FAQ Accordion ---- */
+details.faq-item[open] {
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.faq-answer {
+  animation: faq-expand 0.3s ease-out;
+}
+
+@keyframes faq-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Wishlist Button ---- */
+.wishlist-btn:hover {
+  border-color: rgba(251, 191, 36, 0.4) !important;
+  color: var(--brand-foreground) !important;
+}
+
+/* ---- Language Toggle ---- */
+.lang-zh {
+  display: none;
+}
+
+html[data-lang="zh"] .lang-en {
+  display: none !important;
+}
+
+html[data-lang="zh"] .lang-zh {
+  display: inline !important;
 }
