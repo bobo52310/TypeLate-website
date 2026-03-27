@@ -6,10 +6,10 @@ export const en = {
   hero: {
     badge: "Open Source · MIT Licensed",
     title: "Too late to type — just speak.",
-    titleZh: "打字太累？說出來就好。",
+    titleZh: "打字太累？用說的才對味！",
     subtitle:
       "Press a hotkey, speak naturally, release. Your voice becomes polished text in under 3 seconds — right where you type.",
-    subtitleZh: "按下快捷鍵，自然說話，放開。語音在 3 秒內變成潤飾好的文字。",
+    subtitleZh: "開口說，AI 潤稿，你的詞彙最對味。",
     downloadMac: "Download for macOS",
     viewGithub: "View on GitHub",
     macArm: "macOS (Apple Silicon)",

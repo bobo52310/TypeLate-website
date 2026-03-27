@@ -9,8 +9,8 @@ const competitors = [
     aiPolish: true,
     customPrompt: true,
     customVocab: true,
+    driveSync: true,
     contextAware: true,
-    languages: "50+",
     platforms: "macOS · Android",
     platformsZh: "macOS · Android",
     byok: true,
@@ -24,8 +24,8 @@ const competitors = [
     aiPolish: true,
     customPrompt: false,
     customVocab: false,
+    driveSync: false,
     contextAware: true,
-    languages: "100+",
     platforms: "macOS",
     platformsZh: "macOS",
     byok: false,
@@ -39,8 +39,8 @@ const competitors = [
     aiPolish: true,
     customPrompt: false,
     customVocab: true,
+    driveSync: false,
     contextAware: true,
-    languages: "100+",
     platforms: "macOS · Windows · iOS · Android",
     platformsZh: "macOS · Windows · iOS · Android",
     byok: false,
@@ -54,8 +54,8 @@ const competitors = [
     aiPolish: false,
     customPrompt: false,
     customVocab: false,
+    driveSync: false,
     contextAware: false,
-    languages: "60+",
     platforms: "macOS · iOS",
     platformsZh: "macOS · iOS",
     byok: false,
@@ -65,12 +65,12 @@ const competitors = [
 const features = [
   { key: "price", label: "Price", labelZh: "價格", type: "text" as const },
   { key: "openSource", label: "Open Source", labelZh: "開源", type: "bool" as const },
+  { key: "byok", label: "BYOK (Own API Key)", labelZh: "自備 API Key", type: "bool" as const },
   { key: "aiPolish", label: "AI Polish", labelZh: "AI 潤稿", type: "bool" as const },
   { key: "customPrompt", label: "Custom Prompts", labelZh: "自訂 Prompt", type: "bool" as const },
   { key: "customVocab", label: "Custom Vocabulary", labelZh: "自訂詞彙", type: "bool" as const },
+  { key: "driveSync", label: "Google Drive Sync", labelZh: "Google Drive 同步", type: "bool" as const },
   { key: "contextAware", label: "Context-Aware", labelZh: "情境感知", type: "bool" as const },
-  { key: "byok", label: "BYOK (Own API Key)", labelZh: "自備 API Key", type: "bool" as const },
-  { key: "languages", label: "Languages", labelZh: "語言數", type: "text" as const },
   { key: "platforms", label: "Platforms", labelZh: "平台", type: "text" as const },
 ];
 ---
@@ -103,7 +103,6 @@ const features = [
                 {c.highlight && (
                   <span class="block text-[10px] font-normal mt-0.5" style="color: var(--brand-gold); opacity: 0.7;">
                     <span class="lang-en">← That's us</span>
-                    <span class="lang-zh">← 就是我們</span>
                   </span>
                 )}
               </th>
@@ -174,7 +173,6 @@ const features = [
             {c.highlight && (
               <span class="text-xs font-normal ml-2" style="opacity: 0.7;">
                 <span class="lang-en">← That's us</span>
-                <span class="lang-zh">← 就是我們</span>
               </span>
             )}
           </h3>
