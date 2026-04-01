@@ -5,8 +5,9 @@ const DOWNLOAD_MAC_INTEL =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
 const DOWNLOAD_ANDROID =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-android.apk";
+const DOWNLOAD_WIN =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
 const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
-const WISHLIST_WIN = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: Windows")}&body=${encodeURIComponent("I'd love to use TypeLate on Windows! 🗳️\n\nMy use case:\n")}`;
 const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
 ---
 
@@ -77,6 +78,20 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
         </svg>
         Android
       </a>
+
+      <!-- Windows -->
+      <a
+        href={DOWNLOAD_WIN}
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"
+          ></path>
+        </svg>
+        Windows
+      </a>
     </div>
 
     <!-- Coming Soon — Wishlist -->
@@ -86,23 +101,6 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
         <span class="lang-zh">即將推出 — 到 GitHub 許願，幫助我們排定優先順序</span>
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <!-- Windows (Coming Soon) -->
-        <a
-          href={WISHLIST_WIN}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="wishlist-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
-          style="border: 1px dashed var(--brand-border); color: var(--brand-muted);"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-60">
-            <path
-              d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"
-            ></path>
-          </svg>
-          Windows
-          <span class="text-[10px] px-1.5 py-0.5 rounded-full" style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);">Coming Soon</span>
-        </a>
-
         <!-- iOS (Coming Soon) -->
         <a
           href={WISHLIST_IOS}

@@ -7,8 +7,9 @@ const DOWNLOAD_MAC_INTEL =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg";
 const DOWNLOAD_ANDROID =
   "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-android.apk";
+const DOWNLOAD_WIN =
+  "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe";
 const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
-const WISHLIST_WIN = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: Windows")}&body=${encodeURIComponent("I'd love to use TypeLate on Windows! 🗳️\n\nMy use case:\n")}`;
 const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
 ---
 
@@ -158,8 +159,8 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
       Android
     </a>
     <span class="opacity-30">|</span>
-    <a href={WISHLIST_WIN} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-gold)] transition-colors opacity-60 hover:opacity-100">
-      Windows <span class="text-[10px]" style="color: var(--brand-gold);">Coming Soon</span>
+    <a href={DOWNLOAD_WIN} class="hover:text-[var(--brand-gold)] transition-colors">
+      Windows
     </a>
     <span class="opacity-30">|</span>
     <a href={WISHLIST_IOS} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-gold)] transition-colors opacity-60 hover:opacity-100">
