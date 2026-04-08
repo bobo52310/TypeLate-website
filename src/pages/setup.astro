@@ -1,0 +1,729 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const GITHUB_RELEASES = "https://github.com/bobo52310/TypeLate/releases/latest";
+---
+
+<Layout title="Getting Started — TypeLate" description="Set up TypeLate in just a few steps after downloading.">
+  <Navbar />
+  <main class="min-h-screen pt-24 pb-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <p class="text-sm font-medium tracking-wide mb-4" style="color: var(--brand-gold);">
+          <span class="lang-en">Thanks for downloading</span>
+          <span class="lang-zh">感謝您的下載</span>
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+          <span class="lang-en">Just a few steps left!</span>
+          <span class="lang-zh">只剩幾個步驟！</span>
+        </h1>
+      </div>
+
+      <!-- ===== macOS Steps ===== -->
+      <div id="steps-mac" class="steps-section hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+
+          <!-- Step 1: Open .dmg -->
+          <div class="text-center">
+            <div class="step-badge">1</div>
+            <div class="step-card">
+              <div class="mock-desktop">
+                <!-- Dock tooltip -->
+                <div class="dock-tooltip">Downloads</div>
+                <!-- macOS Dock -->
+                <div class="dock-bar">
+                  <!-- Finder -->
+                  <div class="dock-icon" style="background: linear-gradient(180deg, #4FC3F7, #2196F3);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="1.5"/>
+                      <path d="M12 3v18M3 12h18" stroke="white" stroke-width="1.5" opacity="0.4"/>
+                    </svg>
+                  </div>
+                  <!-- Calendar -->
+                  <div class="dock-icon" style="background: white; position: relative;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 10px; background: #FF3B30; border-radius: 10px 10px 0 0;"></div>
+                    <span style="color: #333; font-size: 16px; font-weight: 700; margin-top: 4px;">17</span>
+                  </div>
+                  <!-- Downloads (highlighted) -->
+                  <div class="dock-icon dock-active" style="background: linear-gradient(180deg, #90CAF9, #42A5F5);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  </div>
+                  <!-- Trash -->
+                  <div class="dock-icon" style="background: linear-gradient(180deg, #bdbdbd, #9e9e9e);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                  </div>
+                </div>
+                <!-- Cursor -->
+                <svg class="dock-cursor" width="20" height="24" viewBox="0 0 20 24" fill="none">
+                  <path d="M2 1L2 17L6.5 13L11 21L14 19.5L9.5 11.5L15 10L2 1Z" fill="white" stroke="#333" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Open <strong>TypeLate.dmg</strong> from your <strong>Downloads</strong> folder</span>
+              <span class="lang-zh">從您的<strong>下載</strong>資料夾中打開 <strong>TypeLate.dmg</strong></span>
+            </p>
+          </div>
+
+          <!-- Step 2: Drag to Applications -->
+          <div class="text-center">
+            <div class="step-badge">2</div>
+            <div class="step-card">
+              <div class="mock-installer">
+                <!-- Window chrome -->
+                <div class="mac-titlebar">
+                  <span class="mac-dot" style="background: #ff5f57;"></span>
+                  <span class="mac-dot" style="background: #febc2e;"></span>
+                  <span class="mac-dot" style="background: #28c840;"></span>
+                </div>
+                <!-- Drag area -->
+                <div class="installer-body">
+                  <div class="installer-icon-group">
+                    <img src="/assets/logo-typelate.png" alt="TypeLate" width="52" height="52" style="border-radius: 12px;" />
+                    <span class="installer-label">TypeLate</span>
+                  </div>
+                  <!-- Arrow -->
+                  <svg width="36" height="20" viewBox="0 0 36 20" fill="none" style="flex-shrink: 0;">
+                    <path d="M2 10H30M30 10L22 3M30 10L22 17" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="installer-icon-group">
+                    <div class="installer-apps-folder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                      </svg>
+                    </div>
+                    <span class="installer-label">Applications</span>
+                  </div>
+                </div>
+                <!-- Drag cursor -->
+                <svg class="installer-cursor" width="24" height="28" viewBox="0 0 24 28" fill="none">
+                  <path d="M8 1v11l3-2.5 2.5 6 3-1.5-2.5-5.5H18L8 1z" fill="white" stroke="#333" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Drag the <strong>TypeLate</strong> icon into your <strong>Applications</strong> folder</span>
+              <span class="lang-zh">將 <strong>TypeLate</strong> 圖示拖入您的<strong>應用程式</strong>資料夾</span>
+            </p>
+          </div>
+
+          <!-- Step 3: Open from Applications -->
+          <div class="text-center">
+            <div class="step-badge">3</div>
+            <div class="step-card">
+              <div class="mock-finder">
+                <!-- Window chrome -->
+                <div class="mac-titlebar">
+                  <span class="mac-dot" style="background: #ff5f57;"></span>
+                  <span class="mac-dot" style="background: #febc2e;"></span>
+                  <span class="mac-dot" style="background: #28c840;"></span>
+                </div>
+                <!-- Finder body -->
+                <div class="finder-body">
+                  <div class="finder-header">Applications</div>
+                  <div class="finder-list">
+                    <div class="finder-item highlighted">
+                      <img src="/assets/logo-typelate.png" alt="TypeLate" width="24" height="24" style="border-radius: 5px;" />
+                      <span>TypeLate.app</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Cursor -->
+                <svg class="finder-cursor" width="20" height="24" viewBox="0 0 20 24" fill="none">
+                  <path d="M2 1L2 17L6.5 13L11 21L14 19.5L9.5 11.5L15 10L2 1Z" fill="white" stroke="#333" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Open <strong>TypeLate</strong> from your <strong>Applications</strong> folder</span>
+              <span class="lang-zh">從您的<strong>應用程式</strong>資料夾中打開 <strong>TypeLate</strong> 應用程式</span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== Windows Steps ===== -->
+      <div id="steps-windows" class="steps-section hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+
+          <!-- Step 1: Run installer -->
+          <div class="text-center">
+            <div class="step-badge">1</div>
+            <div class="step-card">
+              <div class="mock-win-explorer">
+                <div class="win-titlebar">
+                  <span class="win-title">Downloads</span>
+                  <div class="win-controls">
+                    <span>&#x2014;</span><span>&#x25A1;</span><span>&#x2715;</span>
+                  </div>
+                </div>
+                <div class="win-body">
+                  <div class="win-file">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="#0078D4"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span class="win-filename">TypeLate-setup.exe</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Run <strong>TypeLate-setup.exe</strong> from your <strong>Downloads</strong> folder</span>
+              <span class="lang-zh">從您的<strong>下載</strong>資料夾中執行 <strong>TypeLate-setup.exe</strong></span>
+            </p>
+          </div>
+
+          <!-- Step 2: Install -->
+          <div class="text-center">
+            <div class="step-badge">2</div>
+            <div class="step-card">
+              <div class="mock-win-installer">
+                <div class="win-titlebar">
+                  <span class="win-title">TypeLate Setup</span>
+                  <div class="win-controls"><span>&#x2715;</span></div>
+                </div>
+                <div class="win-installer-body">
+                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="40" height="40" style="border-radius: 8px;" />
+                  <span style="font-size: 12px; color: #333; font-weight: 500;">Installing TypeLate...</span>
+                  <div class="win-progress-bar">
+                    <div class="win-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Follow the <strong>installation wizard</strong> to complete setup</span>
+              <span class="lang-zh">依照<strong>安裝精靈</strong>的指示完成安裝</span>
+            </p>
+          </div>
+
+          <!-- Step 3: Launch -->
+          <div class="text-center">
+            <div class="step-badge">3</div>
+            <div class="step-card">
+              <div class="mock-win-desktop">
+                <div class="win-shortcut">
+                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="48" height="48" style="border-radius: 8px;" />
+                  <span style="font-size: 11px; color: #333; font-weight: 500;">TypeLate</span>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Launch <strong>TypeLate</strong> from your <strong>Desktop</strong> or <strong>Start Menu</strong></span>
+              <span class="lang-zh">從<strong>桌面</strong>或<strong>開始選單</strong>啟動 <strong>TypeLate</strong></span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== Android Steps ===== -->
+      <div id="steps-android" class="steps-section hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+
+          <!-- Step 1: Open APK -->
+          <div class="text-center">
+            <div class="step-badge">1</div>
+            <div class="step-card">
+              <div class="mock-android">
+                <div class="android-notification">
+                  <div class="android-notif-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#34A853"><path d="M17.523 15.341a1 1 0 0 0 1-1c0-.553-.448-1-1-1-.553 0-1 .447-1 1s.447 1 1 1m-11.046 0a1 1 0 0 0 1-1c0-.553-.448-1-1-1-.553 0-1 .447-1 1s.447 1 1 1m11.405-6.02 1.997-3.46a.416.416 0 0 0-.152-.567.416.416 0 0 0-.568.152L17.12 8.95c-1.46-.748-3.1-1.168-4.88-1.168-1.78 0-3.42.42-4.88 1.168L5.32 5.446a.416.416 0 0 0-.568-.152c-.2.115-.267.367-.152.567l1.997 3.46C3.65 11.074 1.622 13.928 1.622 17.2h20.756c0-3.272-2.028-6.126-4.496-7.879"/></svg>
+                  </div>
+                  <div class="android-notif-text">
+                    <span style="font-size: 13px; color: #333; font-weight: 500;">TypeLate.apk</span>
+                    <span style="font-size: 11px; color: #888;">Download complete &middot; Tap to open</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Open <strong>TypeLate.apk</strong> from your <strong>Downloads</strong></span>
+              <span class="lang-zh">從<strong>下載</strong>資料夾中打開 <strong>TypeLate.apk</strong></span>
+            </p>
+          </div>
+
+          <!-- Step 2: Allow install -->
+          <div class="text-center">
+            <div class="step-badge">2</div>
+            <div class="step-card">
+              <div class="mock-android">
+                <div class="android-dialog">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                  <span style="font-size: 12px; color: #333; text-align: center; line-height: 1.4;">
+                    <span class="lang-en">Allow installation from<br/>this source?</span>
+                    <span class="lang-zh">允許從此來源<br/>安裝應用程式？</span>
+                  </span>
+                  <div class="android-dialog-actions">
+                    <span class="android-btn-cancel">
+                      <span class="lang-en">Cancel</span><span class="lang-zh">取消</span>
+                    </span>
+                    <span class="android-btn-allow">
+                      <span class="lang-en">Allow</span><span class="lang-zh">允許</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Tap <strong>Allow</strong> to install from unknown sources if prompted</span>
+              <span class="lang-zh">如出現提示，點擊<strong>允許</strong>安裝來自未知來源的應用程式</span>
+            </p>
+          </div>
+
+          <!-- Step 3: Open app -->
+          <div class="text-center">
+            <div class="step-badge">3</div>
+            <div class="step-card">
+              <div class="mock-android">
+                <div class="android-app-icon">
+                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="52" height="52" style="border-radius: 14px;" />
+                  <span style="font-size: 12px; color: #333; font-weight: 500;">TypeLate</span>
+                </div>
+              </div>
+            </div>
+            <p class="step-text">
+              <span class="lang-en">Open <strong>TypeLate</strong> from your app drawer</span>
+              <span class="lang-zh">從應用程式列表中打開 <strong>TypeLate</strong></span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Re-download link -->
+      <div class="text-center mt-16" style="color: var(--brand-muted);">
+        <span class="lang-en">Not working?</span>
+        <span class="lang-zh">無法運作？</span>
+        &nbsp;
+        <a id="redownload-link" href={GITHUB_RELEASES} class="font-medium underline underline-offset-4 hover:text-[var(--brand-foreground)] transition-colors" style="color: var(--brand-foreground);">
+          <span class="lang-en">Re-download</span>
+          <span class="lang-zh">重新下載</span>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ---- Step Badge ---- */
+  .step-badge {
+    width: 36px;
+    height: 36px;
+    background: var(--brand-foreground);
+    color: var(--brand-bg);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+
+  /* ---- Step Card ---- */
+  .step-card {
+    background: #eef0f3;
+    border-radius: 16px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step-text {
+    font-size: 0.875rem;
+    color: var(--brand-muted);
+    line-height: 1.6;
+  }
+
+  .step-text strong {
+    color: var(--brand-foreground);
+    font-weight: 600;
+  }
+
+  /* ---- macOS: Shared ---- */
+  .mac-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #e8e8e8;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+  .mac-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ---- macOS Step 1: Dock ---- */
+  .mock-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1.25rem;
+    position: relative;
+    background: linear-gradient(180deg, #d6dce5 0%, #c8ced8 100%);
+  }
+
+  .dock-tooltip {
+    background: rgba(30, 30, 30, 0.88);
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+  }
+
+  .dock-bar {
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    padding: 4px 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+  }
+
+  .dock-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .dock-active {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 2px;
+  }
+
+  .dock-cursor {
+    position: absolute;
+    bottom: 0.8rem;
+    right: calc(50% - 50px);
+  }
+
+  /* ---- macOS Step 2: Installer ---- */
+  .mock-installer {
+    width: 88%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .installer-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .installer-icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .installer-label {
+    font-size: 11px;
+    color: #555;
+  }
+
+  .installer-apps-folder {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #64B5F6, #1E88E5);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0, 0, 0, 0.12);
+  }
+
+  .installer-cursor {
+    position: absolute;
+    left: 38%;
+    bottom: 22%;
+  }
+
+  /* ---- macOS Step 3: Finder ---- */
+  .mock-finder {
+    width: 88%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .finder-body {
+    padding: 0;
+  }
+
+  .finder-header {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .finder-list {
+    padding: 4px 6px;
+  }
+
+  .finder-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #333;
+  }
+
+  .finder-item.highlighted {
+    background: #0058D0;
+    color: white;
+  }
+
+  .finder-cursor {
+    position: absolute;
+    right: 15%;
+    bottom: 22%;
+  }
+
+  /* ---- Windows: Explorer ---- */
+  .mock-win-explorer,
+  .mock-win-installer {
+    width: 88%;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .win-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .win-title {
+    font-size: 12px;
+    color: #333;
+  }
+
+  .win-controls {
+    display: flex;
+    gap: 10px;
+    font-size: 11px;
+    color: #999;
+  }
+
+  .win-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .win-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .win-filename {
+    font-size: 11px;
+    color: #333;
+  }
+
+  .win-installer-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  .win-progress-bar {
+    width: 80%;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .win-progress-fill {
+    width: 70%;
+    height: 100%;
+    background: #0078D4;
+    border-radius: 3px;
+  }
+
+  .mock-win-desktop {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .win-shortcut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .win-shortcut span {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ---- Android ---- */
+  .mock-android {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .android-notification {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .android-notif-icon {
+    flex-shrink: 0;
+  }
+
+  .android-notif-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .android-dialog {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  .android-dialog-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .android-btn-cancel {
+    font-size: 12px;
+    color: #888;
+    padding: 5px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .android-btn-allow {
+    font-size: 12px;
+    color: white;
+    padding: 5px 14px;
+    background: #34A853;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .android-app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const platform = params.get("platform");
+
+  const downloadUrls: Record<string, string> = {
+    "mac-arm64": "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-arm64.dmg",
+    "mac-intel": "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-mac-x64.dmg",
+    "windows": "https://github.com/bobo52310/TypeLate/releases/latest/download/TypeLate-windows-x64.exe",
+    "android": "https://github.com/bobo52310/TypeLate-android/releases/download/v1.0.0/app-release.apk",
+  };
+
+  // Determine which steps to show
+  let stepsId = "steps-mac";
+  if (platform) {
+    if (platform.startsWith("mac")) stepsId = "steps-mac";
+    else if (platform === "windows") stepsId = "steps-windows";
+    else if (platform === "android") stepsId = "steps-android";
+  } else {
+    const ua = navigator.userAgent;
+    if (/Win/.test(ua)) stepsId = "steps-windows";
+    else if (/Android/.test(ua)) stepsId = "steps-android";
+  }
+
+  // Show the appropriate steps
+  document.getElementById(stepsId)?.classList.remove("hidden");
+
+  // Update re-download link & auto-start download
+  if (platform && downloadUrls[platform]) {
+    const redownloadLink = document.getElementById("redownload-link");
+    if (redownloadLink) {
+      redownloadLink.setAttribute("href", downloadUrls[platform]);
+    }
+
+    setTimeout(() => {
+      const a = document.createElement("a");
+      a.href = downloadUrls[platform];
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, 500);
+  }
+</script>
