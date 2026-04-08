@@ -1,0 +1,91 @@
+---
+const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
+const SUBMIT_URL = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("[Wishlist] ")}&body=${encodeURIComponent("## What feature would you like? / 你想要什麼功能？\n\n\n\n## Why is this useful? / 為什麼這個功能有用？\n\n\n\n## Any additional context / 補充說明\n\n")}&labels=wishlist`;
+
+const steps = [
+  {
+    num: "1",
+    title: "Submit",
+    titleZh: "提交許願",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+  },
+  {
+    num: "2",
+    title: "Vote",
+    titleZh: "投票支持",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`,
+  },
+  {
+    num: "3",
+    title: "We Build",
+    titleZh: "我們來做",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  },
+];
+---
+
+<section class="pt-32 pb-16 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <!-- Badge -->
+    <div class="fade-in">
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-6"
+        style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span class="lang-en">Community Driven</span>
+        <span class="lang-zh">社群驅動</span>
+      </span>
+    </div>
+
+    <!-- Title -->
+    <div class="fade-in">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+        <span class="lang-en">Feature Wishlist</span>
+        <span class="lang-zh">功能許願池</span>
+      </h1>
+      <p class="text-base sm:text-lg leading-relaxed mb-10" style="color: var(--brand-muted);">
+        <span class="lang-en">Vote on features you want, or submit your own request.<br/>Your voice shapes TypeLate's roadmap.</span>
+        <span class="lang-zh">為你想要的功能投票，或提交你的許願。<br/>你的聲音決定 TypeLate 的未來方向。</span>
+      </p>
+    </div>
+
+    <!-- How it works — 3 steps -->
+    <div class="fade-in grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-xl mx-auto">
+      {steps.map((s) => (
+        <div class="fade-in-child flex flex-col items-center gap-2 py-4">
+          <div
+            class="w-10 h-10 rounded-xl flex items-center justify-center"
+            style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+          >
+            <Fragment set:html={s.icon} />
+          </div>
+          <h3 class="text-sm font-semibold">
+            <span class="lang-en">{s.title}</span>
+            <span class="lang-zh">{s.titleZh}</span>
+          </h3>
+        </div>
+      ))}
+    </div>
+
+    <!-- Submit CTA -->
+    <div class="fade-in">
+      <a
+        href={SUBMIT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105"
+        style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span class="lang-en">Submit a Request</span>
+        <span class="lang-zh">提交許願</span>
+      </a>
+    </div>
+  </div>
+</section>

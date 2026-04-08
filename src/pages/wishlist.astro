@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import WishlistHero from "../components/WishlistHero.astro";
+import WishlistList from "../components/WishlistList.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Feature Wishlist — TypeLate"
+  description="Vote on features you want or submit your own request. Your voice shapes TypeLate's roadmap."
+>
+  <Navbar />
+  <main>
+    <WishlistHero />
+    <WishlistList />
+  </main>
+  <Footer />
+</Layout>
