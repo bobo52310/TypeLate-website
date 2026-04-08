@@ -25,17 +25,17 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
     </a>
 
     <!-- Center: Section links (desktop only) -->
-    <div class="hidden lg:flex items-center gap-6 text-sm" style="color: var(--brand-muted);">
-      <a href="#features" class="hover:text-[var(--brand-foreground)] transition-colors">
+    <div id="nav-links" class="hidden lg:flex items-center gap-6 text-sm" style="color: var(--brand-muted);">
+      <a href="#features" data-nav-section="features" class="nav-section-link hover:text-[var(--brand-foreground)] transition-colors">
         <span class="lang-en">Features</span><span class="lang-zh">功能</span>
       </a>
-      <a href="#how-it-works" class="hover:text-[var(--brand-foreground)] transition-colors">
+      <a href="#how-it-works" data-nav-section="how-it-works" class="nav-section-link hover:text-[var(--brand-foreground)] transition-colors">
         <span class="lang-en">How It Works</span><span class="lang-zh">使用方式</span>
       </a>
-      <a href="#comparison" class="hover:text-[var(--brand-foreground)] transition-colors">
+      <a href="#comparison" data-nav-section="comparison" class="nav-section-link hover:text-[var(--brand-foreground)] transition-colors">
         <span class="lang-en">Compare</span><span class="lang-zh">比較</span>
       </a>
-      <a href="#faq" class="hover:text-[var(--brand-foreground)] transition-colors">
+      <a href="#faq" data-nav-section="faq" class="nav-section-link hover:text-[var(--brand-foreground)] transition-colors">
         FAQ
       </a>
     </div>

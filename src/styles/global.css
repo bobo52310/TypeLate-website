@@ -228,6 +228,11 @@ details.faq-item[open] {
   }
 }
 
+/* ---- Active Nav Link ---- */
+.nav-section-link.active {
+  color: var(--brand-gold) !important;
+}
+
 /* ---- Back to Top Button ---- */
 #back-to-top:hover {
   color: var(--brand-gold);

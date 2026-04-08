@@ -189,6 +189,24 @@ const jsonLd = {
         }
       });
 
+      // Active section highlighting in navbar
+      const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-section-link');
+      if (navLinks.length > 0) {
+        const sectionIds = Array.from(navLinks).map(l => l.dataset.navSection!);
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const link = document.querySelector(`[data-nav-section="${entry.target.id}"]`);
+            if (link) {
+              link.classList.toggle('active', entry.isIntersecting);
+            }
+          });
+        }, { rootMargin: '-20% 0px -60% 0px' });
+
+        sections.forEach(s => sectionObserver.observe(s));
+      }
+
       // Language toggle
       function setLang(lang: string) {
         document.documentElement.setAttribute("data-lang", lang);
