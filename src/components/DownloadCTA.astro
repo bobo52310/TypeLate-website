@@ -1,11 +1,32 @@
 ---
-import { DOWNLOAD_URLS } from "../config/site";
+import { DOWNLOAD_URLS, GITHUB_OWNER, GITHUB_REPO } from "../config/site";
 
 const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
 const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
 const DOWNLOAD_ANDROID = DOWNLOAD_URLS.android;
 const DOWNLOAD_WIN = DOWNLOAD_URLS.windows;
 const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
+
+// Fetch contributors at build time for social proof
+interface Contributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}
+let contributors: Contributor[] = [];
+try {
+  const res = await fetch(
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contributors?per_page=8`,
+    { headers: { "Accept": "application/vnd.github.v3+json" } }
+  );
+  if (res.ok) {
+    contributors = (await res.json() as Contributor[]).filter(
+      (c) => !c.login.includes("[bot]") && c.login !== "dependabot"
+    );
+  }
+} catch {
+  // Silently fail
+}
 ---
 
 <section class="py-24 px-6 relative overflow-hidden">
@@ -116,6 +137,36 @@ const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
         </a>
       </div>
     </div>
+
+    <!-- Contributors / social proof -->
+    {contributors.length > 0 && (
+      <div class="fade-in mb-6">
+        <p class="text-xs mb-3" style="color: var(--brand-muted);">
+          <span class="lang-en">Built by the community</span>
+          <span class="lang-zh">由社群共同打造</span>
+        </p>
+        <div class="flex items-center justify-center -space-x-2">
+          {contributors.map((c) => (
+            <a
+              href={c.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={c.login}
+            >
+              <img
+                src={`${c.avatar_url}&s=40`}
+                alt={c.login}
+                width="32"
+                height="32"
+                class="rounded-full ring-2 transition-transform hover:scale-110 hover:z-10"
+                style="ring-color: var(--brand-bg);"
+                loading="lazy"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
 
     <!-- Tagline -->
     <div class="fade-in">

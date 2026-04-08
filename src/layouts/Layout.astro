@@ -119,14 +119,20 @@ const jsonLd = {
         observer.observe(el);
       });
 
-      // Nav scroll behavior
+      // Nav scroll behavior + download button reveal
       const nav = document.getElementById("main-nav");
+      const navDownloadBtn = document.getElementById("nav-download-btn");
       if (nav) {
         window.addEventListener("scroll", () => {
-          if (window.scrollY > 20) {
-            nav.classList.add("nav-scrolled");
-          } else {
-            nav.classList.remove("nav-scrolled");
+          const scrolled = window.scrollY > 20;
+          nav.classList.toggle("nav-scrolled", scrolled);
+
+          // Show nav download button after scrolling past hero CTA (~500px)
+          if (navDownloadBtn) {
+            const showBtn = window.scrollY > 500;
+            navDownloadBtn.classList.toggle("opacity-0", !showBtn);
+            navDownloadBtn.classList.toggle("translate-y-1", !showBtn);
+            navDownloadBtn.classList.toggle("pointer-events-none", !showBtn);
           }
         });
       }
