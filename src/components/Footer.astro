@@ -1,65 +1,88 @@
 ---
-import { GITHUB_URL } from "../config/site";
+import { GITHUB_URL, DOWNLOAD_URLS } from "../config/site";
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="py-12 px-6" style="border-top: 1px solid var(--brand-border);">
-  <div
-    class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4"
-  >
-    <!-- Left: Brand -->
-    <div class="flex items-center gap-3">
-      <img
-        src="/assets/logo-typelate.png"
-        alt="TypeLate"
-        width="24"
-        height="24"
-        class="rounded-md"
-      />
-      <span class="text-sm" style="color: var(--brand-muted);">
-        TypeLate &middot; MIT License &middot; Made by Bobo Chen
-      </span>
+<footer class="py-16 px-6" style="border-top: 1px solid var(--brand-border);">
+  <div class="max-w-5xl mx-auto">
+    <!-- Top row: Brand + Link groups -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+      <!-- Brand -->
+      <div class="col-span-2 sm:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-3">
+          <img
+            src="/assets/logo-typelate.png"
+            alt="TypeLate"
+            width="24"
+            height="24"
+            class="rounded-md"
+          />
+          <span class="text-gradient-gold font-bold tracking-tight">TypeLate</span>
+        </a>
+        <p class="text-xs leading-relaxed" style="color: var(--brand-muted);">
+          <span class="lang-en">Too late to type — just speak.</span>
+          <span class="lang-zh">打字太累？用說的才對味！</span>
+        </p>
+      </div>
+
+      <!-- Product -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: var(--brand-foreground);">
+          <span class="lang-en">Product</span><span class="lang-zh">產品</span>
+        </h4>
+        <ul class="space-y-2 text-sm" style="color: var(--brand-muted);">
+          <li><a href="#features" class="hover:text-[var(--brand-foreground)] transition-colors"><span class="lang-en">Features</span><span class="lang-zh">功能</span></a></li>
+          <li><a href="#how-it-works" class="hover:text-[var(--brand-foreground)] transition-colors"><span class="lang-en">How It Works</span><span class="lang-zh">使用方式</span></a></li>
+          <li><a href="#comparison" class="hover:text-[var(--brand-foreground)] transition-colors"><span class="lang-en">Compare</span><span class="lang-zh">比較</span></a></li>
+          <li><a href="#faq" class="hover:text-[var(--brand-foreground)] transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Download -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: var(--brand-foreground);">
+          <span class="lang-en">Download</span><span class="lang-zh">下載</span>
+        </h4>
+        <ul class="space-y-2 text-sm" style="color: var(--brand-muted);">
+          <li><a href={DOWNLOAD_URLS.macArm64} class="hover:text-[var(--brand-foreground)] transition-colors">macOS (Apple Silicon)</a></li>
+          <li><a href={DOWNLOAD_URLS.macIntel} class="hover:text-[var(--brand-foreground)] transition-colors">macOS (Intel)</a></li>
+          <li><a href={DOWNLOAD_URLS.windows} class="hover:text-[var(--brand-foreground)] transition-colors">Windows</a></li>
+          <li><a href={DOWNLOAD_URLS.android} class="hover:text-[var(--brand-foreground)] transition-colors">Android</a></li>
+        </ul>
+      </div>
+
+      <!-- Community -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: var(--brand-foreground);">
+          <span class="lang-en">Community</span><span class="lang-zh">社群</span>
+        </h4>
+        <ul class="space-y-2 text-sm" style="color: var(--brand-muted);">
+          <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-foreground)] transition-colors">GitHub</a></li>
+          <li><a href="/wishlist" class="hover:text-[var(--brand-foreground)] transition-colors"><span class="lang-en">Wishlist</span><span class="lang-zh">許願池</span></a></li>
+          <li><a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-foreground)] transition-colors">Issues</a></li>
+          <li><a href={`${GITHUB_URL}/releases`} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-foreground)] transition-colors">Releases</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Right: Links -->
-    <div class="flex items-center gap-6 text-sm" style="color: var(--brand-muted);">
+    <!-- Bottom row: Copyright + Star CTA -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8" style="border-top: 1px solid var(--brand-border);">
+      <p class="text-xs" style="color: var(--brand-muted); opacity: 0.6;">
+        &copy; {year} TypeLate &middot; MIT License &middot; Made by Bobo Chen
+      </p>
       <a
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-[var(--brand-foreground)] transition-colors"
+        class="inline-flex items-center gap-1.5 text-xs transition-colors hover:text-[var(--brand-gold)]"
+        style="color: var(--brand-muted);"
       >
-        GitHub
-      </a>
-      <a
-        href="/wishlist"
-        class="hover:text-[var(--brand-foreground)] transition-colors"
-      >
-        Wishlist
-      </a>
-      <a
-        href={`${GITHUB_URL}/issues`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-[var(--brand-foreground)] transition-colors"
-      >
-        Issues
-      </a>
-      <a
-        href={`${GITHUB_URL}/releases`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-[var(--brand-foreground)] transition-colors"
-      >
-        Releases
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span class="lang-en">Star on GitHub</span><span class="lang-zh">GitHub 給顆星</span>
       </a>
     </div>
-  </div>
-
-  <div class="max-w-5xl mx-auto mt-6 text-center">
-    <p class="text-xs" style="color: var(--brand-muted); opacity: 0.5;">
-      &copy; {year} TypeLate. All rights reserved.
-    </p>
   </div>
 </footer>
