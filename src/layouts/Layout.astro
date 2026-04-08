@@ -96,6 +96,13 @@ const jsonLd = {
     >
       Skip to content
     </a>
+    <!-- Scroll progress indicator -->
+    <div
+      id="scroll-progress"
+      class="fixed top-0 left-0 h-[2px] z-[60] pointer-events-none"
+      style="background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-deep)); width: 0%;"
+    ></div>
+
     <slot />
 
     <!-- Back to top button -->
@@ -138,10 +145,11 @@ const jsonLd = {
         observer.observe(el);
       });
 
-      // Nav scroll behavior + download button reveal + back to top
+      // Nav scroll behavior + download button reveal + back to top + progress
       const nav = document.getElementById("main-nav");
       const navDownloadBtn = document.getElementById("nav-download-btn");
       const backToTop = document.getElementById("back-to-top");
+      const scrollProgress = document.getElementById("scroll-progress");
 
       if (backToTop) {
         backToTop.addEventListener("click", () => {
@@ -171,6 +179,13 @@ const jsonLd = {
           backToTop.classList.toggle("opacity-0", !show);
           backToTop.classList.toggle("translate-y-4", !show);
           backToTop.classList.toggle("pointer-events-none", !show);
+        }
+
+        // Scroll progress bar
+        if (scrollProgress) {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? Math.min((y / docHeight) * 100, 100) : 0;
+          scrollProgress.style.width = `${pct}%`;
         }
       });
 

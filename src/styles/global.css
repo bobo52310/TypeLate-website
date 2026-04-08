@@ -28,6 +28,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ---- Scroll offset for fixed navbar ---- */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* ---- Focus Visible (keyboard navigation) ---- */
 :focus-visible {
   outline: 2px solid var(--brand-gold);
