@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { SITE, GITHUB_URL } from "../config/site";
 
 interface Props {
   title?: string;
@@ -7,12 +8,12 @@ interface Props {
 }
 
 const {
-  title = "TypeLate — Too late to type, just speak | Open-Source Voice-to-Text",
-  description = "Free, open-source voice-to-text app for macOS & Android. Press a hotkey, speak naturally, release — AI polishes your speech into clean text in under 3 seconds. BYOK, zero telemetry, MIT licensed.",
+  title = SITE.title,
+  description = SITE.description,
 } = Astro.props;
 
-const siteName = "TypeLate";
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://typelate.app";
+const siteName = SITE.name;
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? SITE.url;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 // TODO: Create a proper 1200x630 PNG OG image. See public/assets/og-image.svg for design template.
 const ogImage = `${siteUrl}/assets/logo-typelate.png`;
@@ -20,11 +21,11 @@ const ogImage = `${siteUrl}/assets/logo-typelate.png`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "TypeLate",
+  "name": SITE.name,
   "description": "Open-source voice-to-text app with AI post-processing. Press a hotkey, speak naturally, release — polished text appears where you type.",
   "url": siteUrl,
   "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "macOS, Android",
+  "operatingSystem": "macOS, Windows, Android, iOS",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -33,12 +34,12 @@ const jsonLd = {
   "license": "https://opensource.org/licenses/MIT",
   "author": {
     "@type": "Person",
-    "name": "Bobo Chen",
-    "url": "https://github.com/bobo52310",
+    "name": SITE.author,
+    "url": SITE.authorUrl,
   },
-  "downloadUrl": "https://github.com/bobo52310/TypeLate/releases/latest",
+  "downloadUrl": `${GITHUB_URL}/releases/latest`,
   "softwareVersion": "latest",
-  "keywords": "voice to text, speech to text, dictation, AI transcription, open source, macOS, BYOK, Groq, Whisper",
+  "keywords": "voice to text, speech to text, dictation, AI transcription, open source, macOS, Windows, Android, BYOK, Groq, Whisper",
 };
 ---
 
@@ -74,6 +75,11 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content="TypeLate — Open-source voice-to-text with AI post-processing" />
+
+    <!-- Language alternates -->
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="zh-TW" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/assets/logo-typelate.png" />

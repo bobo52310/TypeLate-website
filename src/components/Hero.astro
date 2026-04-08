@@ -1,12 +1,27 @@
 ---
 import NotchHudDemo from "./NotchHudDemo.astro";
+import { DOWNLOAD_URLS, GITHUB_URL, GITHUB_OWNER, GITHUB_REPO } from "../config/site";
 
-const DOWNLOAD_MAC = "/setup?platform=mac-arm64";
-const DOWNLOAD_MAC_INTEL = "/setup?platform=mac-intel";
-const DOWNLOAD_ANDROID = "/setup?platform=android";
-const DOWNLOAD_WIN = "/setup?platform=windows";
-const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
-const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
+const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
+const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
+const DOWNLOAD_ANDROID = DOWNLOAD_URLS.android;
+const DOWNLOAD_WIN = DOWNLOAD_URLS.windows;
+const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
+
+// Fetch GitHub star count at build time
+let starCount = "";
+try {
+  const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
+    headers: { "Accept": "application/vnd.github.v3+json" },
+  });
+  if (res.ok) {
+    const data = await res.json();
+    const count = data.stargazers_count as number;
+    starCount = count >= 1000 ? `${(count / 1000).toFixed(1)}k` : String(count);
+  }
+} catch {
+  // Silently fail — badge just won't show
+}
 ---
 
 <section
@@ -99,7 +114,11 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
   <!-- CTA Buttons -->
   <div class="fade-in flex flex-col sm:flex-row items-center gap-4 mb-8">
     <a
+      id="hero-download-btn"
       href={DOWNLOAD_MAC}
+      data-mac={DOWNLOAD_MAC}
+      data-windows={DOWNLOAD_WIN}
+      data-android={DOWNLOAD_ANDROID}
       class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105"
       style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
     >
@@ -117,7 +136,8 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
       </svg>
-      <span class="lang-en">Download for macOS</span><span class="lang-zh">下載 macOS 版</span>
+      <span id="hero-download-label-en" class="lang-en">Download for macOS</span>
+      <span id="hero-download-label-zh" class="lang-zh">下載 macOS 版</span>
     </a>
     <a
       href={GITHUB_URL}
@@ -138,6 +158,17 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
         ></path>
       </svg>
       <span class="lang-en">View on GitHub</span><span class="lang-zh">在 GitHub 查看</span>
+      {starCount && (
+        <span
+          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium"
+          style="background: rgba(251, 191, 36, 0.12); color: var(--brand-gold);"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          {starCount}
+        </span>
+      )}
     </a>
   </div>
 
@@ -192,6 +223,25 @@ const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platf
 </style>
 
 <script>
+  // OS auto-detection for download button
+  const btn = document.getElementById('hero-download-btn') as HTMLAnchorElement | null;
+  if (btn) {
+    const ua = navigator.userAgent.toLowerCase();
+    const labelEn = document.getElementById('hero-download-label-en');
+    const labelZh = document.getElementById('hero-download-label-zh');
+
+    if (ua.includes('win')) {
+      btn.href = btn.dataset.windows!;
+      if (labelEn) labelEn.textContent = 'Download for Windows';
+      if (labelZh) labelZh.textContent = '下載 Windows 版';
+    } else if (ua.includes('android')) {
+      btn.href = btn.dataset.android!;
+      if (labelEn) labelEn.textContent = 'Download for Android';
+      if (labelZh) labelZh.textContent = '下載 Android 版';
+    }
+    // macOS is the default — no change needed
+  }
+
   const items = document.querySelectorAll<HTMLElement>('.slogan-item');
   if (items.length > 0) {
     let current = 0;

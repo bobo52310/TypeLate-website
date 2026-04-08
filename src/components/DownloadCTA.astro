@@ -1,10 +1,11 @@
 ---
-const DOWNLOAD_MAC = "/setup?platform=mac-arm64";
-const DOWNLOAD_MAC_INTEL = "/setup?platform=mac-intel";
-const DOWNLOAD_ANDROID = "/setup?platform=android";
-const DOWNLOAD_WIN = "/setup?platform=windows";
-const GITHUB_URL = "https://github.com/bobo52310/TypeLate";
-const WISHLIST_IOS = `${GITHUB_URL}/issues/new?title=${encodeURIComponent("Platform Request: iOS")}&body=${encodeURIComponent("I'd love to use TypeLate on iOS! 🗳️\n\nMy use case:\n")}`;
+import { DOWNLOAD_URLS } from "../config/site";
+
+const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
+const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
+const DOWNLOAD_ANDROID = DOWNLOAD_URLS.android;
+const DOWNLOAD_WIN = DOWNLOAD_URLS.windows;
+const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
 ---
 
 <section class="py-24 px-6 relative overflow-hidden">

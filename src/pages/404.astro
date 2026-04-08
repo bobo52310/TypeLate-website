@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { DOWNLOAD_URLS } from "../config/site";
+---
+
+<Layout title="404 — Page Not Found | TypeLate" description="The page you're looking for doesn't exist.">
+  <Navbar />
+  <main class="min-h-screen flex items-center justify-center px-6">
+    <div class="text-center max-w-md">
+      <!-- Logo -->
+      <img
+        src="/assets/logo-typelate.png"
+        alt="TypeLate"
+        width="80"
+        height="80"
+        class="mx-auto mb-8 opacity-60"
+      />
+
+      <!-- 404 -->
+      <h1
+        class="text-6xl sm:text-7xl font-bold mb-4"
+        style="color: var(--brand-gold); opacity: 0.3;"
+      >
+        404
+      </h1>
+
+      <h2 class="text-xl sm:text-2xl font-semibold mb-3" style="color: var(--brand-foreground);">
+        <span class="lang-en">Page not found</span>
+        <span class="lang-zh">找不到頁面</span>
+      </h2>
+
+      <p class="text-sm mb-8" style="color: var(--brand-muted);">
+        <span class="lang-en">The page you're looking for doesn't exist or has been moved.</span>
+        <span class="lang-zh">你找的頁面不存在或已經被移動了。</span>
+      </p>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105"
+          style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span class="lang-en">Back to Home</span>
+          <span class="lang-zh">回到首頁</span>
+        </a>
+        <a
+          href={DOWNLOAD_URLS.macArm64}
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105"
+          style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span class="lang-en">Download</span>
+          <span class="lang-zh">下載</span>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

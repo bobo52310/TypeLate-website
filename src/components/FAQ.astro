@@ -43,7 +43,23 @@ const faqs = [
     aZh: "Groq 和 OpenAI 皆可用於 Whisper 語音轉錄和 LLM 後處理。可在設定中隨時切換供應商。Azure 和本地模型的支援已在規劃中。",
   },
 ];
+
+// FAQ JSON-LD for Google rich results
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a,
+    },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <section id="faq" class="py-24 px-6">
   <div class="max-w-3xl mx-auto">
