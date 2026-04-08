@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import NotchHudDemo from "./NotchHudDemo.astro";
 import { DOWNLOAD_URLS, GITHUB_URL, GITHUB_OWNER, GITHUB_REPO } from "../config/site";
+import logoSrc from "../assets/logo-typelate.png";
 
 const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
 const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
@@ -8,19 +10,37 @@ const DOWNLOAD_ANDROID = DOWNLOAD_URLS.android;
 const DOWNLOAD_WIN = DOWNLOAD_URLS.windows;
 const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
 
-// Fetch GitHub star count at build time
+// Fetch GitHub stats at build time
 let starCount = "";
+let downloadCount = "";
 try {
-  const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
-    headers: { "Accept": "application/vnd.github.v3+json" },
-  });
-  if (res.ok) {
-    const data = await res.json();
+  const [repoRes, releasesRes] = await Promise.all([
+    fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
+      headers: { "Accept": "application/vnd.github.v3+json" },
+    }),
+    fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases?per_page=10`, {
+      headers: { "Accept": "application/vnd.github.v3+json" },
+    }),
+  ]);
+
+  if (repoRes.ok) {
+    const data = await repoRes.json();
     const count = data.stargazers_count as number;
     starCount = count >= 1000 ? `${(count / 1000).toFixed(1)}k` : String(count);
   }
+
+  if (releasesRes.ok) {
+    const releases = await releasesRes.json() as Array<{ assets: Array<{ download_count: number }> }>;
+    const total = releases.reduce(
+      (sum, r) => sum + r.assets.reduce((s, a) => s + a.download_count, 0),
+      0
+    );
+    if (total > 0) {
+      downloadCount = total >= 1000 ? `${(total / 1000).toFixed(1)}k` : String(total);
+    }
+  }
 } catch {
-  // Silently fail — badge just won't show
+  // Silently fail — badges just won't show
 }
 ---
 
@@ -39,8 +59,8 @@ try {
   >
   </div>
 
-  <!-- Badge -->
-  <div class="fade-in mb-8">
+  <!-- Badges -->
+  <div class="fade-in flex flex-wrap items-center justify-center gap-2 mb-8">
     <span
       class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
       style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold); border: 1px solid rgba(251, 191, 36, 0.2);"
@@ -60,16 +80,29 @@ try {
       </svg>
       100% Free &middot; Open Source &middot; MIT Licensed
     </span>
+    {downloadCount && (
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium tracking-wide"
+        style="background: rgba(34, 197, 94, 0.08); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.15);"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        {downloadCount}+ downloads
+      </span>
+    )}
   </div>
 
   <!-- Logo -->
   <div class="fade-in mb-8">
-    <img
-      src="/assets/logo-typelate.png"
+    <Image
+      src={logoSrc}
       alt="TypeLate"
-      width="128"
-      height="128"
+      width={128}
+      height={128}
       class="logo-glow"
+      loading="eager"
+      fetchpriority="high"
     />
   </div>
 

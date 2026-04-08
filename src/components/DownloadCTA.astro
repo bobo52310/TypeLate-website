@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { DOWNLOAD_URLS, GITHUB_OWNER, GITHUB_REPO } from "../config/site";
+import logoSrc from "../assets/logo-typelate.png";
 
 const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
 const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
@@ -40,12 +42,13 @@ try {
   <div class="max-w-2xl mx-auto text-center relative z-10">
     <div class="fade-in">
       <!-- Logo -->
-      <img
-        src="/assets/logo-typelate.png"
+      <Image
+        src={logoSrc}
         alt="TypeLate"
-        width="80"
-        height="80"
+        width={80}
+        height={80}
         class="logo-glow mx-auto mb-8"
+        loading="lazy"
       />
 
       <!-- Headline -->
