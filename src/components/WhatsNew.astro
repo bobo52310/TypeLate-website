@@ -1,0 +1,143 @@
+---
+const spotlightFeatures = [
+  {
+    title: "Analytics Dashboard",
+    titleZh: "數據儀表板",
+    desc: "Track your voice-to-text usage with 30-day trends, per-model cost breakdowns, and daily session stats.",
+    descZh: "追蹤語音轉文字使用情況：30 天趨勢圖、各模型費用明細、每日使用統計。",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+  },
+  {
+    title: "Sound Feedback",
+    titleZh: "聲音回饋",
+    desc: "5 built-in sound themes plus custom sound support. Audio cues for start, stop, and completion. Auto-mutes system audio during recording.",
+    descZh: "5 組內建音效主題，支援自訂音效。錄音開始、結束、完成皆有提示音。錄音時自動靜音避免回音。",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`,
+  },
+  {
+    title: "Auto-Updater",
+    titleZh: "自動更新",
+    desc: "Built-in update system with changelog preview. Review what's new before updating, or skip a version. Stay current on your terms.",
+    descZh: "內建更新系統，更新前可預覽更新日誌。可選擇跳過特定版本，按你的節奏保持最新。",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>`,
+  },
+];
+
+const compactFeatures = [
+  {
+    title: "Rock-Solid Reliability",
+    titleZh: "穩如磐石",
+    desc: "Circuit breaker, exponential backoff, and network pre-check keep things running smoothly.",
+    descZh: "斷路器、指數退避重試、網路預檢，確保穩定運作。",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>`,
+  },
+  {
+    title: "Smarter HUD",
+    titleZh: "更聰明的 HUD",
+    desc: "Configurable display duration, active app icon, text preview, and silence detection hints.",
+    descZh: "可設定顯示時間、顯示 app 圖示、文字預覽、靜音提示。",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+  },
+  {
+    title: "Recording Management",
+    titleZh: "錄音管理",
+    desc: "Retention policies, re-transcribe past recordings, and monitor storage usage.",
+    descZh: "保留策略、重新轉錄歷史錄音、儲存空間統計。",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>`,
+  },
+  {
+    title: "Accessible by Design",
+    titleZh: "無障礙設計",
+    desc: "Skip-to-content, reduced motion, WCAG contrast, and full keyboard navigation.",
+    descZh: "跳至內容、降低動態、WCAG 對比度、完整鍵盤導航。",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="4" r="1"/><path d="m18 8-4-1-4 5 3 3 1 5"/><path d="m6 13 4-4"/><path d="m9 18-1-4"/></svg>`,
+  },
+  {
+    title: "Clipboard Preservation",
+    titleZh: "剪貼簿保留",
+    desc: "Optionally keep your clipboard content intact after pasting transcriptions.",
+    descZh: "貼上轉錄文字後，可選擇保留原本的剪貼簿內容。",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>`,
+  },
+];
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section title -->
+    <div class="fade-in text-center mb-16">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+          <span class="lang-en">What's New</span>
+          <span class="lang-zh">最新功能</span>
+        </h2>
+        <span
+          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold"
+          style="background: rgba(251, 191, 36, 0.15); color: var(--brand-gold);"
+        >
+          v1.3
+        </span>
+      </div>
+      <p class="text-sm" style="color: var(--brand-muted);">
+        <span class="lang-en">The latest improvements to your voice-to-text workflow</span>
+        <span class="lang-zh">語音轉文字工作流的最新改進</span>
+      </p>
+    </div>
+
+    <!-- Spotlight features -->
+    <div class="fade-in grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {
+        spotlightFeatures.map((f) => (
+          <div
+            class="fade-in-child feature-card rounded-2xl p-8"
+            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+          >
+            <div
+              class="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+              style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+            >
+              <Fragment set:html={f.icon} />
+            </div>
+            <h3 class="text-base font-semibold mb-1">
+              <span class="lang-en">{f.title}</span>
+              <span class="lang-zh">{f.titleZh}</span>
+            </h3>
+            <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
+              <span class="lang-en">{f.desc}</span>
+              <span class="lang-zh">{f.descZh}</span>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Compact features -->
+    <div class="fade-in grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        compactFeatures.map((f) => (
+          <div
+            class="fade-in-child flex items-start gap-3 rounded-xl p-4"
+            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+          >
+            <div
+              class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+              style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
+            >
+              <Fragment set:html={f.icon} />
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold mb-0.5">
+                <span class="lang-en">{f.title}</span>
+                <span class="lang-zh">{f.titleZh}</span>
+              </h3>
+              <p class="text-xs leading-relaxed" style="color: var(--brand-muted);">
+                <span class="lang-en">{f.desc}</span>
+                <span class="lang-zh">{f.descZh}</span>
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
