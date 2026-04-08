@@ -1,9 +1,7 @@
 ---
 /**
- * Video Demo section — placeholder for a 15-30s screen recording.
- * Replace the placeholder with a real video by:
- * 1. Add video to public/assets/demo.mp4
- * 2. Uncomment the <video> block and remove the placeholder div
+ * Animated Workflow Demo — live simulation of TypeLate's voice-to-text flow.
+ * Replace with a real video by adding to public/assets/demo.mp4 and uncommenting the <video> block.
  */
 ---
 
@@ -21,74 +19,159 @@
       </p>
     </div>
 
-    <!-- Video container -->
+    <!-- Animated demo container -->
     <div class="fade-in">
       <div
-        class="video-container relative rounded-2xl overflow-hidden aspect-video cursor-pointer group"
+        class="relative rounded-2xl overflow-hidden p-6 sm:p-10"
         style="background: var(--brand-card); border: 1px solid var(--brand-border);"
       >
-        <!-- Placeholder: swap with <video> when ready -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <!-- Animated workflow preview -->
-          <div class="flex items-center gap-3 text-sm" style="color: var(--brand-muted);">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-              </svg>
-              <span class="lang-en">Press & Speak</span>
-              <span class="lang-zh">按住說話</span>
-            </span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--brand-gold);">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
-                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-              </svg>
-              <span class="lang-en">AI Polishes</span>
-              <span class="lang-zh">AI 潤稿</span>
-            </span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--brand-gold);">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold);">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              <span class="lang-en">Text Appears</span>
-              <span class="lang-zh">文字出現</span>
-            </span>
-          </div>
-
-          <!-- Play button -->
-          <div
-            class="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-            style="background: rgba(251, 191, 36, 0.15); border: 2px solid var(--brand-gold); color: var(--brand-gold);"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-
-          <p class="text-xs" style="color: var(--brand-muted); opacity: 0.6;">
-            <span class="lang-en">Demo video coming soon</span>
-            <span class="lang-zh">示範影片即將推出</span>
-          </p>
+        <!-- Fake app window chrome -->
+        <div class="flex items-center gap-2 mb-6">
+          <div class="w-3 h-3 rounded-full" style="background: #ef4444;"></div>
+          <div class="w-3 h-3 rounded-full" style="background: #eab308;"></div>
+          <div class="w-3 h-3 rounded-full" style="background: #22c55e;"></div>
+          <span class="ml-3 text-xs font-mono" style="color: var(--brand-muted);">TypeLate — Slack</span>
         </div>
 
-        <!-- Uncomment when video is ready:
-        <video
-          class="w-full h-full object-cover"
-          poster="/assets/demo-poster.jpg"
-          controls
-          preload="none"
-          playsinline
-        >
-          <source src="/assets/demo.mp4" type="video/mp4" />
-        </video>
-        -->
+        <!-- Simulated text area -->
+        <div class="rounded-xl p-5 sm:p-6 min-h-[120px]" style="background: var(--brand-bg); border: 1px solid var(--brand-border);">
+          <!-- Step indicator -->
+          <div id="demo-status" class="flex items-center gap-2 mb-4">
+            <span
+              id="demo-badge"
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider transition-all duration-300"
+              style="background: rgba(251, 191, 36, 0.12); color: var(--brand-gold);"
+            >
+              <span id="demo-badge-icon"></span>
+              <span id="demo-badge-text">Listening...</span>
+            </span>
+          </div>
+
+          <!-- Animated text output -->
+          <div class="font-mono text-sm sm:text-base leading-relaxed" style="color: var(--brand-foreground);">
+            <span id="demo-text"></span>
+            <span id="demo-cursor" class="inline-block w-[2px] h-[1.2em] ml-0.5 align-text-bottom" style="background: var(--brand-gold); animation: cursor-blink 1s step-end infinite;"></span>
+          </div>
+        </div>
+
+        <!-- Replay button -->
+        <div class="mt-4 text-center">
+          <button
+            id="demo-replay"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 hover:scale-105 opacity-0"
+            style="background: rgba(251, 191, 36, 0.08); color: var(--brand-gold); border: 1px solid rgba(251, 191, 36, 0.15);"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>
+            </svg>
+            <span class="lang-en">Replay</span><span class="lang-zh">重播</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
+  const textEl = document.getElementById('demo-text')!;
+  const cursorEl = document.getElementById('demo-cursor')!;
+  const badgeEl = document.getElementById('demo-badge')!;
+  const badgeIcon = document.getElementById('demo-badge-icon')!;
+  const badgeText = document.getElementById('demo-badge-text')!;
+  const replayBtn = document.getElementById('demo-replay')!;
+
+  const rawText = "so basically uh I wanted to let you know that um the the feature we talked about last week is uh done and I think we should like ship it to production by uh by Friday";
+  const polishedText = "The feature we discussed last week is complete. I recommend shipping it to production by Friday.";
+
+  function setBadge(state: 'listening' | 'processing' | 'done') {
+    const configs = {
+      listening: {
+        bg: 'rgba(239, 68, 68, 0.12)',
+        color: '#f87171',
+        icon: '●',
+        text: 'Recording...',
+        textZh: '錄音中...',
+      },
+      processing: {
+        bg: 'rgba(251, 191, 36, 0.12)',
+        color: 'var(--brand-gold)',
+        icon: '✦',
+        text: 'AI Enhancing...',
+        textZh: 'AI 潤稿中...',
+      },
+      done: {
+        bg: 'rgba(34, 197, 94, 0.12)',
+        color: '#4ade80',
+        icon: '✓',
+        text: 'Done — Pasted!',
+        textZh: '完成 — 已貼上！',
+      },
+    };
+    const c = configs[state];
+    badgeEl.style.background = c.bg;
+    badgeEl.style.color = c.color;
+    badgeIcon.textContent = c.icon;
+
+    const isZh = document.documentElement.getAttribute('data-lang') === 'zh';
+    badgeText.textContent = isZh ? c.textZh : c.text;
+  }
+
+  async function typeText(text: string, speed: number) {
+    for (let i = 0; i < text.length; i++) {
+      textEl.textContent += text[i];
+      await new Promise(r => setTimeout(r, speed));
+    }
+  }
+
+  async function runDemo() {
+    replayBtn.style.opacity = '0';
+    textEl.textContent = '';
+    cursorEl.style.display = '';
+
+    // Phase 1: "Recording" — type raw text fast
+    setBadge('listening');
+    await typeText(rawText, 18);
+
+    // Pause — release key
+    await new Promise(r => setTimeout(r, 600));
+
+    // Phase 2: "Processing" — clear and show AI working
+    setBadge('processing');
+    textEl.textContent = '';
+    await new Promise(r => setTimeout(r, 800));
+
+    // Phase 3: "Done" — type polished text
+    setBadge('done');
+    await typeText(polishedText, 25);
+
+    // Show cursor for a moment, then hide
+    await new Promise(r => setTimeout(r, 500));
+    cursorEl.style.display = 'none';
+
+    // Show replay button
+    replayBtn.style.opacity = '1';
+  }
+
+  // Auto-play when section becomes visible
+  const section = document.getElementById('video-demo')!;
+  let hasPlayed = false;
+  const demoObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !hasPlayed) {
+      hasPlayed = true;
+      setTimeout(() => runDemo(), 500);
+    }
+  }, { threshold: 0.4 });
+  demoObserver.observe(section);
+
+  replayBtn.addEventListener('click', () => {
+    hasPlayed = true;
+    runDemo();
+  });
+</script>
