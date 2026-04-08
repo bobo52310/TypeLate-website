@@ -15,8 +15,7 @@ const {
 const siteName = SITE.name;
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? SITE.url;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-// TODO: Create a proper 1200x630 PNG OG image. See public/assets/og-image.svg for design template.
-const ogImage = `${siteUrl}/assets/logo-typelate.png`;
+const ogImage = `${siteUrl}/assets/og-image.png`;
 
 const jsonLd = {
   "@context": "https://schema.org",
