@@ -223,6 +223,13 @@ details.faq-item[open] {
   }
 }
 
+/* ---- Back to Top Button ---- */
+#back-to-top:hover {
+  color: var(--brand-gold);
+  border-color: rgba(251, 191, 36, 0.3);
+  transform: translateY(-2px);
+}
+
 /* ---- Wishlist Button ---- */
 .wishlist-btn:hover {
   border-color: rgba(251, 191, 36, 0.4) !important;

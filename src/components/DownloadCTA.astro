@@ -59,11 +59,12 @@ try {
     </div>
 
     <!-- Download buttons -->
-    <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+    <div id="cta-download-buttons" class="fade-in flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
       <!-- macOS ARM -->
       <a
         href={DOWNLOAD_MAC}
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        data-platform="mac"
+        class="cta-dl-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
         style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -77,7 +78,8 @@ try {
       <!-- macOS Intel -->
       <a
         href={DOWNLOAD_MAC_INTEL}
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        data-platform="mac"
+        class="cta-dl-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
         style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -91,7 +93,8 @@ try {
       <!-- Android -->
       <a
         href={DOWNLOAD_ANDROID}
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        data-platform="android"
+        class="cta-dl-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
         style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -103,7 +106,8 @@ try {
       <!-- Windows -->
       <a
         href={DOWNLOAD_WIN}
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
+        data-platform="windows"
+        class="cta-dl-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto justify-center"
         style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -180,3 +184,22 @@ try {
     </div>
   </div>
 </section>
+
+<script>
+  // OS auto-detection for CTA download buttons
+  const btns = document.querySelectorAll<HTMLAnchorElement>('.cta-dl-btn');
+  if (btns.length > 0) {
+    const ua = navigator.userAgent.toLowerCase();
+    let detectedPlatform = 'mac'; // default
+    if (ua.includes('win')) detectedPlatform = 'windows';
+    else if (ua.includes('android')) detectedPlatform = 'android';
+
+    const goldStyle = 'background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; border: none;';
+    const outlineStyle = 'border: 1px solid var(--brand-border); color: var(--brand-foreground); background: transparent;';
+
+    btns.forEach((btn) => {
+      const isMatch = btn.dataset.platform === detectedPlatform;
+      btn.style.cssText = isMatch ? goldStyle : outlineStyle;
+    });
+  }
+</script>
