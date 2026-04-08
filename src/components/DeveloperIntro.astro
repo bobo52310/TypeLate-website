@@ -1,11 +1,14 @@
 ---
+import { GITHUB_OWNER } from "../config/site";
+
 const developer = {
   name: "Bobo Chen",
   role: "Creator of TypeLate",
   roleZh: "TypeLate 創作者",
   bio: "Full-stack developer passionate about making voice technology accessible to everyone. Built TypeLate to solve my own frustration with typing long messages — now sharing it with the world as open source.",
   bioZh: "全端工程師，致力於讓語音科技更容易被每個人使用。因為自己打字打到厭煩而打造了 TypeLate — 現在以開源方式與全世界分享。",
-  github: "https://github.com/bobo52310",
+  github: `https://github.com/${GITHUB_OWNER}`,
+  avatar: `https://github.com/${GITHUB_OWNER}.png?size=128`,
 };
 ---
 
@@ -24,26 +27,16 @@ const developer = {
       class="fade-in flex flex-col sm:flex-row items-center sm:items-start gap-8 rounded-2xl p-8"
       style="background: var(--brand-card); border: 1px solid var(--brand-border);"
     >
-      <!-- Photo placeholder -->
-      <div
-        class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl flex-shrink-0 flex items-center justify-center"
-        style="background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.15);"
-      >
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          style="color: var(--brand-gold);"
-        >
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>
-      </div>
+      <!-- Avatar -->
+      <img
+        src={developer.avatar}
+        alt={developer.name}
+        width="112"
+        height="112"
+        class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl flex-shrink-0 object-cover"
+        style="border: 2px solid rgba(251, 191, 36, 0.2);"
+        loading="lazy"
+      />
 
       <!-- Text -->
       <div class="text-center sm:text-left">
@@ -63,10 +56,7 @@ const developer = {
             href={developer.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm transition-colors duration-200"
-            style="color: var(--brand-muted);"
-            onmouseover="this.style.color='var(--brand-foreground)'"
-            onmouseout="this.style.color='var(--brand-muted)'"
+            class="inline-flex items-center gap-2 text-sm transition-colors duration-200 text-[var(--brand-muted)] hover:text-[var(--brand-foreground)]"
           >
             <svg
               width="18"
