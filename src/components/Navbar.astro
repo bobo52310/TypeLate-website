@@ -80,7 +80,17 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
         <span class="lang-en">Download</span><span class="lang-zh">下載</span>
       </a>
 
-      <!-- Mobile: Hamburger button -->
+      <!-- Mobile: Download + Hamburger -->
+      <a
+        href={DOWNLOAD_URL}
+        class="sm:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold"
+        style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="lang-en">Get</span><span class="lang-zh">下載</span>
+      </a>
       <button
         id="mobile-menu-btn"
         class="sm:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-colors"
@@ -98,10 +108,10 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
     </div>
   </div>
 
-  <!-- Mobile dropdown menu -->
+  <!-- Mobile dropdown menu (animated via max-height) -->
   <div
     id="mobile-menu"
-    class="sm:hidden hidden"
+    class="sm:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0"
     style="background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--brand-border);"
   >
     <div class="max-w-6xl mx-auto px-6 py-4 space-y-1">
@@ -179,23 +189,30 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
+  function closeMenu() {
+    if (!menu || !iconOpen || !iconClose || !menuBtn) return;
+    menu.style.maxHeight = '0';
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+
   if (menuBtn && menu && iconOpen && iconClose) {
     menuBtn.addEventListener('click', () => {
-      const isOpen = !menu.classList.contains('hidden');
-      menu.classList.toggle('hidden', isOpen);
-      iconOpen.classList.toggle('hidden', !isOpen);
-      iconClose.classList.toggle('hidden', isOpen);
-      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        menu.style.maxHeight = menu.scrollHeight + 'px';
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+      }
     });
 
     // Close menu when clicking a link
     menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 </script>
