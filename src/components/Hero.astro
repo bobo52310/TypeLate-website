@@ -80,17 +80,15 @@ try {
       </svg>
       100% Free &middot; Open Source &middot; MIT Licensed
     </span>
-    {downloadCount && (
-      <span
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium tracking-wide"
-        style="background: rgba(34, 197, 94, 0.08); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.15);"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        {downloadCount}+ downloads
-      </span>
-    )}
+    <span
+      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
+      style="background: rgba(99, 102, 241, 0.08); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2);"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span class="lang-en">Built by the community</span><span class="lang-zh">由社群共同打造</span>
+    </span>
   </div>
 
   <!-- Logo -->
@@ -141,46 +139,6 @@ try {
       in under 3 seconds — right where you type.</span>
       <span class="lang-zh">開口說，AI 潤稿，你的詞彙最對味。</span>
     </p>
-  </div>
-
-  <!-- Trust badges -->
-  <div class="fade-in flex flex-wrap items-center justify-center gap-3 mb-8">
-    <span
-      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-      style="background: rgba(34, 197, 94, 0.08); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.15);"
-    >
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </svg>
-      <span class="lang-en">Zero Telemetry</span><span class="lang-zh">零遙測</span>
-    </span>
-    <span
-      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-      style="background: rgba(59, 130, 246, 0.08); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.15);"
-    >
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-      </svg>
-      BYOK
-    </span>
-    <span
-      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-      style="background: rgba(168, 85, 247, 0.08); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.15);"
-    >
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-      <span class="lang-en">MIT Licensed</span><span class="lang-zh">MIT 授權</span>
-    </span>
-    <span
-      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-      style="background: rgba(251, 191, 36, 0.08); color: var(--brand-gold); border: 1px solid rgba(251, 191, 36, 0.15);"
-    >
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      <span class="lang-en">&lt; 3s</span><span class="lang-zh">&lt; 3 秒</span>
-    </span>
   </div>
 
   <!-- CTA Buttons -->
@@ -243,6 +201,12 @@ try {
       )}
     </a>
   </div>
+
+  <!-- Community nudge -->
+  <p class="fade-in text-xs mb-6" style="color: var(--brand-muted); opacity: 0.7;">
+    <span class="lang-en">Open source &amp; growing — <a href="https://github.com/bobo52310/TypeLate" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-100 transition-opacity" style="color: #818cf8;">join us on GitHub</a></span>
+    <span class="lang-zh">開源持續成長中 — <a href="https://github.com/bobo52310/TypeLate" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-100 transition-opacity" style="color: #818cf8;">一起在 GitHub 打造</a></span>
+  </p>
 
   <!-- Platform links -->
   <div class="fade-in flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs" style="color: var(--brand-muted);">
