@@ -7,12 +7,13 @@ const features = [
     icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
     title: "Your Keys, Your Data",
     titleZh: "你的金鑰，你的資料",
-    tagline: "Zero-knowledge by design",
-    taglineZh: "零知識架構",
-    desc: "Bring your own OpenAI / Groq API key. Voice data goes directly from your device to the AI provider — never through our servers. No subscription, no account, no uploads.",
-    descZh: "自備 OpenAI / Groq API Key，你的語音資料直接從你的電腦送到 AI 供應商 — 永遠不經過我們的伺服器。沒有訂閱、沒有帳號、沒有上傳。",
-    bullets: ["No voice ever hits our servers", "Offline Whisper mode", "All keys encrypted locally"],
-    bulletsZh: ["語音不經我們的伺服器", "離線 Whisper 模式", "所有 key 加密儲存於本機"],
+    tagline: "Bring Your Own Key · 5 providers",
+    taglineZh: "自備金鑰 · 5 家 AI 供應商",
+    desc: "Plug in your own key from Groq, OpenAI, Gemini, OpenRouter, or NVIDIA NIM — switch any time. Voice data goes straight from your device to the provider you choose, never through our servers. No subscription, no account, no uploads.",
+    descZh: "自備 Groq、OpenAI、Gemini、OpenRouter 或 NVIDIA NIM 任何一家的 API Key — 隨時切換。你的語音資料直接從電腦送到你選的供應商 — 永遠不經過我們的伺服器。沒有訂閱、沒有帳號、沒有上傳。",
+    bullets: ["5 providers supported, free tiers available", "Voice never hits our servers", "All keys encrypted locally"],
+    bulletsZh: ["支援 5 家供應商，多數有免費額度", "語音不經我們的伺服器", "所有 key 加密儲存於本機"],
+    providers: ["Groq", "OpenAI", "Gemini", "OpenRouter", "NVIDIA NIM"],
   },
   {
     id: "opensource",
@@ -57,10 +58,10 @@ const features = [
     titleZh: "快如思考",
     tagline: "Under 3 seconds",
     taglineZh: "平均低於 3 秒",
-    desc: "Using Groq's Whisper API — from releasing the hotkey to text landing averages under 3 seconds. Supports OpenAI, Groq and Azure, switchable any time.",
-    descZh: "使用 Groq 的 Whisper API，從鬆開快捷鍵到文字落地 — 平均低於 3 秒。支援 OpenAI、Groq、Azure，隨時切換。",
-    bullets: ["< 3s average round-trip", "Groq / OpenAI / Azure — your pick", "Local Whisper (works offline)"],
-    bulletsZh: ["平均 < 3 秒完成", "Groq / OpenAI / Azure 任選", "本地 Whisper（離線可用）"],
+    desc: "Using Groq's Whisper API — from releasing the hotkey to text landing averages under 3 seconds. Swap to OpenAI Whisper or a local model any time.",
+    descZh: "使用 Groq 的 Whisper API，從鬆開快捷鍵到文字落地 — 平均低於 3 秒。可隨時切換到 OpenAI Whisper 或本地模型。",
+    bullets: ["< 3s average round-trip", "Groq / OpenAI Whisper — your pick", "Local Whisper (works offline)"],
+    bulletsZh: ["平均 < 3 秒完成", "Groq / OpenAI Whisper 任選", "本地 Whisper（離線可用）"],
   },
 ];
 ---
@@ -135,6 +136,19 @@ const features = [
                 </div>
               ))}
             </div>
+            {f.providers && (
+              <div class="feat-providers">
+                <div class="feat-providers-label">
+                  <span class="lang-en">Supported providers</span>
+                  <span class="lang-zh">支援的 AI 供應商</span>
+                </div>
+                <div class="feat-providers-row">
+                  {f.providers.map((p) => (
+                    <span class="feat-provider-chip">{p}</span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -307,6 +321,35 @@ const features = [
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+
+  .feat-providers {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(51, 65, 85, 0.6);
+  }
+  .feat-providers-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(161, 178, 196, 0.7);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .feat-providers-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .feat-provider-chip {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(251, 191, 36, 0.06);
+    border: 1px solid rgba(251, 191, 36, 0.22);
+    color: var(--brand-gold);
+    font-variant-numeric: tabular-nums;
   }
 </style>
 
