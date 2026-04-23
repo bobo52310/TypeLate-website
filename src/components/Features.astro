@@ -1,90 +1,330 @@
 ---
+// Interactive tabbed features — Version A style.
+// Left column: tab nav; right column: dynamic preview panel.
 const features = [
   {
-    title: "Works Everywhere",
-    titleZh: "隨處可用",
-    desc: "Hold, Toggle, or Double-Tap in any app. Fn key default, fully customizable.",
-    descZh: "按住、切換或雙擊，在任何 app 中使用",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h12"/></svg>`,
-  },
-  {
-    title: "AI Post-Processing",
-    titleZh: "AI 智慧潤稿",
-    desc: "AI polishes your speech into clean text — removing fillers, fixing grammar. Fully customizable prompts to match your style.",
-    descZh: "AI 自動潤飾語音為乾淨文字 — 去除贅詞、修正文法。可自訂 Prompt，打造專屬潤稿風格。",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`,
-  },
-  {
-    title: "Fast & Flexible",
-    titleZh: "快速又靈活",
-    desc: "Under 3 seconds with Groq, or bring your OpenAI key. Switch providers anytime \u2014 your workflow, your choice.",
-    descZh: "使用 Groq 3 秒完成，也支援 OpenAI。隨時切換供應商 \u2014 你的工作流，你做主。",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
-  },
-  {
+    id: "privacy",
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
     title: "Your Keys, Your Data",
     titleZh: "你的金鑰，你的資料",
-    desc: "Bring your own API key. Voice data goes directly to the provider \u2014 never through us.",
-    descZh: "自備 API Key，語音不經過我們",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>`,
+    tagline: "Zero-knowledge by design",
+    taglineZh: "零知識架構",
+    desc: "Bring your own OpenAI / Groq API key. Voice data goes directly from your device to the AI provider — never through our servers. No subscription, no account, no uploads.",
+    descZh: "自備 OpenAI / Groq API Key，你的語音資料直接從你的電腦送到 AI 供應商 — 永遠不經過我們的伺服器。沒有訂閱、沒有帳號、沒有上傳。",
+    bullets: ["No voice ever hits our servers", "Offline Whisper mode", "All keys encrypted locally"],
+    bulletsZh: ["語音不經我們的伺服器", "離線 Whisper 模式", "所有 key 加密儲存於本機"],
   },
   {
-    title: "Smart Dictionary",
+    id: "opensource",
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`,
+    title: "100% Open Source · Free Forever",
+    titleZh: "100% 開源 · 永久免費",
+    tagline: "Read it. Fork it. Own it.",
+    taglineZh: "閱讀、分叉、擁有",
+    desc: "MIT licensed, community-built. Every core path — speech, AI polish, vocabulary sync — is on GitHub. Read it, modify it, ship it. No paywall, no tracking.",
+    descZh: "MIT 授權、社群共建。所有核心邏輯都在 GitHub 上 — 語音處理、AI 潤稿、詞彙同步。你可以閱讀、改造、重新發佈。沒有付費牆、沒有追蹤。",
+    bullets: ["MIT License · commercial OK", "Transparent transcribe & polish logic", "PRs welcome, forks encouraged"],
+    bulletsZh: ["MIT License · 商用自由", "透明的轉錄與潤稿邏輯", "歡迎 PR、歡迎分叉"],
+  },
+  {
+    id: "vocab",
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 0 0-20Z"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M12 2a14.5 14.5 0 0 1 0 20"/><path d="M2 12h20"/></svg>`,
+    title: "Smart Vocabulary",
     titleZh: "智慧詞彙庫",
-    desc: "AI auto-learns from your corrections. Paste a URL to import domain-specific terms. Synced via Google Drive across all your devices.",
-    descZh: "AI 從你的修正中自動學習新詞。貼上 URL 即可匯入專業術語。透過 Google Drive 跨裝置同步。",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+    tagline: "Learns how you talk",
+    taglineZh: "學會你的說話方式",
+    desc: "The AI learns from every correction you make. Paste a URL to import domain terms. Synced across mac / Windows / Android through Google Drive — open a new device and it already knows you.",
+    descZh: "你每一次修正，AI 都在學。貼上一段網址就能匯入專業術語。透過 Google Drive 在 mac / Windows / Android 之間同步 — 打開新裝置就是熟悉的你。",
+    bullets: ["Auto-learns from your edits", "Import terms by URL", "Google Drive cross-device sync"],
+    bulletsZh: ["從你的修改自動學習", "貼 URL 匯入術語庫", "Google Drive 跨裝置同步"],
   },
   {
-    title: "Knows Your Context",
+    id: "context",
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>`,
+    title: "Context-Aware Tone",
     titleZh: "感知你的情境",
-    desc: "Auto-adjusts tone based on active app \u2014 formal in email, casual in chat, technical in IDE.",
-    descZh: "根據使用的 app 自動調整語氣",
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+    tagline: "Right voice, right place",
+    taglineZh: "該正式時正式、該口語時口語",
+    desc: "TypeLate knows what you're writing in. Formal tone in Mail, casual in iMessage, symbols preserved in VS Code — no settings to flip.",
+    descZh: "TypeLate 知道你在寫什麼。在 Mail 裡用正式語氣，在 iMessage 裡口語化，在 VS Code 裡保留程式符號 — 不用切換設定。",
+    bullets: ["Tone auto-adjusts per app", "Code symbols & layout preserved", "Custom prompt per app"],
+    bulletsZh: ["依 app 自動調整語氣", "保留程式符號與排版", "可自訂每個 app 的 Prompt"],
+  },
+  {
+    id: "speed",
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    title: "Faster Than Thinking",
+    titleZh: "快如思考",
+    tagline: "Under 3 seconds",
+    taglineZh: "平均低於 3 秒",
+    desc: "Using Groq's Whisper API — from releasing the hotkey to text landing averages under 3 seconds. Supports OpenAI, Groq and Azure, switchable any time.",
+    descZh: "使用 Groq 的 Whisper API，從鬆開快捷鍵到文字落地 — 平均低於 3 秒。支援 OpenAI、Groq、Azure，隨時切換。",
+    bullets: ["< 3s average round-trip", "Groq / OpenAI / Azure — your pick", "Local Whisper (works offline)"],
+    bulletsZh: ["平均 < 3 秒完成", "Groq / OpenAI / Azure 任選", "本地 Whisper（離線可用）"],
   },
 ];
 ---
 
-<section id="features" class="py-24 px-6" style="background: rgba(30, 41, 59, 0.3);">
-  <div class="max-w-5xl mx-auto">
-    <!-- Section title -->
-    <div class="fade-in text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
-        <span class="lang-en">Features</span>
-        <span class="lang-zh">功能特色</span>
+<section id="features" class="feat-v2">
+  <div class="feat-container">
+    <div class="feat-header fade-in">
+      <div class="feat-kicker">
+        <span class="lang-en">02 — Features</span>
+        <span class="lang-zh">02 — 功能特色</span>
+      </div>
+      <h2 class="feat-h2">
+        <span class="lang-en">Not just fast. It's yours.</span>
+        <span class="lang-zh">不只快。還是你的。</span>
       </h2>
+      <p class="feat-intro">
+        <span class="lang-en">Click any feature on the left — we'll show you exactly how it works.</span>
+        <span class="lang-zh">點選左側每個特色 — 我們會實時展示它是怎麼運作的。</span>
+      </p>
     </div>
 
-    <!-- Grid -->
-    <div class="fade-in grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {
-        features.map((f) => (
-          <div
-            class="fade-in-child feature-card rounded-2xl p-6"
-            style="background: var(--brand-card); border: 1px solid var(--brand-border);"
+    <div class="feat-panel fade-in">
+      <div class="feat-tabs" role="tablist">
+        {features.map((f, i) => (
+          <button
+            class={`feat-tab ${i === 0 ? "active" : ""}`}
+            data-tab={f.id}
+            role="tab"
+            aria-selected={i === 0 ? "true" : "false"}
+            type="button"
           >
-            {/* Icon */}
-            <div
-              class="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-              style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold);"
-            >
+            <div class="feat-tab-icon">
               <Fragment set:html={f.icon} />
             </div>
+            <div class="feat-tab-label">
+              <div class="feat-tab-zh">
+                <span class="lang-en">{f.title}</span>
+                <span class="lang-zh">{f.titleZh}</span>
+              </div>
+              <div class="feat-tab-en">{f.title}</div>
+            </div>
+            <svg class="feat-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </button>
+        ))}
+      </div>
 
-            {/* Title */}
-            <h3 class="text-base font-semibold mb-1">
+      <div class="feat-preview">
+        {features.map((f, i) => (
+          <div class={`feat-pane ${i === 0 ? "active" : ""}`} data-pane={f.id}>
+            <div class="feat-pane-tagline">
+              <span class="lang-en">{f.tagline}</span>
+              <span class="lang-zh">{f.taglineZh}</span>
+            </div>
+            <h3 class="feat-pane-title">
               <span class="lang-en">{f.title}</span>
               <span class="lang-zh">{f.titleZh}</span>
             </h3>
-
-            {/* Description */}
-            <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
+            <p class="feat-pane-desc">
               <span class="lang-en">{f.desc}</span>
               <span class="lang-zh">{f.descZh}</span>
             </p>
+            <div class="feat-pane-bullets">
+              {f.bullets.map((b, bi) => (
+                <div class="feat-bullet">
+                  <span class="feat-bullet-check">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="lang-en">{b}</span>
+                  <span class="lang-zh">{f.bulletsZh[bi]}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        ))
-      }
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .feat-v2 {
+    padding: 100px 24px;
+    background: #0a0f1a;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+  }
+  .feat-container { max-width: 1080px; margin: 0 auto; }
+  .feat-header { margin-bottom: 48px; }
+  .feat-kicker {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .feat-h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 720px;
+    color: var(--brand-foreground);
+  }
+  .feat-intro {
+    font-size: 17px;
+    color: var(--brand-muted);
+    margin-top: 16px;
+    max-width: 560px;
+  }
+
+  .feat-panel {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 8px;
+    background: var(--brand-card);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 20px;
+    padding: 8px;
+  }
+  @media (max-width: 800px) {
+    .feat-panel { grid-template-columns: 1fr; }
+  }
+
+  .feat-tabs {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .feat-tab {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--brand-muted);
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .feat-tab:hover { color: var(--brand-foreground); }
+  .feat-tab.active {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: rgba(251, 191, 36, 0.25);
+    color: var(--brand-foreground);
+    font-weight: 600;
+  }
+  .feat-tab-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(161, 178, 196, 0.6);
+    flex-shrink: 0;
+  }
+  .feat-tab.active .feat-tab-icon {
+    background: rgba(251, 191, 36, 0.12);
+    color: var(--brand-gold);
+  }
+  .feat-tab-label { flex: 1; }
+  .feat-tab-zh { white-space: nowrap; }
+  .feat-tab-en {
+    font-size: 11px;
+    color: rgba(161, 178, 196, 0.6);
+    font-weight: 400;
+    margin-top: 2px;
+    display: none;
+  }
+  html[data-lang="zh"] .feat-tab-en { display: block; }
+  .feat-tab-arrow {
+    opacity: 0;
+    color: var(--brand-gold);
+    transition: opacity 0.2s;
+  }
+  .feat-tab.active .feat-tab-arrow { opacity: 1; }
+
+  .feat-preview {
+    background: #0a0f1a;
+    border-radius: 14px;
+    padding: 36px;
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    min-height: 320px;
+    position: relative;
+  }
+  .feat-pane {
+    display: none;
+    animation: feat-fade 0.3s ease-out;
+  }
+  .feat-pane.active { display: block; }
+  @keyframes feat-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .feat-pane-tagline {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .feat-pane-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.02em;
+    color: var(--brand-foreground);
+  }
+  .feat-pane-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--brand-muted);
+    margin: 0 0 24px 0;
+    max-width: 560px;
+  }
+  .feat-pane-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .feat-bullet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--brand-foreground);
+  }
+  .feat-bullet-check {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.feat-tab');
+  const panes = document.querySelectorAll<HTMLElement>('.feat-pane');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.tab;
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', String(isActive));
+      });
+      panes.forEach((p) => {
+        p.classList.toggle('active', p.dataset.pane === id);
+      });
+    });
+  });
+</script>

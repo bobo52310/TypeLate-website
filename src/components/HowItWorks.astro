@@ -1,82 +1,149 @@
 ---
 const steps = [
   {
-    num: "1",
+    num: "01",
     title: "Hold Hotkey",
     titleZh: "按住快捷鍵",
-    desc: "Press Fn (or your custom hotkey) in any application.",
-    descZh: "在任何應用程式中按住 Fn 鍵",
-    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h12"/></svg>`,
+    desc: "Press Fn (or your custom hotkey) in any application to start recording.",
+    descZh: "在任何 app 中按住 Fn（或自訂快捷鍵）即刻開始錄音。",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h12"/></svg>`,
   },
   {
-    num: "2",
+    num: "02",
     title: "Speak Naturally",
     titleZh: "自然說話",
-    desc: "Talk as you normally would. No need to articulate perfectly.",
-    descZh: "用平常說話的方式，不用字正腔圓",
-    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>`,
+    desc: "Talk the way you normally do — no need to articulate perfectly or repeat yourself.",
+    descZh: "用平常說話的方式就好，不用字正腔圓、不用重複。",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>`,
   },
   {
-    num: "3",
+    num: "03",
     title: "Text Appears",
     titleZh: "文字出現",
-    desc: "AI transcribes, polishes with your custom prompt, and pastes at your cursor in under 3 seconds.",
-    descZh: "AI 轉錄、依你的自訂 Prompt 潤稿，貼上游標處，3 秒完成",
-    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>`,
+    desc: "AI transcribes and polishes per your prompt, then pastes at your cursor.",
+    descZh: "AI 轉錄、潤稿，依你的 Prompt 風格輸出，貼在游標處。",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`,
   },
 ];
 ---
 
-<section id="how-it-works" class="py-24 px-6">
-  <div class="max-w-5xl mx-auto">
-    <!-- Section title -->
-    <div class="fade-in text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
-        <span class="lang-en">How It Works</span>
-        <span class="lang-zh">三步完成</span>
+<section id="how-it-works" class="hiw-v2">
+  <div class="hiw-container">
+    <div class="hiw-header fade-in">
+      <div class="hiw-kicker">
+        <span class="lang-en">01 — How it works</span>
+        <span class="lang-zh">01 — 使用方式</span>
+      </div>
+      <h2 class="hiw-h2">
+        <span class="lang-en">Three steps. Speech becomes text.</span>
+        <span class="lang-zh">三個步驟，把你的聲音變成文字。</span>
       </h2>
     </div>
 
-    <!-- Steps -->
-    <div class="fade-in grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-      <!-- Connector line (desktop) -->
-      <div
-        class="hidden md:block absolute top-12 left-[16.6%] right-[16.6%] h-px"
-        style="background: linear-gradient(90deg, transparent, var(--brand-border), var(--brand-border), transparent);"
-      >
-      </div>
-
-      {
-        steps.map((step) => (
-          <div class="fade-in-child flex flex-col items-center text-center relative">
-            {/* Step number */}
-            <div
-              class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-5 relative z-10"
-              style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
-            >
-              {step.num}
-            </div>
-
-            {/* Icon */}
-            <div
-              class="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
-              style="background: rgba(251, 191, 36, 0.08); color: var(--brand-gold);"
-            >
-              <Fragment set:html={step.icon} />
-            </div>
-
-            {/* Text */}
-            <h3 class="text-lg font-semibold mb-1">
-              <span class="lang-en">{step.title}</span>
-              <span class="lang-zh">{step.titleZh}</span>
-            </h3>
-            <p class="text-sm leading-relaxed" style="color: var(--brand-muted);">
-              <span class="lang-en">{step.desc}</span>
-              <span class="lang-zh">{step.descZh}</span>
-            </p>
+    <div class="hiw-grid fade-in">
+      {steps.map((s) => (
+        <div class="fade-in-child hiw-card">
+          <div class="hiw-num">{s.num}</div>
+          <div class="hiw-icon">
+            <Fragment set:html={s.icon} />
           </div>
-        ))
-      }
+          <div class="hiw-title">
+            <span class="lang-en">{s.title}</span>
+            <span class="lang-zh">{s.titleZh}</span>
+          </div>
+          <div class="hiw-en">{s.title}</div>
+          <div class="hiw-desc">
+            <span class="lang-en">{s.desc}</span>
+            <span class="lang-zh">{s.descZh}</span>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  .hiw-v2 {
+    padding: 100px 24px;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    background: var(--brand-bg);
+  }
+  .hiw-container { max-width: 1080px; margin: 0 auto; }
+  .hiw-header { margin-bottom: 56px; }
+  .hiw-kicker {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .hiw-h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 720px;
+    color: var(--brand-foreground);
+  }
+  .hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 800px) { .hiw-grid { grid-template-columns: 1fr; } }
+  .hiw-card {
+    padding: 28px;
+    background: var(--brand-card);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .hiw-card:hover {
+    border-color: rgba(251, 191, 36, 0.3);
+    transform: translateY(-2px);
+  }
+  .hiw-num {
+    font-size: 11px;
+    color: rgba(161, 178, 196, 0.6);
+    letter-spacing: 0.2em;
+    margin-bottom: 32px;
+  }
+  .hiw-icon {
+    width: 44px; height: 44px;
+    border-radius: 11px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-gold);
+    margin-bottom: 22px;
+  }
+  .hiw-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--brand-foreground);
+  }
+  .hiw-en {
+    display: none;
+  }
+  html[data-lang="zh"] .hiw-en {
+    display: block;
+    font-size: 13px;
+    color: rgba(161, 178, 196, 0.6);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  html[data-lang="en"] .hiw-en,
+  html:not([data-lang="zh"]) .hiw-en {
+    display: none;
+  }
+  .hiw-desc {
+    font-size: 14px;
+    color: var(--brand-muted);
+    line-height: 1.65;
+    margin-top: 14px;
+  }
+</style>

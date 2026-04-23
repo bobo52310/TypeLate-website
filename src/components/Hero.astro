@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import NotchHudDemo from "./NotchHudDemo.astro";
 import { DOWNLOAD_URLS, GITHUB_URL, GITHUB_OWNER, GITHUB_REPO } from "../config/site";
-import logoSrc from "../assets/logo-typelate.png";
 
 const DOWNLOAD_MAC = DOWNLOAD_URLS.macArm64;
 const DOWNLOAD_MAC_INTEL = DOWNLOAD_URLS.macIntel;
@@ -10,262 +8,325 @@ const DOWNLOAD_ANDROID = DOWNLOAD_URLS.android;
 const DOWNLOAD_WIN = DOWNLOAD_URLS.windows;
 const WISHLIST_IOS = DOWNLOAD_URLS.iosWishlist;
 
-// Fetch GitHub stats at build time
+// GitHub stats at build time
 let starCount = "";
-let downloadCount = "";
 try {
-  const [repoRes, releasesRes] = await Promise.all([
-    fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
-      headers: { "Accept": "application/vnd.github.v3+json" },
-    }),
-    fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases?per_page=10`, {
-      headers: { "Accept": "application/vnd.github.v3+json" },
-    }),
-  ]);
-
+  const repoRes = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
+    headers: { "Accept": "application/vnd.github.v3+json" },
+  });
   if (repoRes.ok) {
     const data = await repoRes.json();
     const count = data.stargazers_count as number;
     starCount = count >= 1000 ? `${(count / 1000).toFixed(1)}k` : String(count);
   }
-
-  if (releasesRes.ok) {
-    const releases = await releasesRes.json() as Array<{ assets: Array<{ download_count: number }> }>;
-    const total = releases.reduce(
-      (sum, r) => sum + r.assets.reduce((s, a) => s + a.download_count, 0),
-      0
-    );
-    if (total > 0) {
-      downloadCount = total >= 1000 ? `${(total / 1000).toFixed(1)}k` : String(total);
-    }
-  }
-} catch {
-  // Silently fail — badges just won't show
-}
+} catch { /* silently fail */ }
 ---
 
-<section
-  class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden"
->
-  <!-- Background orbs -->
-  <div
-    class="absolute top-[-8rem] right-[-8rem] w-64 h-64 rounded-full opacity-60 pointer-events-none"
-    style="background: rgba(251, 191, 36, 0.06); filter: blur(80px);"
-  >
-  </div>
-  <div
-    class="absolute bottom-[-6rem] left-[-6rem] w-48 h-48 rounded-full opacity-60 pointer-events-none"
-    style="background: rgba(251, 191, 36, 0.04); filter: blur(60px);"
-  >
-  </div>
+<section class="hero-v2 relative overflow-hidden">
+  <div class="hero-orb hero-orb-gold"></div>
+  <div class="hero-orb hero-orb-indigo"></div>
+  <div class="hero-grid"></div>
 
-  <!-- Badges -->
-  <div class="fade-in flex flex-wrap items-center justify-center gap-2 mb-8">
-    <span
-      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
-      style="background: rgba(251, 191, 36, 0.1); color: var(--brand-gold); border: 1px solid rgba(251, 191, 36, 0.2);"
-    >
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-        <path d="M9 18c-4.51 2-5-2-7-2"></path>
-      </svg>
-      100% Free &middot; Open Source &middot; MIT Licensed
-    </span>
-    <span
-      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
-      style="background: rgba(99, 102, 241, 0.08); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2);"
-    >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-      <span class="lang-en">Built by the community</span><span class="lang-zh">由社群共同打造</span>
-    </span>
-  </div>
-
-  <!-- Logo -->
-  <div class="fade-in mb-8">
-    <Image
-      src={logoSrc}
-      alt="TypeLate"
-      width={128}
-      height={128}
-      class="logo-glow"
-      loading="eager"
-      fetchpriority="high"
-    />
-  </div>
-
-  <!-- Headlines -->
-  <div class="fade-in text-center max-w-3xl mb-6">
-    <h1
-      class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-3"
-    >
-      <span class="lang-en">Too late to type — just speak.</span>
-      <span class="lang-zh">打字太累？用說的才對味！</span>
-    </h1>
-  </div>
-
-  <!-- Rotating slogans -->
-  <div class="fade-in text-center max-w-3xl w-full mb-6">
-    <p class="slogan-rotator h-10 relative overflow-hidden w-full">
-      <span class="slogan-item absolute inset-x-0 transition-all duration-500" data-slogan="0">
-        <span class="lang-en">Type is Late — voice is the future</span>
-        <span class="lang-zh">Type is Late — 打字已過時，語音才對味</span>
+  <div class="max-w-6xl mx-auto relative px-6 pt-28 pb-24 w-full">
+    <!-- Top badges -->
+    <div class="fade-in flex flex-wrap justify-center gap-2.5 mb-10">
+      <span class="hero-badge hero-badge-gold">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="lang-en">100% Free &middot; Open Source &middot; MIT</span>
+        <span class="lang-zh">100% 免費 · 開源 · MIT</span>
       </span>
-      <span class="slogan-item absolute inset-x-0 transition-all duration-500 opacity-0 translate-y-4" data-slogan="2">
-        <span class="lang-en">Tired of typing? Speaking just hits different</span>
-        <span class="lang-zh">打字太累，用說的才對味</span>
+      <span class="hero-badge hero-badge-indigo">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span class="lang-en">Built by the community</span>
+        <span class="lang-zh">由社群共同打造</span>
       </span>
-      <span class="slogan-item absolute inset-x-0 transition-all duration-500 opacity-0 translate-y-4" data-slogan="3">
-        <span class="lang-en">Ditch the keyboard, double the output — try TypeLate</span>
-        <span class="lang-zh">手打太累，嘴砲輸出加倍 — 快用 TypeLate</span>
-      </span>
-    </p>
-  </div>
+    </div>
 
-  <!-- Subtitle -->
-  <div class="fade-in text-center max-w-2xl mb-4">
-    <p class="text-base sm:text-lg leading-relaxed" style="color: var(--brand-muted);">
-      <span class="lang-en">Press a hotkey, speak naturally, release. Your voice becomes polished text
-      in under 3 seconds — right where you type.</span>
-      <span class="lang-zh">開口說，AI 潤稿，你的詞彙最對味。</span>
-    </p>
-  </div>
+    <!-- Split: text left, notch demo right -->
+    <div class="hero-split">
+      <div class="hero-copy fade-in">
+        <h1 class="hero-h1">
+          <span class="lang-en">
+            Too much typing?<br />
+            <span class="text-gradient-gold">Just speak.</span>
+          </span>
+          <span class="lang-zh">
+            打字太累？<br />
+            <span class="text-gradient-gold">用說的才對味。</span>
+          </span>
+        </h1>
 
-  <!-- CTA Buttons -->
-  <div class="fade-in flex flex-col sm:flex-row items-center gap-4 mb-8">
-    <a
-      id="hero-download-btn"
-      href={DOWNLOAD_MAC}
-      data-mac={DOWNLOAD_MAC}
-      data-windows={DOWNLOAD_WIN}
-      data-android={DOWNLOAD_ANDROID}
-      class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105"
-      style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;"
-    >
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-        <polyline points="7 10 12 15 17 10"></polyline>
-        <line x1="12" y1="15" x2="12" y2="3"></line>
-      </svg>
-      <span id="hero-download-label-en" class="lang-en">Download for macOS</span>
-      <span id="hero-download-label-zh" class="lang-zh">下載 macOS 版</span>
-    </a>
-    <a
-      href={GITHUB_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105"
-      style="border: 1px solid var(--brand-border); color: var(--brand-foreground);"
-    >
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="opacity-80"
-      >
-        <path
-          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-        ></path>
-      </svg>
-      <span class="lang-en">View on GitHub</span><span class="lang-zh">在 GitHub 查看</span>
-      {starCount && (
-        <span
-          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium"
-          style="background: rgba(251, 191, 36, 0.12); color: var(--brand-gold);"
-        >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          {starCount}
-        </span>
-      )}
-    </a>
-  </div>
+        <p class="hero-sub">
+          <span class="lang-en">Hold a hotkey, speak naturally, release. In under 3 seconds AI polishes your voice into clean text — pasted right where your cursor sits.</span>
+          <span class="lang-zh">按住快捷鍵、自然說話、鬆開。3 秒內，AI 把你的語音潤成乾淨文字，直接貼在游標處。</span>
+        </p>
 
-  <!-- Community nudge -->
-  <p class="fade-in text-xs mb-6" style="color: var(--brand-muted); opacity: 0.7;">
-    <span class="lang-en">Open source &amp; growing — <a href="https://github.com/bobo52310/TypeLate" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-100 transition-opacity" style="color: #818cf8;">join us on GitHub</a></span>
-    <span class="lang-zh">開源持續成長中 — <a href="https://github.com/bobo52310/TypeLate" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-100 transition-opacity" style="color: #818cf8;">一起在 GitHub 打造</a></span>
-  </p>
+        <div class="hero-ctas">
+          <a
+            id="hero-download-btn"
+            href={DOWNLOAD_MAC}
+            data-mac={DOWNLOAD_MAC}
+            data-windows={DOWNLOAD_WIN}
+            data-android={DOWNLOAD_ANDROID}
+            class="hero-btn hero-btn-primary"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span id="hero-download-label-en" class="lang-en">Download for macOS</span>
+            <span id="hero-download-label-zh" class="lang-zh">下載 macOS 版</span>
+          </a>
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-btn hero-btn-ghost"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-80">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span class="lang-en">View on GitHub</span>
+            <span class="lang-zh">在 GitHub 查看</span>
+            {starCount && (
+              <span class="hero-star-chip">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                {starCount}
+              </span>
+            )}
+          </a>
+        </div>
 
-  <!-- Platform links -->
-  <div class="fade-in flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs" style="color: var(--brand-muted);">
-    <a href={DOWNLOAD_MAC} class="hover:text-[var(--brand-gold)] transition-colors">
-      macOS (Apple Silicon)
-    </a>
-    <span class="opacity-30">|</span>
-    <a href={DOWNLOAD_MAC_INTEL} class="hover:text-[var(--brand-gold)] transition-colors">
-      macOS (Intel)
-    </a>
-    <span class="opacity-30">|</span>
-    <a href={DOWNLOAD_ANDROID} class="hover:text-[var(--brand-gold)] transition-colors">
-      Android
-    </a>
-    <span class="opacity-30">|</span>
-    <a href={DOWNLOAD_WIN} class="hover:text-[var(--brand-gold)] transition-colors">
-      Windows
-    </a>
-    <span class="opacity-30">|</span>
-    <a href={WISHLIST_IOS} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--brand-gold)] transition-colors opacity-60 hover:opacity-100">
-      iOS <span class="text-[10px]" style="color: var(--brand-gold);">Coming Soon</span>
-    </a>
-  </div>
+        <div class="hero-chips">
+          <a href={DOWNLOAD_MAC} class="hero-chip">macOS (Apple Silicon)</a>
+          <a href={DOWNLOAD_MAC_INTEL} class="hero-chip">macOS (Intel)</a>
+          <a href={DOWNLOAD_WIN} class="hero-chip">Windows</a>
+          <a href={DOWNLOAD_ANDROID} class="hero-chip">Android</a>
+          <a href={WISHLIST_IOS} target="_blank" rel="noopener noreferrer" class="hero-chip hero-chip-soon">
+            iOS <span class="hero-chip-soon-label"><span class="lang-en">Coming Soon</span><span class="lang-zh">即將推出</span></span>
+          </a>
+        </div>
+      </div>
 
-  <!-- Notch HUD Demo -->
-  <div class="fade-in mt-16">
-    <NotchHudDemo />
+      <div class="hero-demo fade-in">
+        <NotchHudDemo />
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="hero-stats fade-in">
+      <div class="hero-stat">
+        <div class="hero-stat-num">&lt; 3s</div>
+        <div class="hero-stat-label"><span class="lang-en">Avg round-trip</span><span class="lang-zh">語音轉文字平均時間</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$0</div>
+        <div class="hero-stat-label"><span class="lang-en">Free forever</span><span class="lang-zh">永久免費，無訂閱</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">{starCount || "—"}</div>
+        <div class="hero-stat-label">GitHub Stars</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4+</div>
+        <div class="hero-stat-label"><span class="lang-en">Platforms</span><span class="lang-zh">支援平台</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
-  .slogan-rotator {
-    font-size: 0.95rem;
+  .hero-v2 {
+    background: var(--brand-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+  .hero-orb-gold {
+    top: -120px; right: -80px;
+    width: 400px; height: 400px;
+    background: rgba(245, 197, 114, 0.10);
+  }
+  .hero-orb-indigo {
+    top: 200px; left: -120px;
+    width: 360px; height: 360px;
+    background: rgba(140, 141, 255, 0.06);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
+  }
+  .hero-badge-gold {
+    background: rgba(251, 191, 36, 0.08);
     color: var(--brand-gold);
-    opacity: 0.75;
+    border: 1px solid rgba(251, 191, 36, 0.22);
   }
-  .slogan-item {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  .hero-badge-indigo {
+    background: rgba(129, 140, 248, 0.08);
+    color: #a5b4fc;
+    border: 1px solid rgba(129, 140, 248, 0.24);
   }
-  .slogan-item.active {
-    opacity: 1;
-    transform: translateY(0);
+
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4.5rem;
+    align-items: center;
+    margin-bottom: 5rem;
   }
-  .slogan-item.exit {
-    opacity: 0;
-    transform: translateY(-1rem);
+  @media (max-width: 900px) {
+    .hero-split {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+    .hero-chips { justify-content: center; }
+    .hero-ctas { justify-content: center; }
+  }
+
+  .hero-h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px 0;
+    color: var(--brand-foreground);
+  }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--brand-muted);
+    margin: 0 0 38px 0;
+    max-width: 480px;
+  }
+  @media (max-width: 900px) {
+    .hero-sub { margin-left: auto; margin-right: auto; }
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+  }
+  .hero-btn:hover { transform: translateY(-1px); }
+  .hero-btn-primary {
+    background: linear-gradient(135deg, #fde68a, #f59e0b);
+    color: #0f172a;
+    border: none;
+    box-shadow: 0 8px 24px -8px rgba(245, 197, 114, 0.5);
+  }
+  .hero-btn-ghost {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--brand-foreground);
+    border: 1px solid var(--brand-border);
+  }
+  .hero-star-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: rgba(251, 191, 36, 0.12);
+    color: var(--brand-gold);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .hero-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .hero-chip {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: rgba(161, 178, 196, 0.8);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .hero-chip:hover {
+    border-color: rgba(251, 191, 36, 0.4);
+    color: var(--brand-gold);
+    background: rgba(251, 191, 36, 0.04);
+  }
+  .hero-chip-soon { opacity: 0.7; }
+  .hero-chip-soon-label { color: var(--brand-gold); font-size: 10px; margin-left: 2px; }
+
+  .hero-demo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    padding-top: 40px;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+  @media (max-width: 700px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
+  .hero-stat-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--brand-gold);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--brand-foreground);
+    margin-top: 6px;
   }
 </style>
 
 <script>
-  // OS auto-detection for download button
   const btn = document.getElementById('hero-download-btn') as HTMLAnchorElement | null;
   if (btn) {
     const ua = navigator.userAgent.toLowerCase();
     const labelEn = document.getElementById('hero-download-label-en');
     const labelZh = document.getElementById('hero-download-label-zh');
-
     if (ua.includes('win')) {
       btn.href = btn.dataset.windows!;
       if (labelEn) labelEn.textContent = 'Download for Windows';
@@ -275,36 +336,5 @@ try {
       if (labelEn) labelEn.textContent = 'Download for Android';
       if (labelZh) labelZh.textContent = '下載 Android 版';
     }
-    // macOS is the default — no change needed
-  }
-
-  const items = document.querySelectorAll<HTMLElement>('.slogan-item');
-  if (items.length > 0) {
-    let current = 0;
-    items[0].classList.add('active');
-
-    setInterval(() => {
-      const prev = current;
-      current = (current + 1) % items.length;
-
-      items[prev].classList.remove('active');
-      items[prev].classList.add('exit');
-
-      setTimeout(() => {
-        items[prev].classList.remove('exit');
-        // Reset to below position for next entrance
-        items[prev].style.opacity = '0';
-        items[prev].style.transform = 'translateY(1rem)';
-      }, 500);
-
-      // New item enters from below
-      items[current].style.opacity = '0';
-      items[current].style.transform = 'translateY(1rem)';
-      // Force reflow
-      void items[current].offsetHeight;
-      items[current].classList.add('active');
-      items[current].style.opacity = '';
-      items[current].style.transform = '';
-    }, 3000);
   }
 </script>
