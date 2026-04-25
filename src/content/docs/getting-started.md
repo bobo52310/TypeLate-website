@@ -79,6 +79,40 @@ Run `TypeLate-windows-x64.exe`. SmartScreen may warn about an unrecognized publi
 
 ## 3. Onboarding wizard
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="wizard-steps">
+  <div class="wizard-step">
+    <div class="wizard-step-num">1</div>
+    <div class="wizard-step-name"><span class="lang-en">Welcome</span><span class="lang-zh">歡迎</span></div>
+    <div class="wizard-step-desc"><span class="lang-en">Local-only data promise.</span><span class="lang-zh">資料留在本機的承諾。</span></div>
+  </div>
+  <div class="wizard-step">
+    <div class="wizard-step-num">2</div>
+    <div class="wizard-step-name"><span class="lang-en">Provider</span><span class="lang-zh">供應商</span></div>
+    <div class="wizard-step-desc"><span class="lang-en">Pick Groq, OpenAI, etc.</span><span class="lang-zh">選 Groq、OpenAI 等。</span></div>
+  </div>
+  <div class="wizard-step">
+    <div class="wizard-step-num">3</div>
+    <div class="wizard-step-name">API Key</div>
+    <div class="wizard-step-desc"><span class="lang-en">Paste; prefix is validated.</span><span class="lang-zh">貼上；前綴會驗證。</span></div>
+  </div>
+  <div class="wizard-step">
+    <div class="wizard-step-num">4</div>
+    <div class="wizard-step-name"><span class="lang-en">Hotkey</span><span class="lang-zh">熱鍵</span></div>
+    <div class="wizard-step-desc"><span class="lang-en">Pick or record a key.</span><span class="lang-zh">選或錄一個鍵。</span></div>
+  </div>
+  <div class="wizard-step">
+    <div class="wizard-step-num">5</div>
+    <div class="wizard-step-name"><span class="lang-en">Mic test</span><span class="lang-zh">麥克風測試</span></div>
+    <div class="wizard-step-desc"><span class="lang-en">Live waveform check.</span><span class="lang-zh">即時波形確認。</span></div>
+  </div>
+</div>
+<div class="docs-mockup-caption">
+  <span class="lang-en">5-step onboarding wizard on first launch — typically takes under a minute.</span>
+  <span class="lang-zh">第一次開啟跑完整段引導通常不到一分鐘。</span>
+</div>
+</div>
+
 <div class="lang-en">
 
 On first launch TypeLate runs a five-step onboarding wizard:

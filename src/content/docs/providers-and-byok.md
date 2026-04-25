@@ -19,6 +19,76 @@ TypeLate 採 **自帶金鑰（BYOK）** 設計。沒有 TypeLate 雲端 — 語�
 
 ## Supported providers
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="provider-grid">
+  <div class="provider-card is-selected">
+    <span class="provider-card-selected-pill">Default</span>
+    <div class="provider-card-head">
+      <span class="provider-card-dot" style="background: #fb923c"></span>
+      <span class="provider-card-name">Groq</span>
+    </div>
+    <div class="provider-card-badges">
+      <span class="provider-card-badge is-active">Whisper</span>
+      <span class="provider-card-badge is-active">LLM</span>
+    </div>
+    <span class="provider-card-meta"><span class="lang-en">Free</span><span class="lang-zh">免費</span> · 28,800 sec/day</span>
+    <span class="provider-card-key">gsk_…</span>
+  </div>
+  <div class="provider-card">
+    <div class="provider-card-head">
+      <span class="provider-card-dot" style="background: #10a37f"></span>
+      <span class="provider-card-name">OpenAI</span>
+    </div>
+    <div class="provider-card-badges">
+      <span class="provider-card-badge is-active">Whisper</span>
+      <span class="provider-card-badge is-active">LLM</span>
+    </div>
+    <span class="provider-card-meta"><span class="lang-en">Paid only</span><span class="lang-zh">僅付費</span></span>
+    <span class="provider-card-key">sk-…</span>
+  </div>
+  <div class="provider-card">
+    <div class="provider-card-head">
+      <span class="provider-card-dot" style="background: #4285f4"></span>
+      <span class="provider-card-name">Gemini</span>
+    </div>
+    <div class="provider-card-badges">
+      <span class="provider-card-badge">Whisper</span>
+      <span class="provider-card-badge is-active">LLM</span>
+    </div>
+    <span class="provider-card-meta"><span class="lang-en">Generous free tier</span><span class="lang-zh">充足免費額度</span></span>
+    <span class="provider-card-key">AIza…</span>
+  </div>
+  <div class="provider-card">
+    <div class="provider-card-head">
+      <span class="provider-card-dot" style="background: #a78bfa"></span>
+      <span class="provider-card-name">OpenRouter</span>
+    </div>
+    <div class="provider-card-badges">
+      <span class="provider-card-badge">Whisper</span>
+      <span class="provider-card-badge is-active">LLM</span>
+    </div>
+    <span class="provider-card-meta"><span class="lang-en">Some :free models</span><span class="lang-zh">部分模型免費</span></span>
+    <span class="provider-card-key">sk-or-v1-…</span>
+  </div>
+  <div class="provider-card">
+    <div class="provider-card-head">
+      <span class="provider-card-dot" style="background: #76b900"></span>
+      <span class="provider-card-name">NVIDIA NIM</span>
+    </div>
+    <div class="provider-card-badges">
+      <span class="provider-card-badge">Whisper</span>
+      <span class="provider-card-badge is-active">LLM</span>
+    </div>
+    <span class="provider-card-meta"><span class="lang-en">Free credits</span><span class="lang-zh">免費點數</span></span>
+    <span class="provider-card-key">nvapi-…</span>
+  </div>
+</div>
+<div class="docs-mockup-caption">
+  <span class="lang-en">Provider picker as it appears in Settings → AI. Groq is the default; mix and match transcription with a different LLM provider as you like.</span>
+  <span class="lang-zh">設定 → AI 中的供應商選擇器示意。預設 Groq；轉錄與 LLM 可選不同供應商搭配。</span>
+</div>
+</div>
+
 <div class="lang-en">
 
 | Provider | Transcription | LLM Enhancement | Free tier | Key prefix |

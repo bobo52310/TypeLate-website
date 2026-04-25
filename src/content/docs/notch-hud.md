@@ -17,6 +17,83 @@ HUD 是螢幕頂部一個小型、置頂、notch 風格的浮層。它是 TypeLa
 
 </div>
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="hud-gallery">
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-app-icon"></span>
+      <span class="hud-chip-bar" style="--h: 6px"></span>
+      <span class="hud-chip-bar" style="--h: 14px"></span>
+      <span class="hud-chip-bar" style="--h: 20px"></span>
+      <span class="hud-chip-bar" style="--h: 12px"></span>
+      <span class="hud-chip-bar" style="--h: 18px"></span>
+      <span class="hud-chip-bar" style="--h: 8px"></span>
+      <span class="hud-chip-timer">0:04</span>
+    </div>
+    <span class="hud-state-label">Recording</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-dot" style="opacity: 0.5"></span>
+      <span class="hud-chip-dot"></span>
+      <span class="hud-chip-dot" style="opacity: 0.7"></span>
+      <span class="hud-chip-dot" style="opacity: 0.4"></span>
+      <span class="hud-chip-dot"></span>
+      <span class="hud-chip-dot" style="opacity: 0.6"></span>
+    </div>
+    <span class="hud-state-label">Transcribing</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-check">✓</span>
+      <span class="hud-chip-text">Polished text…</span>
+    </div>
+    <span class="hud-state-label">Success</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-check">✓</span>
+      <span class="hud-chip-action-btn">Copy</span>
+      <span class="hud-chip-action-btn">Re-enhance</span>
+    </div>
+    <span class="hud-state-label">Action bar</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-error-icon">!</span>
+      <span class="hud-chip-text" style="color: #fb923c">Paste failed</span>
+      <span class="hud-chip-action-btn">↻</span>
+    </div>
+    <span class="hud-state-label">Error</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-x">×</span>
+      <span class="hud-chip-text" style="color: #94a3b8">Cancelled</span>
+    </div>
+    <span class="hud-state-label">Cancelled</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-book">📖</span>
+      <span class="hud-chip-text" style="color: #93c5fd">Learned: TypeLate</span>
+    </div>
+    <span class="hud-state-label">Learned</span>
+  </div>
+  <div class="hud-state">
+    <div class="hud-chip">
+      <span class="hud-chip-book">📖</span>
+      <span class="hud-chip-text" style="color: #93c5fd">Copy ⌘C to add</span>
+    </div>
+    <span class="hud-state-label">Correction prompt</span>
+  </div>
+</div>
+<div class="docs-mockup-caption">
+  <span class="lang-en">All 8 states the HUD can show, in their natural sizes (mockups, actual app may differ slightly).</span>
+  <span class="lang-zh">HUD 8 種狀態的實際比例展示（模擬畫面，實際 App 可能略有差異）。</span>
+</div>
+</div>
+
 ## Where does it appear?
 
 <div class="lang-en">

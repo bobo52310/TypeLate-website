@@ -64,6 +64,55 @@ Implementation notes worth knowing:
 
 ## Sound feedback
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="sound-theme-grid">
+  <div class="sound-theme-card">
+    <span class="sound-theme-card-name">Default</span>
+    <span class="sound-theme-card-mood"><span class="lang-en">Crisp & confident</span><span class="lang-zh">清脆有力</span></span>
+    <div class="sound-theme-wave">
+      <span style="height: 6px"></span><span style="height: 18px"></span><span style="height: 22px"></span><span style="height: 14px"></span><span style="height: 24px"></span><span style="height: 10px"></span><span style="height: 8px"></span><span style="height: 16px"></span><span style="height: 12px"></span>
+    </div>
+    <span class="sound-theme-card-list">Funk · Bottle · Ping · Glass</span>
+  </div>
+  <div class="sound-theme-card">
+    <span class="sound-theme-card-name">Gentle</span>
+    <span class="sound-theme-card-mood"><span class="lang-en">Soft & subtle</span><span class="lang-zh">輕柔低調</span></span>
+    <div class="sound-theme-wave">
+      <span style="height: 4px"></span><span style="height: 8px"></span><span style="height: 10px"></span><span style="height: 12px"></span><span style="height: 8px"></span><span style="height: 6px"></span><span style="height: 10px"></span><span style="height: 8px"></span><span style="height: 4px"></span>
+    </div>
+    <span class="sound-theme-card-list">Tink · Pop · Basso · Purr</span>
+  </div>
+  <div class="sound-theme-card">
+    <span class="sound-theme-card-name">Minimal</span>
+    <span class="sound-theme-card-mood"><span class="lang-en">Just a tap</span><span class="lang-zh">極簡點觸</span></span>
+    <div class="sound-theme-wave">
+      <span style="height: 4px"></span><span style="height: 6px"></span><span style="height: 4px"></span><span style="height: 8px"></span><span style="height: 4px"></span><span style="height: 6px"></span><span style="height: 4px"></span><span style="height: 6px"></span><span style="height: 4px"></span>
+    </div>
+    <span class="sound-theme-card-list">Pop · Pop · Basso · Pop</span>
+  </div>
+  <div class="sound-theme-card">
+    <span class="sound-theme-card-name">Retro</span>
+    <span class="sound-theme-card-mood"><span class="lang-en">Old-school computer</span><span class="lang-zh">復古電腦</span></span>
+    <div class="sound-theme-wave">
+      <span style="height: 22px"></span><span style="height: 14px"></span><span style="height: 24px"></span><span style="height: 8px"></span><span style="height: 18px"></span><span style="height: 22px"></span><span style="height: 10px"></span><span style="height: 16px"></span><span style="height: 22px"></span>
+    </div>
+    <span class="sound-theme-card-list">Morse · Submarine · Sosumi · Hero</span>
+  </div>
+  <div class="sound-theme-card">
+    <span class="sound-theme-card-name">Custom</span>
+    <span class="sound-theme-card-mood"><span class="lang-en">Bring your own</span><span class="lang-zh">自帶音檔</span></span>
+    <div class="sound-theme-wave">
+      <span style="height: 10px; opacity: 0.4"></span><span style="height: 18px; opacity: 0.4"></span><span style="height: 6px; opacity: 0.4"></span><span style="height: 14px; opacity: 0.4"></span><span style="height: 22px; opacity: 0.4"></span><span style="height: 12px; opacity: 0.4"></span><span style="height: 8px; opacity: 0.4"></span><span style="height: 16px; opacity: 0.4"></span><span style="height: 10px; opacity: 0.4"></span>
+    </div>
+    <span class="sound-theme-card-list"><span class="lang-en">.wav · .mp3 · .aiff · .m4a</span><span class="lang-zh">.wav · .mp3 · .aiff · .m4a</span></span>
+  </div>
+</div>
+<div class="docs-mockup-caption">
+  <span class="lang-en">Five built-in sound themes. Each maps four slots — start, stop, error, learned — to system sounds. Custom lets you wire any audio file per slot.</span>
+  <span class="lang-zh">5 種內建音效主題，每個對應 4 個插槽 — 開始、停止、錯誤、學到新詞。Custom 讓你為每個插槽指定自己的音檔。</span>
+</div>
+</div>
+
 <div class="lang-en">
 
 In **Settings → Audio → Sound Theme** you can pick one of five presets. Each maps four "slots" — start of recording, stop of recording, error, and word-learned — to a sound:

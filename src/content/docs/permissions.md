@@ -152,6 +152,46 @@ The panel auto-polls every 2 seconds while open, so flipping the switch in Syste
 
 </div>
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="permission-rows">
+  <div class="permission-row">
+    <span class="permission-row-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </span>
+    <div class="permission-row-info">
+      <div class="permission-row-name"><span class="lang-en">Microphone</span><span class="lang-zh">麥克風</span></div>
+      <div class="permission-row-desc"><span class="lang-en">Required to capture your voice.</span><span class="lang-zh">收音必要權限。</span></div>
+    </div>
+    <span class="permission-pill is-granted">● <span class="lang-en">Granted</span><span class="lang-zh">已授予</span></span>
+  </div>
+  <div class="permission-row">
+    <span class="permission-row-icon" style="background: rgba(167, 139, 250, 0.15); color: #a78bfa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M5 11h14"/><path d="M9 22l2-9 2 9"/></svg>
+    </span>
+    <div class="permission-row-info">
+      <div class="permission-row-name"><span class="lang-en">Accessibility</span><span class="lang-zh">輔助使用</span></div>
+      <div class="permission-row-desc"><span class="lang-en">For global hotkey + paste at cursor.</span><span class="lang-zh">全域熱鍵與游標貼字。</span></div>
+    </div>
+    <span class="permission-pill is-denied">● <span class="lang-en">Denied</span><span class="lang-zh">拒絕</span></span>
+    <span class="permission-row-action"><span class="lang-en">Open Settings</span><span class="lang-zh">開啟設定</span></span>
+  </div>
+  <div class="permission-row">
+    <span class="permission-row-icon" style="background: rgba(74, 222, 128, 0.15); color: #4ade80">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </span>
+    <div class="permission-row-info">
+      <div class="permission-row-name"><span class="lang-en">Hotkey listener</span><span class="lang-zh">熱鍵監聽</span></div>
+      <div class="permission-row-desc"><span class="lang-en">Listening on Fn (default)</span><span class="lang-zh">監聽 Fn（預設）</span></div>
+    </div>
+    <span class="permission-pill is-granted">● <span class="lang-en">Active</span><span class="lang-zh">運作中</span></span>
+  </div>
+</div>
+<div class="docs-mockup-caption">
+  <span class="lang-en">Settings → Permissions panel. The status pill auto-updates within ~2 seconds after you flip the switch in System Settings.</span>
+  <span class="lang-zh">設定 → 系統權限 面板。在系統設定切換後，狀態膠囊約 2 秒內自動更新。</span>
+</div>
+</div>
+
 ## Windows specifics
 
 <div class="lang-en">

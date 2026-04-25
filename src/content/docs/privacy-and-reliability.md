@@ -19,23 +19,44 @@ This is the trust-but-verify page. Everything here is implemented in code you ca
 
 ## Where your data goes
 
+<div class="docs-mockup" data-pagefind-ignore>
+<div class="flow-diagram">
+  <div class="flow-node">
+    <span class="flow-node-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </span>
+    <span class="flow-node-name"><span class="lang-en">Microphone</span><span class="lang-zh">麥克風</span></span>
+    <span class="flow-node-sub"><span class="lang-en">Your voice</span><span class="lang-zh">你的聲音</span></span>
+  </div>
+  <div class="flow-arrow">
+    <span class="flow-arrow-line"><span class="lang-en">audio</span><span class="lang-zh">音訊</span></span>
+    <svg class="flow-arrow-svg" viewBox="0 0 60 24" fill="none" preserveAspectRatio="none"><line x1="2" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><polyline points="44,6 54,12 44,18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+  </div>
+  <div class="flow-node" style="border-color: rgba(251, 191, 36, 0.5)">
+    <span class="flow-node-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 9l-2 3 2 3"/><path d="M16 9l2 3-2 3"/></svg>
+    </span>
+    <span class="flow-node-name">TypeLate App</span>
+    <span class="flow-node-sub"><span class="lang-en">On your machine</span><span class="lang-zh">你的電腦上</span></span>
+  </div>
+  <div class="flow-arrow">
+    <span class="flow-arrow-line">HTTPS · <span class="lang-en">your key</span><span class="lang-zh">你的金鑰</span></span>
+    <svg class="flow-arrow-svg" viewBox="0 0 60 24" fill="none" preserveAspectRatio="none"><line x1="2" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><polyline points="44,6 54,12 44,18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+  </div>
+  <div class="flow-node">
+    <span class="flow-node-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13a10 10 0 0 1 20 0"/><line x1="12" y1="3" x2="12" y2="13"/><circle cx="12" cy="18" r="3"/></svg>
+    </span>
+    <span class="flow-node-name"><span class="lang-en">Provider API</span><span class="lang-zh">供應商 API</span></span>
+    <span class="flow-node-sub">Groq · OpenAI · Gemini · OpenRouter · NVIDIA</span>
+  </div>
+</div>
+<div class="flow-callout">
+  ✓ <span class="lang-en">No TypeLate server in this picture.</span><span class="lang-zh">這張圖裡沒有 TypeLate 伺服器。</span>
+</div>
+</div>
+
 <div class="lang-en">
-
-```
-┌──────────────┐          ┌─────────────────┐
-│  Microphone  │ ───────► │  TypeLate App   │
-└──────────────┘  audio   │  (your machine) │
-                          └────────┬────────┘
-                                   │ HTTPS, your API key
-                                   ▼
-                          ┌─────────────────┐
-                          │  Provider API   │  Groq · OpenAI · Gemini
-                          │  (chosen by     │  · OpenRouter · NVIDIA
-                          │   you)          │
-                          └─────────────────┘
-```
-
-That's it. There is **no TypeLate server** in this picture.
 
 - **API keys** are written to Tauri's local secure store. They never leave your device.
 - **Audio** is uploaded directly to the provider you configured, over HTTPS, with your API key. TypeLate doesn't proxy, log, or replay it.
@@ -53,21 +74,6 @@ There are no usage analytics, no fingerprinting, no phone-home heartbeats. The l
 
 </div>
 <div class="lang-zh">
-
-```
-┌──────────┐         ┌─────────────────┐
-│  麥克風   │ ──────► │  TypeLate App   │
-└──────────┘  音訊    │  （你的電腦）     │
-                     └────────┬────────┘
-                              │ HTTPS、你的 API Key
-                              ▼
-                     ┌─────────────────┐
-                     │  供應商 API      │  Groq · OpenAI · Gemini
-                     │  （你自己選的）   │  · OpenRouter · NVIDIA
-                     └─────────────────┘
-```
-
-就這樣。**沒有 TypeLate 伺服器** 出現在這張圖裡。
 
 - **API Keys** 寫入 Tauri 的本機安全儲存，不離開你的裝置。
 - **音訊** 透過 HTTPS、用你的 API Key 直送你選的供應商。TypeLate 不做代理、不記錄、不回放。
