@@ -13,6 +13,10 @@ export const DOCS_SECTIONS: DocsSection[] = [
         slug: "getting-started",
         label: { en: "Install & First Transcription", zh: "安裝與首次轉錄" },
       },
+      {
+        slug: "permissions",
+        label: { en: "Permissions", zh: "系統權限" },
+      },
     ],
   },
   {
@@ -22,6 +26,10 @@ export const DOCS_SECTIONS: DocsSection[] = [
       {
         slug: "hotkeys-and-triggers",
         label: { en: "Hotkeys & Trigger Modes", zh: "熱鍵與觸發模式" },
+      },
+      {
+        slug: "notch-hud",
+        label: { en: "Notch HUD Overlay", zh: "Notch 浮層 HUD" },
       },
     ],
   },
@@ -52,6 +60,44 @@ export const DOCS_SECTIONS: DocsSection[] = [
       {
         slug: "vocabulary-and-sync",
         label: { en: "Smart Dictionary & Sync", zh: "智慧字典與同步" },
+      },
+    ],
+  },
+  {
+    id: "media",
+    label: { en: "Audio & Recordings", zh: "音訊與錄音" },
+    items: [
+      {
+        slug: "audio-and-recordings",
+        label: { en: "Audio Input & Recording History", zh: "音訊輸入與錄音歷史" },
+      },
+    ],
+  },
+  {
+    id: "analytics",
+    label: { en: "Dashboard", zh: "儀表板" },
+    items: [
+      {
+        slug: "dashboard-and-analytics",
+        label: { en: "Stats, Quota & Cost", zh: "統計、額度與成本" },
+      },
+    ],
+  },
+  {
+    id: "reference",
+    label: { en: "Reference", zh: "參考" },
+    items: [
+      {
+        slug: "app-settings",
+        label: { en: "App Settings", zh: "應用程式設定" },
+      },
+      {
+        slug: "privacy-and-reliability",
+        label: { en: "Privacy & Reliability", zh: "隱私與可靠性" },
+      },
+      {
+        slug: "troubleshooting",
+        label: { en: "Troubleshooting", zh: "疑難排解" },
       },
     ],
   },

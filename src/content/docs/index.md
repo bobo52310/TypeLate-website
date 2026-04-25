@@ -8,37 +8,91 @@ order: 0
 
 <div class="lang-en">
 
-Welcome. TypeLate is an open-source voice-to-text app for macOS and Windows: hold a hotkey, speak, and AI-polished text appears at your cursor in under three seconds. These docs walk through every feature with screenshots and step-by-step operations.
+Welcome. TypeLate is an open-source voice-to-text app for macOS and Windows: hold a hotkey, speak, and AI-polished text appears at your cursor in under three seconds. These docs walk through every feature with step-by-step operations.
 
 </div>
 <div class="lang-zh">
 
-歡迎。TypeLate 是 macOS 與 Windows 上的開源語音輸入工具：按住熱鍵說話，AI 潤稿後的文字會在 3 秒內出現在游標處。本文件以截圖與步驟方式，逐一介紹每個功能的操作方式。
+歡迎。TypeLate 是 macOS 與 Windows 上的開源語音輸入工具：按住熱鍵說話，AI 潤稿後的文字會在 3 秒內出現在游標處。本文件以逐步方式介紹每個功能。
 
 </div>
 
-## Topics
+## Start here
 
 <div class="lang-en">
 
-Pick a topic from the sidebar, or start here:
-
 - **[Getting Started](/docs/getting-started)** — Install TypeLate and run your first transcription in under 5 minutes.
-- **[Hotkeys & Trigger Modes](/docs/hotkeys-and-triggers)** — Configure the hotkey that triggers recording. Learn the difference between Hold, Toggle, and Double-Tap modes.
-- **[Providers & BYOK](/docs/providers-and-byok)** — Connect Groq, OpenAI, Gemini, OpenRouter, or NVIDIA NIM with your own API key.
-- **[AI Enhancement](/docs/ai-enhancement)** — Choose between Clean, Format, Custom, or no enhancement; let TypeLate auto-adjust tone for the active app.
-- **[Vocabulary & Sync](/docs/vocabulary-and-sync)** — Teach TypeLate proper nouns; sync your dictionary across devices via Google Drive.
+- **[Permissions](/docs/permissions)** — Microphone and Accessibility on macOS, microphone on Windows. Recovery flows when something gets stuck.
 
 </div>
 <div class="lang-zh">
 
-從左側選單挑一個主題，或從這裡開始：
-
 - **[開始使用](/docs/getting-started)** — 在 5 分鐘內完成安裝並跑出第一段轉錄。
-- **[熱鍵與觸發模式](/docs/hotkeys-and-triggers)** — 設定觸發錄音的快捷鍵，了解 Hold / Toggle / Double-Tap 三種模式差異。
+- **[系統權限](/docs/permissions)** — macOS 麥克風與輔助使用、Windows 麥克風。卡住時的修復流程。
+
+</div>
+
+## Core workflow
+
+<div class="lang-en">
+
+- **[Hotkeys & Trigger Modes](/docs/hotkeys-and-triggers)** — Configure the recording hotkey. Hold vs Toggle vs Double-Tap.
+- **[Notch HUD Overlay](/docs/notch-hud)** — Field guide to every state the floating overlay shows.
+
+</div>
+<div class="lang-zh">
+
+- **[熱鍵與觸發模式](/docs/hotkeys-and-triggers)** — 設定錄音熱鍵，了解 Hold / Toggle / Double-Tap 三種模式。
+- **[Notch 浮層 HUD](/docs/notch-hud)** — 浮層每個狀態的完整對照。
+
+</div>
+
+## Configure AI
+
+<div class="lang-en">
+
+- **[Providers & BYOK](/docs/providers-and-byok)** — Connect Groq, OpenAI, Gemini, OpenRouter, or NVIDIA NIM with your own API key.
+- **[AI Enhancement](/docs/ai-enhancement)** — Choose between Clean, Format, Custom, or no enhancement. Plus context-aware tone shifting.
+- **[Vocabulary & Sync](/docs/vocabulary-and-sync)** — Smart Dictionary, auto-learning, and Google Drive sync across devices.
+
+</div>
+<div class="lang-zh">
+
 - **[供應商與自帶金鑰](/docs/providers-and-byok)** — 用自己的 API Key 連接 Groq、OpenAI、Gemini、OpenRouter、NVIDIA NIM。
-- **[AI 強化](/docs/ai-enhancement)** — 在 Clean、Format、Custom 之間切換；讓 TypeLate 依當前 App 自動調整語氣。
-- **[字典與同步](/docs/vocabulary-and-sync)** — 教 TypeLate 認識專有名詞，並透過 Google Drive 跨裝置同步。
+- **[AI 強化](/docs/ai-enhancement)** — 在 Clean、Format、Custom 之間切換，搭配情境感知。
+- **[字典與同步](/docs/vocabulary-and-sync)** — 智慧字典、自動學習、Google Drive 跨裝置同步。
+
+</div>
+
+## Audio, recordings, dashboard
+
+<div class="lang-en">
+
+- **[Audio & Recordings](/docs/audio-and-recordings)** — Microphone selection, sound themes, retention policy, history search, playback, re-transcribe.
+- **[Dashboard, Quota & Cost](/docs/dashboard-and-analytics)** — What the stats actually mean, where the numbers come from, how the free-quota indicator works.
+
+</div>
+<div class="lang-zh">
+
+- **[音訊與錄音](/docs/audio-and-recordings)** — 麥克風選擇、音效主題、保留策略、歷史搜尋、播放、重新轉錄。
+- **[儀表板、額度與成本](/docs/dashboard-and-analytics)** — 各項統計實際意義、數字怎麼算、免費額度指示燈如何運作。
+
+</div>
+
+## Reference
+
+<div class="lang-en">
+
+- **[App Settings](/docs/app-settings)** — Interface language, transcription language, launch-at-login, clipboard behaviour, update checks.
+- **[Privacy & Reliability](/docs/privacy-and-reliability)** — Where your data goes, the hallucination filter, retry and circuit breaker, Sentry behaviour.
+- **[Troubleshooting](/docs/troubleshooting)** — The five most common ways TypeLate breaks and how to fix each.
+
+</div>
+<div class="lang-zh">
+
+- **[應用程式設定](/docs/app-settings)** — 介面語言、轉錄語言、開機自動啟動、剪貼簿行為、更新檢查。
+- **[隱私與可靠性](/docs/privacy-and-reliability)** — 資料流向、幻覺過濾器、重試與斷路器、Sentry 行為。
+- **[疑難排解](/docs/troubleshooting)** — TypeLate 最常出問題的 5 個情境與處理方式。
 
 </div>
 
