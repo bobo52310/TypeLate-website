@@ -1,0 +1,74 @@
+---
+interface Props {
+  lastUpdated?: string | null;
+  editUrl?: string | null;
+}
+
+const { lastUpdated, editUrl } = Astro.props;
+
+function formatDate(iso: string): { en: string; zh: string } {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return { en: iso, zh: iso };
+  const en = d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const zh = d.toLocaleDateString("zh-TW", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return { en, zh };
+}
+
+const dateLabels = lastUpdated ? formatDate(lastUpdated) : null;
+---
+
+{
+  (lastUpdated || editUrl) && (
+    <div
+      class="docs-meta mt-8 pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs"
+      style="border-top: 1px dashed var(--brand-border); color: var(--brand-muted);"
+      data-pagefind-ignore
+    >
+      {dateLabels && (
+        <span>
+          <span class="lang-en">Last updated: {dateLabels.en}</span>
+          <span class="lang-zh">最後更新：{dateLabels.zh}</span>
+        </span>
+      )}
+      {editUrl && (
+        <a
+          href={editUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="docs-edit-link inline-flex items-center gap-1.5 transition-colors"
+          style="color: var(--brand-muted);"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+          <span class="lang-en">Edit this page on GitHub</span>
+          <span class="lang-zh">在 GitHub 編輯本頁</span>
+        </a>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .docs-edit-link:hover {
+    color: var(--brand-gold) !important;
+  }
+</style>

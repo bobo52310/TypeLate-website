@@ -84,9 +84,27 @@ export const DOCS_SECTIONS: DocsSection[] = [
     ],
   },
   {
+    id: "recipes",
+    label: { en: "Recipes", zh: "實戰應用" },
+    items: [
+      {
+        slug: "use-cases",
+        label: { en: "Use Cases & Workflows", zh: "情境與工作流程" },
+      },
+      {
+        slug: "prompt-cookbook",
+        label: { en: "Prompt Cookbook", zh: "Prompt 食譜" },
+      },
+    ],
+  },
+  {
     id: "reference",
     label: { en: "Reference", zh: "參考" },
     items: [
+      {
+        slug: "keyboard-shortcuts",
+        label: { en: "Keyboard Shortcuts", zh: "鍵盤快捷鍵" },
+      },
       {
         slug: "app-settings",
         label: { en: "App Settings", zh: "應用程式設定" },

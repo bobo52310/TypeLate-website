@@ -173,12 +173,12 @@ A blue book icon with text like *Nice! New word learned: "TypeLate"*. This appea
 
 <div class="lang-en">
 
-Also blue book icon, with text *Correction detected — Copy the correct term (⌘C) to add*. Triggered when the active app's text changes shortly after a paste, and TypeLate has identified the diff as a likely mistranscription you fixed by hand. Press <kbd>⌘C</kbd> on the corrected text to add it to your dictionary. Auto-dismisses after **15 seconds**.
+Also blue book icon, with text *Correction detected — Copy the correct term (⌘C) to add*. Triggered when the active app's text changes shortly after a paste, and TypeLate has identified the diff as a likely mistranscription you fixed by hand. To add the corrected term to your dictionary, **select it in the active app and run your normal copy** (<kbd>⌘C</kbd> / <kbd>Ctrl+C</kbd>) — TypeLate watches the clipboard, it isn't intercepting your keystroke. Auto-dismisses after **15 seconds**.
 
 </div>
 <div class="lang-zh">
 
-同樣是藍色書本，文字寫 *Correction detected — Copy the correct term (⌘C) to add*。當貼上不久後活動 App 的文字變化、且 TypeLate 判斷你手動修了某個轉錄錯字時觸發。在修正後的文字上按 <kbd>⌘C</kbd> 即可加入字典。**15 秒** 後自動消失。
+同樣是藍色書本，文字寫 *Correction detected — Copy the correct term (⌘C) to add*。當貼上不久後活動 App 的文字變化、且 TypeLate 判斷你手動修了某個轉錄錯字時觸發。要把修正詞加進字典，**在當前 App 選取那段文字並用平常的方式複製**（<kbd>⌘C</kbd> / <kbd>Ctrl+C</kbd>）— TypeLate 是在監看剪貼簿內容變化，**不是** 攔截你的按鍵。**15 秒** 後自動消失。
 
 </div>
 

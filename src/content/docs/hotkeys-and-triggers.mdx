@@ -24,28 +24,36 @@ The hotkey is what wakes TypeLate up. Pick a key you can press without moving yo
 
 <div class="lang-en">
 
-Open **Settings → Hotkeys & Input → Hotkey**. Available presets include:
+Open **Settings → Hotkeys & Input → Hotkey**. Defaults differ by platform:
 
-- <Kbd keys="Fn" /> — macOS default. Already on every Apple keyboard, no conflicts with text input.
+- **macOS default**: <Kbd keys="Fn" /> — already on every Apple keyboard, no conflict with text input.
+- **Windows default**: <Kbd keys="Right Alt" /> — clear of typical text shortcuts.
+
+Other presets you can pick:
+
 - <Kbd keys="⌥" /> (Option / Alt) — left or right.
 - <Kbd keys="⌃" /> (Control) — left or right.
 - <Kbd keys="⌘" /> (Command).
 - <Kbd keys="⇧" /> (Shift) — works but easy to trigger accidentally; pair with Double-Tap mode.
 
-Click **Custom key** to record any other key. TypeLate captures the next keydown — press once and confirm. Reserved system keys (e.g. <Kbd keys="⌘+Tab" />) are blocked with a warning.
+Click **Custom key** to record any other key. TypeLate captures the next keydown — press once and confirm. <Kbd keys="Esc" /> is reserved (used to abort recordings) and rejected with an error. Keys that conflict with common OS shortcuts (e.g. <Kbd keys={["⌘", "Q"]} />) are warned but not blocked.
 
 </div>
 <div class="lang-zh">
 
-開啟 **設定 → 熱鍵與輸入 → 熱鍵**。預設可選：
+開啟 **設定 → 熱鍵與輸入 → 熱鍵**。預設值依平台不同：
 
-- <Kbd keys="Fn" /> — macOS 預設。Apple 鍵盤都有，不會跟文字輸入衝突。
+- **macOS 預設**：<Kbd keys="Fn" /> — Apple 鍵盤都有，不會跟文字輸入衝突。
+- **Windows 預設**：<Kbd keys="Right Alt" /> — 不會撞到常見文字快捷鍵。
+
+其他可選預設：
+
 - <Kbd keys="⌥" />（Option / Alt）— 左或右。
 - <Kbd keys="⌃" />（Control）— 左或右。
 - <Kbd keys="⌘" />（Command）。
 - <Kbd keys="⇧" />（Shift）— 可用，但很容易誤觸，建議搭 Double-Tap 模式。
 
-點 **自訂按鍵** 可錄製任何其他鍵。TypeLate 會捕捉下一次按鍵 — 按一下確認即可。系統保留鍵（例如 <Kbd keys="⌘+Tab" />）會被擋下並提示。
+點 **自訂按鍵** 可錄製任何其他鍵。TypeLate 會捕捉下一次按鍵 — 按一下確認即可。<Kbd keys="Esc" /> 為保留鍵（用來中止錄音），會被拒絕並提示。會撞到常見系統快捷鍵的按鍵（例如 <Kbd keys={["⌘", "Q"]} />）會給警告但不會擋。
 
 </div>
 

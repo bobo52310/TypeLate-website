@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/generate-og-image.mjs",
     "build": "astro build",
+    "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -19,5 +20,8 @@
     "astro": "^6.0.8",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
   }
 }

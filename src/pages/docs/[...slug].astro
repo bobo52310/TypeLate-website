@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import DocsLayout from "../../layouts/DocsLayout.astro";
+import { getDocLastUpdated, getDocEditUrl } from "../../lib/docMeta";
 
 export async function getStaticPaths() {
   const entries = await getCollection("docs", ({ data }) => !data.draft);
@@ -12,6 +13,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
+const lastUpdated = getDocLastUpdated(entry.id);
+const editUrl = getDocEditUrl(entry.id);
 ---
 
 <DocsLayout
@@ -21,6 +24,8 @@ const { Content, headings } = await render(entry);
   descriptionZh={entry.data.descriptionZh}
   slug={entry.id}
   headings={headings}
+  lastUpdated={lastUpdated}
+  editUrl={editUrl}
 >
   <Content />
 </DocsLayout>

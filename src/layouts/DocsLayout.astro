@@ -6,6 +6,7 @@ import DocsSidebar from "../components/docs/DocsSidebar.astro";
 import DocsTOC from "../components/docs/DocsTOC.astro";
 import DocsBreadcrumbs from "../components/docs/DocsBreadcrumbs.astro";
 import DocsPagerNav from "../components/docs/DocsPagerNav.astro";
+import DocsMeta from "../components/docs/DocsMeta.astro";
 import type { MarkdownHeading } from "astro";
 
 interface Props {
@@ -15,10 +16,20 @@ interface Props {
   descriptionZh?: string;
   slug: string;
   headings: MarkdownHeading[];
+  lastUpdated?: string | null;
+  editUrl?: string | null;
 }
 
-const { title, titleZh, description, descriptionZh, slug, headings } =
-  Astro.props;
+const {
+  title,
+  titleZh,
+  description,
+  descriptionZh,
+  slug,
+  headings,
+  lastUpdated,
+  editUrl,
+} = Astro.props;
 const isIndex = slug === "index";
 ---
 
@@ -34,7 +45,7 @@ const isIndex = slug === "index";
         <DocsSidebar activeSlug={slug} />
       </aside>
 
-      <article class="docs-prose py-6 min-w-0">
+      <article class="docs-prose py-6 min-w-0" data-pagefind-body>
         <DocsBreadcrumbs slug={slug} title={title} titleZh={titleZh} />
         <h1>
           <span class="lang-en">{title}</span>
@@ -52,6 +63,7 @@ const isIndex = slug === "index";
           )
         }
         <slot />
+        <DocsMeta lastUpdated={lastUpdated} editUrl={editUrl} />
         {!isIndex && <DocsPagerNav slug={slug} />}
       </article>
 

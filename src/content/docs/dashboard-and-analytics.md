@@ -17,6 +17,21 @@ The dashboard is your at-a-glance view of TypeLate usage. Everything here lives 
 
 </div>
 
+<figure class="docs-screenshot my-6">
+  <img
+    src="/docs/dashboard.png"
+    alt="TypeLate dashboard showing transcription stats, 30-day trend chart, and provider quota tile"
+    loading="lazy"
+    decoding="async"
+    class="w-full rounded-lg"
+    style="border: 1px solid var(--brand-border);"
+  />
+  <figcaption class="mt-2 text-center text-xs" style="color: var(--brand-muted);">
+    <span class="lang-en">The dashboard at a glance — stats, 30-day trend, and quota indicator.</span>
+    <span class="lang-zh">儀表板一覽：統計、30 天趨勢、額度指示燈。</span>
+  </figcaption>
+</figure>
+
 ## Top-line stats
 
 <div class="lang-en">
