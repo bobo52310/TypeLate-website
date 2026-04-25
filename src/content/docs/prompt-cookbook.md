@@ -367,6 +367,17 @@ When to use: feedback on someone's work, declining a request, replying to a frus
 
 ## See also
 
+<div class="lang-en">
+
 - [AI Enhancement](/docs/ai-enhancement) — how Custom mode interacts with Context-Aware
 - [Use Cases](/docs/use-cases) — when to combine which prompt with which app
 - [Vocabulary & Sync](/docs/vocabulary-and-sync) — for project-specific terminology that should never be auto-corrected
+
+</div>
+<div class="lang-zh">
+
+- [AI 強化](/docs/ai-enhancement) — Custom 模式如何與情境感知互動
+- [實戰場景](/docs/use-cases) — 哪個 prompt 配哪個 App 最對味
+- [字典與同步](/docs/vocabulary-and-sync) — 處理絕不能被 AI「修正」的專案術語
+
+</div>

@@ -257,7 +257,19 @@ The threshold is in **Settings → AI → Prompts & Enhancement → Minimum leng
 
 ## See also
 
+<div class="lang-en">
+
 - [AI Enhancement](/docs/ai-enhancement) — full reference for prompt modes
 - [Prompt Cookbook](/docs/prompt-cookbook) — copy-pasteable custom prompts
 - [Vocabulary & Sync](/docs/vocabulary-and-sync) — for project-specific terminology
 - [Hotkeys & Trigger Modes](/docs/hotkeys-and-triggers) — picking the right trigger feel
+
+</div>
+<div class="lang-zh">
+
+- [AI 強化](/docs/ai-enhancement) — Prompt 模式完整參考
+- [Prompt 食譜](/docs/prompt-cookbook) — 可複製貼上的自訂 prompt
+- [字典與同步](/docs/vocabulary-and-sync) — 處理專案專屬的術語
+- [熱鍵與觸發模式](/docs/hotkeys-and-triggers) — 挑出最順手的觸發手感
+
+</div>

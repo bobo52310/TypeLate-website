@@ -79,10 +79,26 @@ Welcome. TypeLate is an open-source voice-to-text app for macOS and Windows: hol
 
 </div>
 
+## Recipes
+
+<div class="lang-en">
+
+- **[Use Cases & Workflows](/docs/use-cases)** — 8 real workflows for email, chat, code, notes, multilingual, and accessibility scenarios.
+- **[Prompt Cookbook](/docs/prompt-cookbook)** — 12 ready-to-paste custom prompt templates for the most common writing tasks.
+
+</div>
+<div class="lang-zh">
+
+- **[實戰場景](/docs/use-cases)** — 8 個真實工作流程（Email、聊天、程式碼、筆記、多語、無障礙）。
+- **[Prompt 食譜](/docs/prompt-cookbook)** — 12 個常用情境可複製貼上的自訂 prompt 模板。
+
+</div>
+
 ## Reference
 
 <div class="lang-en">
 
+- **[Keyboard Shortcuts](/docs/keyboard-shortcuts)** — Single reference card for every key TypeLate listens to.
 - **[App Settings](/docs/app-settings)** — Interface language, transcription language, launch-at-login, clipboard behaviour, update checks.
 - **[Privacy & Reliability](/docs/privacy-and-reliability)** — Where your data goes, the hallucination filter, retry and circuit breaker, Sentry behaviour.
 - **[Troubleshooting](/docs/troubleshooting)** — The five most common ways TypeLate breaks and how to fix each.
@@ -90,6 +106,7 @@ Welcome. TypeLate is an open-source voice-to-text app for macOS and Windows: hol
 </div>
 <div class="lang-zh">
 
+- **[鍵盤快捷鍵](/docs/keyboard-shortcuts)** — TypeLate 監聽的所有按鍵的單頁完整參考。
 - **[應用程式設定](/docs/app-settings)** — 介面語言、轉錄語言、開機自動啟動、剪貼簿行為、更新檢查。
 - **[隱私與可靠性](/docs/privacy-and-reliability)** — 資料流向、幻覺過濾器、重試與斷路器、Sentry 行為。
 - **[疑難排解](/docs/troubleshooting)** — TypeLate 最常出問題的 5 個情境與處理方式。
