@@ -1,0 +1,386 @@
+---
+// Global site-wide search powered by Pagefind. This component
+// renders the modal only — multiple trigger buttons (with the
+// `site-search-trigger` class) can sit anywhere on the page and
+// the script wires them all up to open the same modal.
+---
+
+<div
+  id="site-search-modal"
+  class="fixed inset-0 z-[200] hidden items-start justify-center pt-[12vh] px-4"
+  style="background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(6px);"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="site-search-input"
+  data-pagefind-ignore
+>
+  <div
+    class="site-search-card w-full max-w-2xl max-h-[70vh] flex flex-col rounded-xl overflow-hidden"
+    style="background: var(--brand-bg); border: 1px solid var(--brand-border); box-shadow: 0 16px 48px rgba(0,0,0,0.5);"
+  >
+    <div
+      class="flex items-center gap-3 px-4 py-3"
+      style="border-bottom: 1px solid var(--brand-border);"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style="color: var(--brand-muted); flex-shrink: 0;"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        id="site-search-input"
+        type="search"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Search docs, features, FAQ…"
+        class="flex-1 bg-transparent border-0 outline-none text-base"
+        style="color: var(--brand-foreground);"
+      />
+      <kbd
+        class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono"
+        style="border: 1px solid var(--brand-border); border-radius: 3px; color: var(--brand-muted);"
+      >Esc</kbd>
+    </div>
+
+    <div
+      id="site-search-results"
+      class="flex-1 overflow-y-auto"
+      role="listbox"
+    >
+      <div
+        id="site-search-hint"
+        class="px-4 py-8 text-center text-sm"
+        style="color: var(--brand-muted);"
+      >
+        <span class="lang-en">Type to search across the entire site.</span>
+        <span class="lang-zh">輸入關鍵字搜尋全站內容。</span>
+      </div>
+    </div>
+
+    <div
+      class="px-4 py-2 flex items-center gap-3 text-[10px]"
+      style="border-top: 1px solid var(--brand-border); color: var(--brand-muted);"
+    >
+      <span class="inline-flex items-center gap-1">
+        <kbd
+          class="px-1 py-0.5 font-mono"
+          style="border: 1px solid var(--brand-border); border-radius: 3px;"
+        >↑</kbd>
+        <kbd
+          class="px-1 py-0.5 font-mono"
+          style="border: 1px solid var(--brand-border); border-radius: 3px;"
+        >↓</kbd>
+        <span class="lang-en">to navigate</span>
+        <span class="lang-zh">移動</span>
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <kbd
+          class="px-1 py-0.5 font-mono"
+          style="border: 1px solid var(--brand-border); border-radius: 3px;"
+        >↵</kbd>
+        <span class="lang-en">to open</span>
+        <span class="lang-zh">開啟</span>
+      </span>
+      <span class="inline-flex items-center gap-1 ml-auto">
+        <span class="lang-en">Powered by</span>
+        <span class="lang-zh">搜尋引擎</span>
+        <a
+          href="https://pagefind.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: var(--brand-muted);"
+          class="hover:text-[var(--brand-gold)] transition-colors"
+        >Pagefind</a>
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  #site-search-modal.is-open {
+    display: flex;
+  }
+
+  .site-search-trigger:hover {
+    border-color: rgba(251, 191, 36, 0.4);
+    color: var(--brand-foreground);
+  }
+
+  #site-search-results :global(.search-result) {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--brand-border);
+    color: var(--brand-foreground);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  #site-search-results :global(.search-result:last-child) {
+    border-bottom: 0;
+  }
+  #site-search-results :global(.search-result:hover),
+  #site-search-results :global(.search-result.is-active) {
+    background: rgba(251, 191, 36, 0.08);
+  }
+  #site-search-results :global(.search-result-meta) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: var(--brand-muted);
+    margin-bottom: 0.2rem;
+  }
+  #site-search-results :global(.search-result-meta-pill) {
+    padding: 1px 6px;
+    border-radius: 9999px;
+    background: rgba(251, 191, 36, 0.12);
+    color: var(--brand-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.65rem;
+  }
+  #site-search-results :global(.search-result-title) {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--brand-foreground);
+    line-height: 1.3;
+  }
+  #site-search-results :global(.search-result-excerpt) {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--brand-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  #site-search-results :global(.search-result-excerpt mark),
+  #site-search-results :global(.search-result-title mark) {
+    background: rgba(251, 191, 36, 0.25);
+    color: var(--brand-gold-light);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+  #site-search-results :global(.search-empty) {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--brand-muted);
+    font-size: 0.85rem;
+  }
+</style>
+
+<script>
+  type PagefindResult = {
+    id: string;
+    data: () => Promise<{
+      url: string;
+      excerpt: string;
+      meta: { title?: string };
+    }>;
+  };
+
+  type PagefindAPI = {
+    search: (query: string) => Promise<{ results: PagefindResult[] }>;
+  };
+
+  // Vite-safe dynamic loader for the postbuild-generated bundle.
+  let pagefindPromise: Promise<PagefindAPI | null> | null = null;
+  function loadPagefind(): Promise<PagefindAPI | null> {
+    if (pagefindPromise) return pagefindPromise;
+    pagefindPromise = (async () => {
+      try {
+        const importer = new Function(
+          "url",
+          "return import(url)",
+        ) as (url: string) => Promise<PagefindAPI>;
+        return await importer("/pagefind/pagefind.js");
+      } catch {
+        return null;
+      }
+    })();
+    return pagefindPromise;
+  }
+
+  function debounce<T extends (...args: never[]) => unknown>(
+    fn: T,
+    ms: number,
+  ): (...args: Parameters<T>) => void {
+    let t: number | undefined;
+    return (...args) => {
+      if (t !== undefined) window.clearTimeout(t);
+      t = window.setTimeout(() => fn(...args), ms);
+    };
+  }
+
+  /**
+   * Pagefind URLs come back as e.g. /docs/getting-started/index.html.
+   * Normalise to /docs/getting-started/ for clean linking.
+   */
+  function normaliseUrl(url: string): string {
+    return url.replace(/index\.html$/, "").replace(/\.html$/, "/");
+  }
+
+  /**
+   * Pick a section pill based on the URL path so users can see at a
+   * glance whether a hit lives under /docs, /setup, etc.
+   */
+  function sectionFor(url: string): { en: string; zh: string } {
+    if (url.startsWith("/docs")) return { en: "Docs", zh: "文件" };
+    if (url.startsWith("/setup")) return { en: "Setup", zh: "安裝" };
+    if (url.startsWith("/wishlist")) return { en: "Wishlist", zh: "許願池" };
+    return { en: "Home", zh: "首頁" };
+  }
+
+  const triggers = document.querySelectorAll<HTMLElement>(".site-search-trigger");
+  const modal = document.getElementById("site-search-modal");
+  const input = document.getElementById(
+    "site-search-input",
+  ) as HTMLInputElement | null;
+  const results = document.getElementById("site-search-results");
+  const hint = document.getElementById("site-search-hint");
+
+  if (triggers.length > 0 && modal && input && results) {
+    let activeIdx = -1;
+
+    function openModal() {
+      if (!modal || !input) return;
+      modal.classList.add("is-open");
+      // Defer focus to next frame so transition completes
+      requestAnimationFrame(() => input.focus());
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
+    function renderResults(
+      items: { url: string; title: string; excerpt: string }[],
+    ) {
+      if (!results) return;
+      if (items.length === 0) {
+        results.innerHTML =
+          '<div class="search-empty"><span class="lang-en">No matches yet — try fewer or different words.</span><span class="lang-zh">沒有符合結果 — 試試其他關鍵字。</span></div>';
+        activeIdx = -1;
+        return;
+      }
+      results.innerHTML = items
+        .map((r, i) => {
+          const section = sectionFor(r.url);
+          return `
+            <a class="search-result${i === 0 ? " is-active" : ""}" href="${r.url}" data-result-idx="${i}">
+              <div class="search-result-meta">
+                <span class="search-result-meta-pill"><span class="lang-en">${section.en}</span><span class="lang-zh">${section.zh}</span></span>
+                <span>${r.url}</span>
+              </div>
+              <div class="search-result-title">${r.title}</div>
+              <div class="search-result-excerpt">${r.excerpt}</div>
+            </a>
+          `;
+        })
+        .join("");
+      activeIdx = 0;
+    }
+
+    const runSearch = debounce(async (q: string) => {
+      if (!results || !hint) return;
+      if (!q.trim()) {
+        results.innerHTML = "";
+        results.appendChild(hint);
+        hint.style.display = "block";
+        activeIdx = -1;
+        return;
+      }
+      hint.style.display = "none";
+      const pf = await loadPagefind();
+      if (!pf) {
+        results.innerHTML =
+          '<div class="search-empty"><span class="lang-en">Search index is only available in production builds.</span><span class="lang-zh">搜尋索引只在 production build 後可用。</span></div>';
+        return;
+      }
+      try {
+        const search = await pf.search(q);
+        const top = await Promise.all(
+          search.results.slice(0, 8).map(async (r) => {
+            const data = await r.data();
+            return {
+              url: normaliseUrl(data.url),
+              title: data.meta?.title || data.url,
+              excerpt: data.excerpt,
+            };
+          }),
+        );
+        renderResults(top);
+      } catch {
+        results.innerHTML =
+          '<div class="search-empty"><span class="lang-en">Search failed. Please try again.</span><span class="lang-zh">搜尋失敗，請再試一次。</span></div>';
+      }
+    }, 150);
+
+    triggers.forEach((trigger) => trigger.addEventListener("click", openModal));
+
+    input.addEventListener("input", () => runSearch(input.value));
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+        return;
+      }
+      if (!results) return;
+      const links = results.querySelectorAll<HTMLAnchorElement>(".search-result");
+      if (links.length === 0) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIdx = Math.min(activeIdx + 1, links.length - 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIdx = Math.max(activeIdx - 1, 0);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (activeIdx >= 0) links[activeIdx].click();
+        return;
+      } else {
+        return;
+      }
+      links.forEach((l, i) => l.classList.toggle("is-active", i === activeIdx));
+      links[activeIdx]?.scrollIntoView({ block: "nearest" });
+    });
+
+    // Click outside the card closes
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Cmd/Ctrl+K opens, Esc closes (when not focused on input)
+    window.addEventListener("keydown", (e) => {
+      const isMod = e.metaKey || e.ctrlKey;
+      if (isMod && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        if (modal.classList.contains("is-open")) {
+          closeModal();
+        } else {
+          openModal();
+        }
+      } else if (e.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      } else if (e.key === "/" && document.activeElement === document.body) {
+        // "/" when nothing focused → open search (GitHub-style)
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+</script>
