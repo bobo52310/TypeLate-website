@@ -1,0 +1,160 @@
+---
+title: "Hotkeys & Trigger Modes"
+titleZh: "熱鍵與觸發模式"
+description: "Set the key that starts a recording, and pick the trigger style that matches your workflow."
+descriptionZh: "設定觸發錄音的按鍵，並挑選最適合你工作流程的觸發方式。"
+order: 20
+---
+
+import Kbd from "../../components/docs/Kbd.astro";
+import Callout from "../../components/docs/Callout.astro";
+
+<div class="lang-en">
+
+The hotkey is what wakes TypeLate up. Pick a key you can press without moving your hands away from the keyboard, and pick a trigger mode that matches how you talk.
+
+</div>
+<div class="lang-zh">
+
+熱鍵是叫醒 TypeLate 的按鍵。選一個不用離開鍵盤就能按到的鍵，搭配最像你說話節奏的觸發模式。
+
+</div>
+
+## Choose your key
+
+<div class="lang-en">
+
+Open **Settings → Hotkeys & Input → Hotkey**. Available presets include:
+
+- <Kbd keys="Fn" /> — macOS default. Already on every Apple keyboard, no conflicts with text input.
+- <Kbd keys="⌥" /> (Option / Alt) — left or right.
+- <Kbd keys="⌃" /> (Control) — left or right.
+- <Kbd keys="⌘" /> (Command).
+- <Kbd keys="⇧" /> (Shift) — works but easy to trigger accidentally; pair with Double-Tap mode.
+
+Click **Custom key** to record any other key. TypeLate captures the next keydown — press once and confirm. Reserved system keys (e.g. <Kbd keys="⌘+Tab" />) are blocked with a warning.
+
+</div>
+<div class="lang-zh">
+
+開啟 **設定 → 熱鍵與輸入 → 熱鍵**。預設可選：
+
+- <Kbd keys="Fn" /> — macOS 預設。Apple 鍵盤都有，不會跟文字輸入衝突。
+- <Kbd keys="⌥" />（Option / Alt）— 左或右。
+- <Kbd keys="⌃" />（Control）— 左或右。
+- <Kbd keys="⌘" />（Command）。
+- <Kbd keys="⇧" />（Shift）— 可用，但很容易誤觸，建議搭 Double-Tap 模式。
+
+點 **自訂按鍵** 可錄製任何其他鍵。TypeLate 會捕捉下一次按鍵 — 按一下確認即可。系統保留鍵（例如 <Kbd keys="⌘+Tab" />）會被擋下並提示。
+
+</div>
+
+<Callout type="warn" title="Accessibility permission" titleZh="輔助使用權限">
+
+<div class="lang-en">
+
+Global hotkey capture requires the **Accessibility** permission on macOS. If your hotkey doesn't fire, open **System Settings → Privacy & Security → Accessibility** and confirm TypeLate is in the list and toggled on. After app updates, you may need to remove and re-add the entry — macOS caches Accessibility against the code signature.
+
+</div>
+<div class="lang-zh">
+
+全域熱鍵需要 macOS 的 **輔助使用** 權限。如果熱鍵沒反應，請到 **系統設定 → 隱私權與安全性 → 輔助使用** 確認 TypeLate 在列表內並已啟用。App 更新後可能需要先移除再重新加入 — macOS 會以程式簽章為快取依據。
+
+</div>
+</Callout>
+
+## Trigger modes
+
+<div class="lang-en">
+
+The trigger mode decides when recording starts and stops. Pick one in **Settings → Hotkeys & Input → Trigger mode**.
+
+</div>
+<div class="lang-zh">
+
+觸發模式決定錄音何時開始、何時結束。在 **設定 → 熱鍵與輸入 → 觸發模式** 切換。
+
+</div>
+
+### Hold
+
+<div class="lang-en">
+
+- **Press and hold** the hotkey to record. **Release** to stop and process.
+- Best for short utterances; you don't need to manage a state.
+- Default for users who like push-to-talk feel (think walkie-talkie).
+
+</div>
+<div class="lang-zh">
+
+- **按住** 熱鍵錄音，**放開** 停止並開始處理。
+- 適合短句，不用管「目前是不是在錄」。
+- 喜歡 push-to-talk 手感（像對講機）的人首選。
+
+</div>
+
+### Toggle
+
+<div class="lang-en">
+
+- **Press once** to start. **Press again** to stop.
+- Hands-free friendly — no need to keep a finger down while you think.
+- Comes with a **5-minute safety timeout** that auto-stops recording if you forget.
+- Default in onboarding.
+
+</div>
+<div class="lang-zh">
+
+- **按一下** 開始，**再按一下** 結束。
+- 免手按，思考時手指可以離開鍵盤。
+- 內建 **5 分鐘自動停止** 防呆，忘了停會自動切。
+- Onboarding 流程預設此模式。
+
+</div>
+
+### Double-Tap
+
+<div class="lang-en">
+
+- **Tap the key twice quickly** (within 300 ms) to start. Tap twice again to stop.
+- Prevents accidental triggers on keys you also use for typing (e.g. <Kbd keys="⇧" /> or <Kbd keys="⌃" />).
+- Slightly more friction; recommended only when you can't avoid sharing a key with normal input.
+
+</div>
+<div class="lang-zh">
+
+- **快速雙擊**（300 毫秒內）開始錄音，再雙擊一次結束。
+- 避免在會打字的按鍵上誤觸（例如 <Kbd keys="⇧" /> 或 <Kbd keys="⌃" />）。
+- 多一個動作，建議只在無法避免共用按鍵時使用。
+
+</div>
+
+## Tips
+
+<Callout type="tip" title="Right-side modifiers" titleZh="善用右側修飾鍵">
+
+<div class="lang-en">
+
+If you bind to <Kbd keys="⌥" /> or <Kbd keys="⌃" />, choosing the **right-side** variant prevents collisions with typical left-hand shortcuts (<Kbd keys={["⌃", "C"]} />, <Kbd keys={["⌥", "←"]} />). Both sides are listed separately in the preset menu.
+
+</div>
+<div class="lang-zh">
+
+綁定 <Kbd keys="⌥" /> 或 <Kbd keys="⌃" /> 時，選 **右側** 變體可以避開左手常用的快捷鍵（例如 <Kbd keys={["⌃", "C"]} />、<Kbd keys={["⌥", "←"]} />）。預設選單把左右兩側分開列出。
+
+</div>
+</Callout>
+
+<Callout type="info" title="Silence detection" titleZh="靜音偵測">
+
+<div class="lang-en">
+
+If TypeLate detects no speech for the first second of a recording, the HUD shows a hint. This is a heads-up that the mic might be muted or the wrong device is selected — see [Audio settings](/docs/getting-started#5-your-first-transcription).
+
+</div>
+<div class="lang-zh">
+
+開始錄音的第一秒若沒偵測到語音，HUD 會跳提示。通常是麥克風被靜音或裝置選錯 — 可參考 [音訊設定](/docs/getting-started#5-your-first-transcription)。
+
+</div>
+</Callout>

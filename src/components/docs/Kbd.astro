@@ -1,0 +1,28 @@
+---
+interface Props {
+  keys: string | string[];
+}
+
+const { keys } = Astro.props;
+const keyList = Array.isArray(keys) ? keys : [keys];
+---
+
+<span class="docs-kbd-group inline-flex items-center gap-1 align-middle">
+  {
+    keyList.map((k, i) => (
+      <>
+        <kbd
+          class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-mono"
+          style="background: var(--brand-card); border: 1px solid var(--brand-border); border-bottom-width: 2px; border-radius: 4px; color: var(--brand-foreground); min-width: 1.5em;"
+        >
+          {k}
+        </kbd>
+        {i < keyList.length - 1 && (
+          <span class="text-xs" style="color: var(--brand-muted);">
+            +
+          </span>
+        )}
+      </>
+    ))
+  }
+</span>

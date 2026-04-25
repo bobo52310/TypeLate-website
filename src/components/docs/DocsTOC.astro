@@ -1,0 +1,76 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const visible = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  visible.length > 0 && (
+    <nav class="docs-toc text-xs" aria-label="On this page">
+      <div
+        class="px-2 mb-2 text-xs font-semibold uppercase tracking-wider"
+        style="color: var(--brand-muted);"
+      >
+        <span class="lang-en">On this page</span>
+        <span class="lang-zh">本頁目錄</span>
+      </div>
+      <ul class="space-y-1">
+        {visible.map((h) => (
+          <li style={h.depth === 3 ? "padding-left: 0.75rem;" : ""}>
+            <a
+              href={`#${h.slug}`}
+              class="docs-toc-link block px-2 py-1 rounded transition-colors leading-snug"
+              style="color: var(--brand-muted);"
+              data-toc-target={h.slug}
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .docs-toc-link:hover {
+    color: var(--brand-foreground) !important;
+  }
+  .docs-toc-link.is-active {
+    color: var(--brand-gold) !important;
+    background: rgba(251, 191, 36, 0.06);
+  }
+</style>
+
+<script>
+  const tocLinks = document.querySelectorAll<HTMLAnchorElement>(
+    "[data-toc-target]",
+  );
+  if (tocLinks.length > 0) {
+    const slugs = Array.from(tocLinks).map((a) => a.dataset.tocTarget!);
+    const targets = slugs
+      .map((s) => document.getElementById(s))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const link = document.querySelector(
+            `[data-toc-target="${e.target.id}"]`,
+          );
+          if (link) {
+            link.classList.toggle("is-active", e.isIntersecting);
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+
+    targets.forEach((t) => observer.observe(t));
+  }
+</script>

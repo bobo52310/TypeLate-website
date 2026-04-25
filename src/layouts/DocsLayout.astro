@@ -1,0 +1,66 @@
+---
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import DocsSidebar from "../components/docs/DocsSidebar.astro";
+import DocsTOC from "../components/docs/DocsTOC.astro";
+import DocsBreadcrumbs from "../components/docs/DocsBreadcrumbs.astro";
+import DocsPagerNav from "../components/docs/DocsPagerNav.astro";
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  title: string;
+  titleZh?: string;
+  description: string;
+  descriptionZh?: string;
+  slug: string;
+  headings: MarkdownHeading[];
+}
+
+const { title, titleZh, description, descriptionZh, slug, headings } =
+  Astro.props;
+const isIndex = slug === "index";
+---
+
+<Layout title={`${title} — TypeLate Docs`} description={description}>
+  <Navbar />
+  <main id="main-content" class="pt-20 pb-12">
+    <div
+      class="max-w-7xl mx-auto px-6 grid grid-cols-1 gap-8 lg:grid-cols-[16rem_minmax(0,1fr)_14rem]"
+    >
+      <aside
+        class="hidden lg:block sticky top-20 self-start max-h-[calc(100vh-5rem)] overflow-y-auto py-6 pr-2"
+      >
+        <DocsSidebar activeSlug={slug} />
+      </aside>
+
+      <article class="docs-prose py-6 min-w-0">
+        <DocsBreadcrumbs slug={slug} title={title} titleZh={titleZh} />
+        <h1>
+          <span class="lang-en">{title}</span>
+          {titleZh && <span class="lang-zh">{titleZh}</span>}
+        </h1>
+        {
+          description && (
+            <p
+              class="lead mt-2"
+              style="color: var(--brand-muted); font-size: 1.05rem;"
+            >
+              <span class="lang-en">{description}</span>
+              {descriptionZh && <span class="lang-zh">{descriptionZh}</span>}
+            </p>
+          )
+        }
+        <slot />
+        {!isIndex && <DocsPagerNav slug={slug} />}
+      </article>
+
+      <aside
+        class="hidden lg:block sticky top-20 self-start max-h-[calc(100vh-5rem)] overflow-y-auto py-6 pl-2"
+      >
+        <DocsTOC headings={headings} />
+      </aside>
+    </div>
+  </main>
+  <Footer />
+</Layout>

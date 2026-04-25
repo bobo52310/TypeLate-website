@@ -38,6 +38,9 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
       <a href="/#faq" data-nav-section="faq" class="nav-section-link hover:text-[var(--brand-foreground)] transition-colors">
         FAQ
       </a>
+      <a href="/docs" class="nav-static-link hover:text-[var(--brand-foreground)] transition-colors">
+        <span class="lang-en">Docs</span><span class="lang-zh">文件</span>
+      </a>
     </div>
 
     <!-- Right: Desktop actions -->
@@ -128,6 +131,9 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
       <a href="/#faq" class="mobile-menu-link block px-3 py-2.5 rounded-lg text-sm transition-colors" style="color: var(--brand-muted);">
         FAQ
       </a>
+      <a href="/docs" class="mobile-menu-link block px-3 py-2.5 rounded-lg text-sm transition-colors" style="color: var(--brand-muted);">
+        <span class="lang-en">Docs</span><span class="lang-zh">文件</span>
+      </a>
 
       <div class="my-2" style="border-top: 1px solid var(--brand-border);"></div>
 
@@ -213,6 +219,20 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
     // Close menu when clicking a link
     menu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Highlight static nav links when on their route (e.g. /docs/*)
+  if (window.location.pathname.startsWith('/docs')) {
+    document.querySelectorAll<HTMLAnchorElement>('.nav-static-link').forEach((a) => {
+      if (a.getAttribute('href') === '/docs') {
+        a.classList.add('is-current');
+      }
+    });
+    document.querySelectorAll<HTMLAnchorElement>('.mobile-menu-link').forEach((a) => {
+      if (a.getAttribute('href') === '/docs') {
+        a.style.color = 'var(--brand-gold)';
+      }
     });
   }
 </script>

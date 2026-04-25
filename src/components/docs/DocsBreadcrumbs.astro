@@ -1,0 +1,53 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  titleZh?: string;
+}
+
+const { slug, title, titleZh } = Astro.props;
+const isIndex = slug === "index";
+---
+
+<nav class="docs-breadcrumbs text-xs mb-4" aria-label="Breadcrumb">
+  <ol class="flex items-center gap-1.5 flex-wrap" style="color: var(--brand-muted);">
+    <li>
+      <a
+        href="/"
+        class="hover:text-[var(--brand-foreground)] transition-colors"
+      >
+        <span class="lang-en">Home</span><span class="lang-zh">首頁</span>
+      </a>
+    </li>
+    <li aria-hidden="true">/</li>
+    <li>
+      {
+        isIndex ? (
+          <span style="color: var(--brand-foreground);">
+            <span class="lang-en">Docs</span>
+            <span class="lang-zh">文件</span>
+          </span>
+        ) : (
+          <a
+            href="/docs"
+            class="hover:text-[var(--brand-foreground)] transition-colors"
+          >
+            <span class="lang-en">Docs</span>
+            <span class="lang-zh">文件</span>
+          </a>
+        )
+      }
+    </li>
+    {
+      !isIndex && (
+        <>
+          <li aria-hidden="true">/</li>
+          <li style="color: var(--brand-foreground);">
+            <span class="lang-en">{title}</span>
+            {titleZh && <span class="lang-zh">{titleZh}</span>}
+          </li>
+        </>
+      )
+    }
+  </ol>
+</nav>

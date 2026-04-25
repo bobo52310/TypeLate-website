@@ -1,0 +1,72 @@
+---
+import { getPrevNext } from "../../config/docs";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const { prev, next } = getPrevNext(slug);
+---
+
+{
+  (prev || next) && (
+    <nav
+      class="docs-pager mt-12 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      style="border-top: 1px solid var(--brand-border);"
+      aria-label="Document navigation"
+    >
+      {prev ? (
+        <a
+          href={`/docs/${prev.slug}`}
+          class="docs-pager-link group flex flex-col gap-1 p-4 rounded-lg transition-all"
+          style="border: 1px solid var(--brand-border); background: var(--brand-card);"
+        >
+          <span class="text-xs flex items-center gap-1" style="color: var(--brand-muted);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            <span class="lang-en">Previous</span>
+            <span class="lang-zh">上一篇</span>
+          </span>
+          <span class="font-semibold" style="color: var(--brand-foreground);">
+            <span class="lang-en">{prev.label.en}</span>
+            <span class="lang-zh">{prev.label.zh}</span>
+          </span>
+        </a>
+      ) : (
+        <div />
+      )}
+
+      {next ? (
+        <a
+          href={`/docs/${next.slug}`}
+          class="docs-pager-link group flex flex-col gap-1 p-4 rounded-lg transition-all sm:text-right"
+          style="border: 1px solid var(--brand-border); background: var(--brand-card);"
+        >
+          <span class="text-xs flex items-center gap-1 sm:justify-end" style="color: var(--brand-muted);">
+            <span class="lang-en">Next</span>
+            <span class="lang-zh">下一篇</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </span>
+          <span class="font-semibold" style="color: var(--brand-foreground);">
+            <span class="lang-en">{next.label.en}</span>
+            <span class="lang-zh">{next.label.zh}</span>
+          </span>
+        </a>
+      ) : (
+        <div />
+      )}
+    </nav>
+  )
+}
+
+<style>
+  .docs-pager-link:hover {
+    border-color: rgba(251, 191, 36, 0.4) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.08);
+  }
+</style>

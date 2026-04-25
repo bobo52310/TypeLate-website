@@ -1,0 +1,35 @@
+---
+interface Props {
+  provider: "groq" | "openai" | "gemini" | "openrouter" | "nvidia";
+  label?: string;
+}
+
+const PROVIDERS: Record<
+  Props["provider"],
+  { name: string; color: string; bg: string }
+> = {
+  groq: { name: "Groq", color: "#fb923c", bg: "rgba(251, 146, 60, 0.1)" },
+  openai: { name: "OpenAI", color: "#10a37f", bg: "rgba(16, 163, 127, 0.1)" },
+  gemini: { name: "Gemini", color: "#4285f4", bg: "rgba(66, 133, 244, 0.1)" },
+  openrouter: {
+    name: "OpenRouter",
+    color: "#a78bfa",
+    bg: "rgba(167, 139, 250, 0.1)",
+  },
+  nvidia: { name: "NVIDIA NIM", color: "#76b900", bg: "rgba(118, 185, 0, 0.1)" },
+};
+
+const { provider, label } = Astro.props;
+const p = PROVIDERS[provider];
+---
+
+<span
+  class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium align-middle"
+  style={`background: ${p.bg}; color: ${p.color}; border: 1px solid ${p.color}33;`}
+>
+  <span
+    class="inline-block w-1.5 h-1.5 rounded-full"
+    style={`background: ${p.color};`}
+  ></span>
+  {label ?? p.name}
+</span>

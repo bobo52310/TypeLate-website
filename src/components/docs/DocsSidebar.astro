@@ -1,0 +1,61 @@
+---
+import { DOCS_SECTIONS } from "../../config/docs";
+
+interface Props {
+  activeSlug: string;
+}
+
+const { activeSlug } = Astro.props;
+---
+
+<nav class="docs-sidebar text-sm" aria-label="Documentation navigation">
+  <a
+    href="/docs"
+    class="block px-3 py-2 rounded-lg mb-3 font-semibold transition-colors"
+    style={`color: ${activeSlug === "index" ? "var(--brand-gold)" : "var(--brand-foreground)"}; ${activeSlug === "index" ? "background: rgba(251, 191, 36, 0.1);" : ""}`}
+  >
+    <span class="lang-en">Documentation</span><span class="lang-zh">文件首頁</span>
+  </a>
+
+  {
+    DOCS_SECTIONS.map((section) => (
+      <div class="mb-4">
+        <div
+          class="px-3 mb-1 text-xs font-semibold uppercase tracking-wider"
+          style="color: var(--brand-muted);"
+        >
+          <span class="lang-en">{section.label.en}</span>
+          <span class="lang-zh">{section.label.zh}</span>
+        </div>
+        <ul class="space-y-0.5">
+          {section.items.map((item) => {
+            const isActive = item.slug === activeSlug;
+            return (
+              <li>
+                <a
+                  href={`/docs/${item.slug}`}
+                  class={`docs-sidebar-link block px-3 py-1.5 rounded-md transition-colors ${isActive ? "is-active" : ""}`}
+                  style={
+                    isActive
+                      ? "color: var(--brand-gold); background: rgba(251, 191, 36, 0.08);"
+                      : "color: var(--brand-muted);"
+                  }
+                >
+                  <span class="lang-en">{item.label.en}</span>
+                  <span class="lang-zh">{item.label.zh}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))
+  }
+</nav>
+
+<style>
+  .docs-sidebar-link:hover:not(.is-active) {
+    background: rgba(251, 191, 36, 0.04);
+    color: var(--brand-foreground) !important;
+  }
+</style>

@@ -339,3 +339,178 @@ html[data-lang="zh"] .lang-en {
 html[data-lang="zh"] .lang-zh {
   display: inline !important;
 }
+
+/* Block-level lang toggle for docs markdown bilingual blocks */
+html:not([data-lang="zh"]) div.lang-zh {
+  display: none;
+}
+html[data-lang="zh"] div.lang-en {
+  display: none !important;
+}
+html[data-lang="zh"] div.lang-zh {
+  display: block !important;
+}
+
+/* ---- Docs Navigation ---- */
+.nav-static-link.is-current {
+  color: var(--brand-gold);
+}
+
+/* ---- Docs Prose ---- */
+.docs-prose {
+  color: var(--brand-foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.docs-prose h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  color: var(--brand-foreground);
+}
+.docs-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--brand-border);
+  color: var(--brand-foreground);
+  scroll-margin-top: 5rem;
+}
+.docs-prose h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.75rem 0;
+  color: var(--brand-foreground);
+  scroll-margin-top: 5rem;
+}
+.docs-prose h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+  color: var(--brand-foreground);
+  scroll-margin-top: 5rem;
+}
+.docs-prose p {
+  margin: 0.75rem 0;
+  color: var(--brand-foreground);
+}
+.docs-prose a {
+  color: var(--brand-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(251, 191, 36, 0.4);
+  transition: text-decoration-color 0.2s;
+}
+.docs-prose a:hover {
+  text-decoration-color: var(--brand-gold);
+}
+.docs-prose ul,
+.docs-prose ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  color: var(--brand-foreground);
+}
+.docs-prose ul {
+  list-style: disc;
+}
+.docs-prose ol {
+  list-style: decimal;
+}
+.docs-prose li {
+  margin: 0.4rem 0;
+}
+.docs-prose li > p {
+  margin: 0.25rem 0;
+}
+.docs-prose strong {
+  color: var(--brand-foreground);
+  font-weight: 700;
+}
+.docs-prose em {
+  color: var(--brand-foreground);
+  font-style: italic;
+}
+.docs-prose code:not(pre code) {
+  background: var(--brand-card);
+  border: 1px solid var(--brand-border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  color: var(--brand-gold-light);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
+    monospace;
+}
+.docs-prose pre {
+  background: #0d1117;
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.docs-prose pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+.docs-prose blockquote {
+  border-left: 3px solid var(--brand-gold);
+  background: rgba(251, 191, 36, 0.05);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+  color: var(--brand-foreground);
+}
+.docs-prose blockquote p {
+  margin: 0.25rem 0;
+}
+.docs-prose hr {
+  border: 0;
+  border-top: 1px solid var(--brand-border);
+  margin: 2rem 0;
+}
+.docs-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.docs-prose th,
+.docs-prose td {
+  text-align: left;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--brand-border);
+}
+.docs-prose th {
+  background: var(--brand-card);
+  color: var(--brand-foreground);
+  font-weight: 700;
+}
+.docs-prose td {
+  color: var(--brand-foreground);
+}
+.docs-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--brand-border);
+  margin: 1rem 0;
+}
+.docs-prose kbd {
+  background: var(--brand-card);
+  border: 1px solid var(--brand-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.85em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
+    monospace;
+  color: var(--brand-foreground);
+  white-space: nowrap;
+}

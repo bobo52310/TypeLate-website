@@ -1,0 +1,36 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  captionZh?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, caption, captionZh, width, height } = Astro.props;
+---
+
+<figure class="docs-screenshot my-6">
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+    class="w-full rounded-lg"
+    style="border: 1px solid var(--brand-border);"
+  />
+  {
+    (caption || captionZh) && (
+      <figcaption
+        class="mt-2 text-center text-xs"
+        style="color: var(--brand-muted);"
+      >
+        {caption && <span class="lang-en">{caption}</span>}
+        {captionZh && <span class="lang-zh">{captionZh}</span>}
+      </figcaption>
+    )
+  }
+</figure>
