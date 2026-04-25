@@ -64,6 +64,29 @@ public/
 └── robots.txt
 ```
 
+## Deployment
+
+Auto-deployed to **Netlify** via its native Git integration — every push to `main` triggers a fresh build and deploy automatically. No GitHub Actions workflow required.
+
+### Setup (one-time)
+
+1. Sign in at [app.netlify.com](https://app.netlify.com/start) and select this GitHub repo
+2. Netlify auto-detects [`netlify.toml`](netlify.toml):
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - Node version: `22`
+3. Click **Deploy** — done
+
+### What you get
+
+| Trigger | Result |
+| --- | --- |
+| Push to `main` | Production deploy |
+| Open a pull request | Preview deploy with unique URL |
+| Merge / close PR | Preview cleaned up |
+
+Security headers and asset caching are also configured in `netlify.toml`.
+
 ## Related Projects
 
 - [TypeLate](https://github.com/bobo52310/TypeLate) — macOS / Windows desktop app (Tauri v2 + React 19 + Rust)

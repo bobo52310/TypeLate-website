@@ -64,6 +64,29 @@ public/
 └── robots.txt
 ```
 
+## 部署
+
+透過 **Netlify** 原生 Git integration 自動部署 — 每次 push 到 `main` 都會自動觸發 build 與部署，不需要 GitHub Actions workflow。
+
+### 一次性設定
+
+1. 到 [app.netlify.com](https://app.netlify.com/start) 登入並選擇此 GitHub repo
+2. Netlify 會自動偵測 [`netlify.toml`](netlify.toml)：
+   - Build command：`npm run build`
+   - Publish directory：`dist`
+   - Node 版本：`22`
+3. 點 **Deploy** — 完成
+
+### 部署行為
+
+| 觸發事件 | 結果 |
+| --- | --- |
+| Push 到 `main` | Production 部署 |
+| 開啟 Pull Request | Preview 部署，產生獨立預覽網址 |
+| 合併或關閉 PR | Preview 自動清除 |
+
+安全標頭與靜態資源快取設定也都寫在 `netlify.toml` 中。
+
 ## 相關專案
 
 - [TypeLate](https://github.com/bobo52310/TypeLate) — macOS / Windows 桌面應用程式（Tauri v2 + React 19 + Rust）
