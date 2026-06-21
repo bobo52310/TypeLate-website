@@ -95,9 +95,9 @@ const features = [
         <!-- Header -->
         <thead>
           <tr style="background: var(--brand-card);">
-            <th class="text-left px-5 py-4 font-medium" style="color: var(--brand-muted); width: 180px;"></th>
+            <th scope="col" class="text-left px-5 py-4 font-medium" style="color: var(--brand-muted); width: 180px;"><span class="sr-only">Feature</span></th>
             {competitors.map((c) => (
-              <th class={`px-4 py-4 font-semibold text-center ${c.highlight ? '' : ''}`}
+              <th scope="col" class={`px-4 py-4 font-semibold text-center ${c.highlight ? '' : ''}`}
                   style={c.highlight ? "color: var(--brand-gold);" : "color: var(--brand-foreground);"}>
                 {c.name}
                 {c.highlight && (
@@ -113,10 +113,10 @@ const features = [
         <tbody>
           {features.map((f, i) => (
             <tr style={`background: ${i % 2 === 0 ? 'rgba(30, 41, 59, 0.5)' : 'var(--brand-card)'};`}>
-              <td class="px-5 py-3 font-medium" style="color: var(--brand-muted);">
+              <th scope="row" class="text-left px-5 py-3 font-medium" style="color: var(--brand-muted); font-weight: 500;">
                 <span class="lang-en">{f.label}</span>
                 <span class="lang-zh">{f.labelZh}</span>
-              </td>
+              </th>
               {competitors.map((c) => {
                 const val = c[f.key as keyof typeof c];
                 return (

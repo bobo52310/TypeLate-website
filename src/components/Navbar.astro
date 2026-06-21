@@ -70,17 +70,17 @@ const DOWNLOAD_URL = DOWNLOAD_URLS.macArm64;
         type="button"
         class="site-search-trigger hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs transition-colors"
         style="border: 1px solid var(--brand-border); color: var(--brand-muted); background: transparent;"
-        aria-label="Open site search"
+        aria-label="Search"
         aria-haspopup="dialog"
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <span class="hidden lg:inline">
+        <span class="hidden lg:inline" aria-hidden="true">
           <span class="lang-en">Search</span><span class="lang-zh">搜尋</span>
         </span>
-        <kbd class="hidden lg:inline-flex items-center px-1 ml-1 text-[10px] font-mono" style="border: 1px solid var(--brand-border); border-radius: 3px;">⌘K</kbd>
+        <kbd class="hidden lg:inline-flex items-center px-1 ml-1 text-[10px] font-mono" style="border: 1px solid var(--brand-border); border-radius: 3px;" aria-hidden="true">⌘K</kbd>
       </button>
       <div id="lang-toggle" class="hidden sm:flex items-center rounded-lg overflow-hidden text-xs" style="border: 1px solid var(--brand-border);">
         <button data-lang-btn="en" class="px-2.5 py-1.5 font-medium transition-colors" style="background: rgba(251, 191, 36, 0.15); color: var(--brand-gold);">EN</button>

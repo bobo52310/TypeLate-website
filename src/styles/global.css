@@ -94,6 +94,40 @@ section[id] {
   transform: translateY(0);
 }
 
+/* ---- Hero entrance (CSS-only, no JS dependency so above-the-fold LCP paints immediately) ---- */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-reveal {
+  animation: heroReveal 0.6s ease-out both;
+}
+.hero-reveal-2 {
+  animation-delay: 0.15s;
+}
+.hero-reveal-3 {
+  animation-delay: 0.25s;
+}
+
+/* Transform-only entrance for the LCP heading — stays opaque so it paints on the first frame. */
+@keyframes heroSlide {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.hero-reveal-slide {
+  animation: heroSlide 0.6s ease-out both;
+}
+
 /* ---- Notch HUD Demo ---- */
 .notch-demo {
   background: #000;
@@ -182,6 +216,12 @@ section[id] {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .hero-reveal,
+  .hero-reveal-slide {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
   .notch-bar,
   .notch-dot {
