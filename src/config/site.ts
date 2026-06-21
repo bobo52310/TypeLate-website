@@ -4,6 +4,9 @@ export const GITHUB_OWNER = "bobo52310";
 export const GITHUB_REPO = "TypeLate";
 export const GITHUB_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`;
 
+// Developer's personal website.
+export const DEVELOPER_URL = "https://bobochen.dev";
+
 export const DOWNLOAD_URLS = {
   macArm64: "/setup?platform=mac-arm64",
   macIntel: "/setup?platform=mac-intel",
