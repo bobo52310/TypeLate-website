@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://typelate.app/sitemap-index.xml
+Sitemap: https://typelate.bobochen.dev/sitemap-index.xml

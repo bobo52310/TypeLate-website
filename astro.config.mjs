@@ -6,8 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Replace with your production domain when ready
-  site: 'https://typelate.app',
+  site: 'https://typelate.bobochen.dev',
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {

@@ -17,7 +17,7 @@ export const DOWNLOAD_URLS = {
 
 export const SITE = {
   name: "TypeLate",
-  url: "https://typelate.app",
+  url: "https://typelate.bobochen.dev",
   title: "TypeLate — Too late to type, just speak | Open-Source Voice-to-Text",
   description:
     "Free, open-source voice-to-text app for macOS, Windows & Android. Press a hotkey, speak naturally, release — AI polishes your speech into clean text in under 3 seconds. BYOK, zero telemetry, MIT licensed.",
