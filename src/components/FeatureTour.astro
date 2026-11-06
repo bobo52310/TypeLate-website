@@ -1,0 +1,258 @@
+---
+// Feature Tour — the five-episode promo series (EP01 overview + four feature spots).
+// Videos and posters live in public/tour/ (outside /assets/, so they are not served with the
+// immutable cache header and can be re-rendered under the same file name).
+// Each episode has an EN and a zh-TW cut; the player picks the one matching the site language.
+const episodes = [
+  { ep: "EP01", slug: "intro", title: "What is TypeLate", titleZh: "TypeLate 是什麼", duration: "0:30" },
+  { ep: "EP02", slug: "hotkey", title: "One key, three ways", titleZh: "一個鍵，三種按法", duration: "0:19" },
+  { ep: "EP03", slug: "context", title: "Reads the room", titleZh: "看場合說話", duration: "0:18" },
+  { ep: "EP04", slug: "vocab", title: "Learns your words", titleZh: "記得你的詞", duration: "0:18" },
+  { ep: "EP05", slug: "byok", title: "Your keys, your data", titleZh: "你的金鑰，你的資料", duration: "0:18" },
+];
+const src = (slug: string, lang: "en" | "zh", ext: "mp4" | "webp") => `/tour/${slug}-${lang}.${ext}`;
+const first = episodes[0];
+---
+
+<section id="feature-tour" class="tour">
+  <div class="tour-container">
+    <div class="tour-header fade-in">
+      <div class="tour-kicker">
+        <span class="lang-en">02 — Feature tour</span>
+        <span class="lang-zh">02 — 功能巡禮</span>
+      </div>
+      <h2 class="tour-h2">
+        <span class="lang-en">Five short films. One minute and a half.</span>
+        <span class="lang-zh">五支短片，一分半鐘看懂 TypeLate。</span>
+      </h2>
+    </div>
+
+    <div class="tour-player fade-in">
+      <video
+        id="tour-video"
+        class="tour-video"
+        width="1920"
+        height="1080"
+        controls
+        muted
+        playsinline
+        preload="none"
+        poster={src(first.slug, "en", "webp")}
+        data-slug={first.slug}
+        aria-label="TypeLate feature tour video"
+      >
+        <source src={src(first.slug, "en", "mp4")} type="video/mp4" />
+      </video>
+    </div>
+
+    <ol class="tour-list fade-in" role="list">
+      {
+        episodes.map((e, i) => (
+          <li>
+            <button
+              type="button"
+              class:list={["tour-ep", { active: i === 0 }]}
+              data-slug={e.slug}
+              aria-pressed={i === 0 ? "true" : "false"}
+            >
+              <span class="tour-thumb">
+                <img
+                  class="lang-en"
+                  src={src(e.slug, "en", "webp")}
+                  alt=""
+                  width="320"
+                  height="180"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="lang-zh"
+                  src={src(e.slug, "zh", "webp")}
+                  alt=""
+                  width="320"
+                  height="180"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="tour-dur">{e.duration}</span>
+              </span>
+              <span class="tour-ep-num">{e.ep}</span>
+              <span class="tour-ep-title">
+                <span class="lang-en">{e.title}</span>
+                <span class="lang-zh">{e.titleZh}</span>
+              </span>
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .tour {
+    padding: 100px 24px;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    background: rgba(30, 41, 59, 0.3);
+  }
+  .tour-container { max-width: 1080px; margin: 0 auto; }
+  .tour-header { margin-bottom: 40px; }
+  .tour-kicker {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .tour-h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 760px;
+    color: var(--brand-foreground);
+  }
+  .tour-player {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(51, 65, 85, 0.6);
+    background: var(--brand-bg);
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(251, 191, 36, 0.04);
+  }
+  .tour-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: var(--brand-bg);
+  }
+  .tour-list {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+  }
+  @media (max-width: 800px) {
+    .tour-list {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 46%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 6px;
+    }
+    .tour-list li { scroll-snap-align: start; }
+  }
+  .tour-ep {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 8px 12px;
+    text-align: left;
+    background: var(--brand-card);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 14px;
+    color: var(--brand-foreground);
+    cursor: pointer;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .tour-ep:hover { border-color: rgba(251, 191, 36, 0.3); transform: translateY(-2px); }
+  .tour-ep.active { border-color: rgba(251, 191, 36, 0.65); }
+  .tour-ep:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 2px; }
+  .tour-thumb {
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--brand-bg);
+  }
+  /* No display rule here: the global .lang-en/.lang-zh toggle decides which thumbnail shows. */
+  .tour-thumb img { width: 100%; height: 100%; object-fit: cover; vertical-align: top; }
+  .tour-dur {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    font-size: 11px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--brand-foreground);
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+  .tour-ep-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--brand-gold);
+    padding: 0 4px;
+  }
+  .tour-ep-title { font-size: 14px; font-weight: 600; line-height: 1.35; padding: 0 4px; }
+</style>
+
+<script>
+  const video = document.getElementById("tour-video") as HTMLVideoElement | null;
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>(".tour-ep"));
+
+  if (video && buttons.length) {
+    const lang = () => (document.documentElement.getAttribute("data-lang") === "zh" ? "zh" : "en");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let userStarted = false;
+
+    const load = (slug: string, play: boolean) => {
+      const l = lang();
+      video.dataset.slug = slug;
+      video.poster = `/tour/${slug}-${l}.webp`;
+      video.src = `/tour/${slug}-${l}.mp4`;
+      buttons.forEach((b) => {
+        const on = b.dataset.slug === slug;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (play) video.play().catch(() => {});
+      else video.load();
+    };
+
+    // Initial poster follows the site language (the server-rendered default is EN).
+    if (lang() === "zh") load(video.dataset.slug ?? "intro", false);
+
+    buttons.forEach((b) =>
+      b.addEventListener("click", () => {
+        userStarted = true;
+        load(b.dataset.slug!, true);
+      }),
+    );
+
+    // Language switch: swap to the matching cut, keep playing if it was playing.
+    new MutationObserver(() => {
+      if (!video.currentSrc.includes(`-${lang()}.mp4`)) load(video.dataset.slug ?? "intro", !video.paused);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-lang"] });
+
+    // Play through the series: when one episode ends, move to the next.
+    video.addEventListener("ended", () => {
+      const i = buttons.findIndex((b) => b.dataset.slug === video.dataset.slug);
+      const next = buttons[i + 1];
+      if (next) load(next.dataset.slug!, true);
+    });
+    video.addEventListener("play", () => (userStarted = true));
+
+    // Autoplay (muted) the first time the player scrolls into view, unless the visitor prefers reduced motion.
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && !userStarted) {
+            userStarted = true;
+            load(video.dataset.slug ?? "intro", true);
+            io.disconnect();
+          }
+        },
+        { threshold: 0.5 },
+      );
+      io.observe(video);
+    }
+  }
+</script>
