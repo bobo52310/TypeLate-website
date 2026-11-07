@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logoSrc from "../assets/logo-typelate.png";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
@@ -10,13 +12,7 @@ import { DOWNLOAD_URLS } from "../config/site";
   <main id="main-content" class="min-h-screen flex items-center justify-center px-6">
     <div class="text-center max-w-md">
       <!-- Logo -->
-      <img
-        src="/assets/logo-typelate.png"
-        alt="TypeLate"
-        width="80"
-        height="80"
-        class="mx-auto mb-8 opacity-60"
-      />
+      <Image src={logoSrc} alt="TypeLate" width="80" height="80" class="mx-auto mb-8 opacity-60" densities={[1, 2]} />
 
       <!-- 404 -->
       <h1

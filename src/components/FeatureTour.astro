@@ -11,6 +11,8 @@ const episodes = [
   { ep: "EP05", slug: "byok", title: "Your keys, your data", titleZh: "你的金鑰，你的資料", duration: "0:18" },
 ];
 const src = (slug: string, lang: "en" | "zh", ext: "mp4" | "webp") => `/tour/${slug}-${lang}.${ext}`;
+// 480px thumbnails for the episode list (the full-size webp is only used as the player poster).
+const thumb = (slug: string, lang: "en" | "zh") => `/tour/${slug}-${lang}-thumb.webp`;
 const first = episodes[0];
 ---
 
@@ -58,7 +60,7 @@ const first = episodes[0];
               <span class="tour-thumb">
                 <img
                   class="lang-en"
-                  src={src(e.slug, "en", "webp")}
+                  src={thumb(e.slug, "en")}
                   alt=""
                   width="320"
                   height="180"
@@ -67,7 +69,7 @@ const first = episodes[0];
                 />
                 <img
                   class="lang-zh"
-                  src={src(e.slug, "zh", "webp")}
+                  src={thumb(e.slug, "zh")}
                   alt=""
                   width="320"
                   height="180"

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logoSrc from "../assets/logo-typelate.png";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
@@ -83,7 +85,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
                 <!-- Drag area -->
                 <div class="installer-body">
                   <div class="installer-icon-group">
-                    <img src="/assets/logo-typelate.png" alt="TypeLate" width="52" height="52" style="border-radius: 12px;" />
+                    <Image src={logoSrc} alt="TypeLate" width="52" height="52" style="border-radius: 12px;" densities={[1, 2]} />
                     <span class="installer-label">TypeLate</span>
                   </div>
                   <!-- Arrow -->
@@ -127,7 +129,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
                   <div class="finder-header">Applications</div>
                   <div class="finder-list">
                     <div class="finder-item highlighted">
-                      <img src="/assets/logo-typelate.png" alt="TypeLate" width="24" height="24" style="border-radius: 5px;" />
+                      <Image src={logoSrc} alt="TypeLate" width="24" height="24" style="border-radius: 5px;" densities={[1, 2]} />
                       <span>TypeLate.app</span>
                     </div>
                   </div>
@@ -186,7 +188,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
                   <div class="win-controls"><span>&#x2715;</span></div>
                 </div>
                 <div class="win-installer-body">
-                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="40" height="40" style="border-radius: 8px;" />
+                  <Image src={logoSrc} alt="TypeLate" width="40" height="40" style="border-radius: 8px;" densities={[1, 2]} />
                   <span style="font-size: 12px; color: #333; font-weight: 500;">Installing TypeLate...</span>
                   <div class="win-progress-bar">
                     <div class="win-progress-fill"></div>
@@ -206,7 +208,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
             <div class="step-card">
               <div class="mock-win-desktop">
                 <div class="win-shortcut">
-                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="48" height="48" style="border-radius: 8px;" />
+                  <Image src={logoSrc} alt="TypeLate" width="48" height="48" style="border-radius: 8px;" densities={[1, 2]} />
                   <span style="font-size: 11px; color: #333; font-weight: 500;">TypeLate</span>
                 </div>
               </div>
@@ -235,7 +237,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
                   </div>
                   <div class="android-notif-text">
                     <span style="font-size: 13px; color: #333; font-weight: 500;">TypeLate.apk</span>
-                    <span style="font-size: 11px; color: #888;">Download complete &middot; Tap to open</span>
+                    <span style="font-size: 11px; color: #6b6b6b;">Download complete &middot; Tap to open</span>
                   </div>
                 </div>
               </div>
@@ -283,7 +285,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
             <div class="step-card">
               <div class="mock-android">
                 <div class="android-app-icon">
-                  <img src="/assets/logo-typelate.png" alt="TypeLate" width="52" height="52" style="border-radius: 14px;" />
+                  <Image src={logoSrc} alt="TypeLate" width="52" height="52" style="border-radius: 14px;" densities={[1, 2]} />
                   <span style="font-size: 12px; color: #333; font-weight: 500;">TypeLate</span>
                 </div>
               </div>
@@ -662,7 +664,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
 
   .android-btn-cancel {
     font-size: 12px;
-    color: #888;
+    color: #6b6b6b;
     padding: 5px 14px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -672,7 +674,7 @@ const GITHUB_RELEASES = `${GITHUB_URL}/releases/latest`;
     font-size: 12px;
     color: white;
     padding: 5px 14px;
-    background: #34A853;
+    background: #188038;
     border-radius: 6px;
     font-weight: 500;
   }
